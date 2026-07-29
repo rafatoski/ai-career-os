@@ -1,9 +1,9 @@
 {
   "slug": "nodejs",
-  "order": 6,
+  "order": 7,
   "category": {
-    "title": "03 · Backend",
-    "order": 3
+    "title": "04 · Backend",
+    "order": 4
   },
   "alwaysAvailable": false,
   "title": "Node.js",

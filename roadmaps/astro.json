@@ -7,58 +7,208 @@
   },
   "alwaysAvailable": false,
   "title": "Astro",
-  "description": "Create fast content-focused sites with Astro and selective interactivity.",
-  "thumbnail": "https://i.ytimg.com/vi/WHqZAXHZN_w/maxresdefault.jpg",
+  "description": "Crea sitios rápidos orientados a contenido y añade JavaScript únicamente donde aporta interacción.",
+  "thumbnail": "https://i.ytimg.com/vi/Qe7MytTo7Vg/maxresdefault.jpg",
   "lessons": [
     {
-      "id": "astro-five",
-      "title": "Astro 5 from zero",
-      "youtubeUrl": "https://www.youtube.com/watch?v=WHqZAXHZN_w",
-      "duration": 5784,
-      "description": "Build an Astro application while learning server islands, view transitions and the component model.",
-      "notes": "# Astro 5\n\nAstro renders content on the server by default and lets you opt individual components into client-side interactivity.\n\n## Key ideas\n\n- Ship HTML by default.\n- Use client directives only where interaction requires JavaScript.\n- Server islands defer dynamic server-rendered sections independently.\n- View transitions can preserve context between navigations.\n\n## Before moving on\n\nFor each interactive element in your exercise, explain why it needs client-side JavaScript.",
+      "id": "astro-first-site",
+      "title": "Astro para principiantes en 10 minutos",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Qe7MytTo7Vg",
+      "duration": 654,
+      "description": "Conoce la estructura de un proyecto Astro, sus páginas y sus componentes con una primera web.",
+      "notes": "# Primer proyecto con Astro\n\nAstro convierte componentes y contenido en HTML. Una página dentro de `src/pages` crea una ruta y los componentes `.astro` permiten reutilizar estructura.\n\n## Ideas clave\n\n- El frontmatter entre `---` ejecuta lógica en el servidor.\n- La plantilla expresa el HTML de salida.\n- Los componentes reciben props y pueden contener slots.\n- El enrutamiento se deriva de archivos.\n- Astro no envía JavaScript del componente al navegador por defecto.\n\n## Antes de continuar\n\nExplica qué parte de una tarjeta se ejecutaría en el servidor y qué HTML recibiría el navegador.",
       "quiz": [
         {
-          "id": "astro-1",
-          "question": "What does Astro ship by default for a non-interactive component?",
+          "id": "astro-first-1",
+          "question": "¿Qué crea un archivo src/pages/about.astro?",
           "options": [
-            "Only client JavaScript",
-            "HTML without component JavaScript",
-            "A React runtime",
-            "A service worker"
-          ],
-          "answerIndex": 1,
-          "explanation": "Astro renders components to HTML and only hydrates explicitly interactive islands."
-        },
-        {
-          "id": "astro-2",
-          "question": "Why use a client directive?",
-          "options": [
-            "To opt an interactive component into hydration",
-            "To add a database",
-            "To create a CSS variable",
-            "To change the file extension"
+            "La ruta /about",
+            "Un endpoint de base de datos",
+            "Una hoja CSS global",
+            "Un paquete npm"
           ],
           "answerIndex": 0,
-          "explanation": "Client directives tell Astro when an interactive island should load and hydrate."
+          "explanation": "Astro usa enrutamiento basado en archivos dentro de src/pages."
+        },
+        {
+          "id": "astro-first-2",
+          "question": "¿Dónde se ejecuta el frontmatter de un componente Astro?",
+          "options": ["En el servidor", "Siempre en el navegador", "Dentro de CSS", "En SQLite"],
+          "answerIndex": 0,
+          "explanation": "El script del componente se ejecuta durante el render en el servidor o build."
+        },
+        {
+          "id": "astro-first-3",
+          "question": "¿Cuánto JavaScript cliente añade por defecto un componente .astro estático?",
+          "options": ["Ninguno", "Todo su frontmatter", "React completo", "Un service worker"],
+          "answerIndex": 0,
+          "explanation": "Los componentes Astro producen HTML sin runtime cliente por defecto."
         }
       ],
       "flashcards": [
         {
-          "front": "Island",
-          "back": "An independently interactive component inside mostly static HTML."
+          "front": "Frontmatter",
+          "back": "Bloque de script del componente Astro que se ejecuta en el servidor."
         },
         {
-          "front": "Hydration directive",
-          "back": "An Astro instruction that controls when a client component becomes interactive."
+          "front": "File-based routing",
+          "back": "Sistema donde la ubicación del archivo dentro de pages determina la URL."
+        }
+      ],
+      "exercise": "Crea un sitio Astro con páginas Home y About, un Layout y un componente Card que reciba title y description.",
+      "resources": [
+        {
+          "title": "Astro Docs: Develop and build",
+          "url": "https://docs.astro.build/en/develop-and-build/"
+        },
+        {
+          "title": "Astro Docs: Components",
+          "url": "https://docs.astro.build/en/basics/astro-components/"
+        }
+      ]
+    },
+    {
+      "id": "astro-five",
+      "title": "Astro 5 desde cero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=WHqZAXHZN_w&t=8s",
+      "duration": 5784,
+      "description": "Construye una aplicación con componentes, islas, server islands y transiciones de vista.",
+      "notes": "# Astro 5 e islas\n\nAstro entrega HTML por defecto y permite incorporar interactividad de forma selectiva. Una isla es un componente interactivo dentro de una página mayoritariamente estática.\n\n## Directivas cliente\n\n- `client:load` hidrata inmediatamente.\n- `client:idle` espera a que el navegador esté libre.\n- `client:visible` espera hasta que el componente entre al viewport.\n- No añadas una directiva si el componente no necesita interacción.\n\nLos server islands permiten renderizar una región dinámica en el servidor sin bloquear el documento completo.\n\n## Antes de continuar\n\nClasifica cada componente de tu ejercicio como HTML estático, client island o server island y justifica la decisión.",
+      "quiz": [
+        {
+          "id": "astro-five-1",
+          "question": "¿Qué es una client island?",
+          "options": [
+            "Un componente interactivo hidratado de forma independiente",
+            "Una base de datos",
+            "Una ruta estática",
+            "Una hoja de estilos"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una isla cliente añade interacción solo a una región específica."
+        },
+        {
+          "id": "astro-five-2",
+          "question": "¿Qué directiva hidrata cuando el componente se hace visible?",
+          "options": ["client:visible", "client:load", "server:defer", "set:html"],
+          "answerIndex": 0,
+          "explanation": "client:visible usa la visibilidad como señal para cargar e hidratar."
+        },
+        {
+          "id": "astro-five-3",
+          "question": "¿Cuál es la razón principal para usar islas?",
+          "options": [
+            "Enviar JavaScript solo donde se necesita",
+            "Convertir todo a una SPA",
+            "Evitar HTML",
+            "Eliminar componentes"
+          ],
+          "answerIndex": 0,
+          "explanation": "La hidratación selectiva reduce el JavaScript entregado al navegador."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Client island",
+          "back": "Componente interactivo hidratado de manera independiente dentro de HTML estático."
         },
         {
           "front": "Server island",
-          "back": "A dynamic server-rendered region that can load independently from the surrounding page."
+          "back": "Región dinámica renderizada en el servidor de forma diferida e independiente."
         }
       ],
-      "exercise": "Build a content page with one interactive island and a view transition between two routes.",
-      "resources": []
+      "exercise": "Añade a tu sitio una búsqueda interactiva como client island y una tarjeta de perfil dinámica como server island.",
+      "resources": [
+        {
+          "title": "Astro Docs: Islands architecture",
+          "url": "https://docs.astro.build/en/concepts/islands/"
+        },
+        {
+          "title": "Astro Docs: View transitions",
+          "url": "https://docs.astro.build/en/guides/view-transitions/"
+        }
+      ]
+    },
+    {
+      "id": "astro-portfolio",
+      "title": "Construye un portfolio con Astro y Tailwind",
+      "youtubeUrl": "https://www.youtube.com/watch?v=HEMvsJTBweY",
+      "duration": 6341,
+      "description": "Aplica componentes, contenido, estilos y despliegue construyendo un portfolio completo.",
+      "notes": "# Portfolio con Astro\n\nUn portfolio efectivo comunica primero quién eres, qué puedes construir y cómo comprobarlo. La implementación debe mantener el contenido separado de la presentación.\n\n## Estructura recomendada\n\n- Layout con metadatos y estructura compartida.\n- Componentes para Hero, experiencia, proyectos y contacto.\n- Datos de proyectos en una colección validada.\n- Estilos responsivos con una jerarquía clara.\n- Enlaces accesibles y navegación por teclado.\n\n## Contenido y rendimiento\n\nOptimiza imágenes, evita JavaScript innecesario y usa HTML semántico. Una colección de contenido facilita añadir proyectos sin duplicar markup.\n\n## Antes de continuar\n\nDefine tres proyectos con problema, decisión, resultado y enlace verificable antes de diseñar sus tarjetas.",
+      "quiz": [
+        {
+          "id": "astro-portfolio-1",
+          "question": "¿Qué ventaja ofrece una content collection?",
+          "options": [
+            "Contenido estructurado y validado",
+            "Convierte todo en React",
+            "Elimina el build",
+            "Reemplaza CSS"
+          ],
+          "answerIndex": 0,
+          "explanation": "Las colecciones permiten definir un esquema y consultar entradas de contenido de forma segura."
+        },
+        {
+          "id": "astro-portfolio-2",
+          "question": "¿Qué contenido debería priorizar una tarjeta de proyecto?",
+          "options": [
+            "Problema, decisiones y resultado",
+            "Solo el nombre de la tecnología",
+            "Una animación sin contexto",
+            "La lista completa de dependencias"
+          ],
+          "answerIndex": 0,
+          "explanation": "El proyecto demuestra criterio cuando explica el problema, la solución y el impacto."
+        },
+        {
+          "id": "astro-portfolio-3",
+          "question": "¿Cómo mantienes rápido un portfolio principalmente informativo?",
+          "options": [
+            "Enviando HTML y usando JavaScript solo para interacciones reales",
+            "Hidratando todos los componentes",
+            "Añadiendo varias librerías de animación",
+            "Convirtiendo cada sección en una SPA"
+          ],
+          "answerIndex": 0,
+          "explanation": "Astro permite entregar contenido estático y optar por interactividad selectiva."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Content collection",
+          "back": "Conjunto de entradas estructuradas y validadas mediante un esquema."
+        },
+        {
+          "front": "Progressive enhancement",
+          "back": "Construir una base funcional de HTML y añadir capacidades cuando el navegador las soporta."
+        }
+      ],
+      "exercise": "Construye la primera versión de tu portfolio con tres proyectos reales, navegación accesible y Lighthouse sin JavaScript innecesario.",
+      "project": {
+        "title": "Publica tu portfolio",
+        "description": "Construye un portfolio de AI Product Engineer con proyectos verificables y contenido mantenible.",
+        "requirements": [
+          "Home, proyectos y contacto",
+          "Tres casos con problema, decisiones y resultado",
+          "Diseño responsive y accesible",
+          "Repositorio público en GitHub"
+        ]
+      },
+      "resources": [
+        {
+          "title": "Astro Docs: Content collections",
+          "url": "https://docs.astro.build/en/guides/content-collections/"
+        },
+        {
+          "title": "Astro Docs: Styles and CSS",
+          "url": "https://docs.astro.build/en/guides/styling/"
+        },
+        {
+          "title": "Astro Docs: Images",
+          "url": "https://docs.astro.build/en/guides/images/"
+        }
+      ]
     }
   ]
 }

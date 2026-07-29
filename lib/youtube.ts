@@ -27,3 +27,19 @@ export function getYouTubeVideoId(value: string) {
 
   return null;
 }
+
+export function getYouTubeStartSeconds(value: string) {
+  try {
+    const url = new URL(value);
+    const rawStart = url.searchParams.get("t") ?? url.searchParams.get("start");
+    if (!rawStart) return 0;
+    if (/^\d+$/.test(rawStart)) return Number(rawStart);
+
+    const hours = Number(rawStart.match(/(\d+)h/)?.[1] ?? 0);
+    const minutes = Number(rawStart.match(/(\d+)m/)?.[1] ?? 0);
+    const seconds = Number(rawStart.match(/(\d+)s/)?.[1] ?? 0);
+    return hours * 3600 + minutes * 60 + seconds;
+  } catch {
+    return 0;
+  }
+}

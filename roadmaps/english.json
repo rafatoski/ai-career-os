@@ -1,9 +1,9 @@
 {
   "slug": "english",
-  "order": 14,
+  "order": 15,
   "category": {
-    "title": "06 · Práctica diaria",
-    "order": 6
+    "title": "07 · Práctica diaria",
+    "order": 7
   },
   "alwaysAvailable": true,
   "title": "English",

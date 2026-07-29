@@ -1,9 +1,9 @@
 {
   "slug": "prompt-engineering",
-  "order": 12,
+  "order": 13,
   "category": {
-    "title": "05 · AI Engineering",
-    "order": 5
+    "title": "06 · AI Engineering",
+    "order": 6
   },
   "alwaysAvailable": false,
   "title": "Prompt Engineering",

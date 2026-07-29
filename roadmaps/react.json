@@ -7,114 +7,286 @@
   },
   "alwaysAvailable": false,
   "title": "React",
-  "description": "Build component-driven interfaces with clear state and predictable data flow.",
-  "thumbnail": "https://i.ytimg.com/vi/7iobxzd_2wY/maxresdefault.jpg",
+  "description": "Construye interfaces declarativas con componentes, props, estado y flujos de datos claros.",
+  "thumbnail": "https://i.ytimg.com/vi/EMk6nom1aS4/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "react-basic",
+      "title": "React básico en 30 minutos",
+      "youtubeUrl": "https://www.youtube.com/watch?v=EMk6nom1aS4",
+      "duration": 2257,
+      "description": "Conoce el modelo mental de React mediante componentes, JSX, props y estado.",
+      "notes": "# Fundamentos de React\n\nReact describe la interfaz como una función de los datos actuales. En lugar de indicar cada cambio del DOM, declaras qué debe verse para cada estado.\n\n## Ideas clave\n\n- Un componente es una función que devuelve interfaz.\n- JSX combina estructura y expresiones de JavaScript.\n- Props son entradas de solo lectura.\n- El estado es memoria local que cambia lo renderizado.\n- Los componentes deben mantenerse puros durante el render.\n\n## Antes de continuar\n\nDivide una tarjeta de producto en componentes y señala qué datos serían props y qué interacción necesitaría estado.",
+      "quiz": [
+        {
+          "id": "react-basic-1",
+          "question": "¿Qué representan las props?",
+          "options": [
+            "Entradas de solo lectura de un componente",
+            "Variables globales",
+            "Estilos generados",
+            "Consultas a la base de datos"
+          ],
+          "answerIndex": 0,
+          "explanation": "Las props permiten que el padre configure un componente."
+        },
+        {
+          "id": "react-basic-2",
+          "question": "¿Qué valor debería guardarse en estado?",
+          "options": [
+            "Información cambiante que afecta la interfaz",
+            "Todo valor calculable desde props",
+            "El nombre del componente",
+            "Cada constante del archivo"
+          ],
+          "answerIndex": 0,
+          "explanation": "El estado conserva información que cambia y modifica el resultado renderizado."
+        },
+        {
+          "id": "react-basic-3",
+          "question": "¿Qué permite JSX?",
+          "options": [
+            "Describir UI usando marcado y expresiones JavaScript",
+            "Crear tablas SQL",
+            "Sustituir JavaScript",
+            "Compilar CSS únicamente"
+          ],
+          "answerIndex": 0,
+          "explanation": "JSX es una extensión de sintaxis para expresar árboles de interfaz."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Componente",
+          "back": "Unidad reutilizable que recibe entradas y describe una parte de la interfaz."
+        },
+        {
+          "front": "Estado",
+          "back": "Memoria del componente que provoca un nuevo render cuando cambia."
+        }
+      ],
+      "exercise": "Construye una tarjeta de producto con props y un botón que alterne entre disponible y reservado mediante estado.",
+      "resources": [
+        {
+          "title": "React Docs: Describing the UI",
+          "url": "https://react.dev/learn/describing-the-ui"
+        },
+        {
+          "title": "React Docs: Adding Interactivity",
+          "url": "https://react.dev/learn/adding-interactivity"
+        }
+      ]
+    },
+    {
+      "id": "react-practical-app",
+      "title": "Curso práctico: desarrolla una app paso a paso",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4AFOCAgywLc",
+      "duration": 4366,
+      "description": "Aplica los fundamentos en una aplicación completa con eventos, formularios, listas y composición.",
+      "notes": "# Construir un flujo completo\n\nUna aplicación se entiende mejor como estados visibles y eventos que producen transiciones entre ellos.\n\n## Flujo recomendado\n\n1. Describe los estados vacío, con datos y error.\n2. Decide qué componente posee cada estado.\n3. Pasa datos hacia abajo mediante props.\n4. Comunica intención hacia arriba mediante callbacks.\n5. Deriva valores durante el render cuando sea posible.\n\n## Formularios y listas\n\nControla inputs cuando la interfaz necesita conocer su valor. En listas, usa una `key` estable asociada a la identidad del dato.\n\n## Antes de continuar\n\nDibuja el árbol de componentes y la propiedad del estado de la aplicación antes de implementarla.",
+      "quiz": [
+        {
+          "id": "react-practical-1",
+          "question": "¿Dónde debería vivir un estado compartido por dos componentes hermanos?",
+          "options": [
+            "En su ancestro común más cercano",
+            "Duplicado en ambos componentes",
+            "Siempre en una variable global",
+            "Dentro del archivo CSS"
+          ],
+          "answerIndex": 0,
+          "explanation": "Elevar el estado permite que ambos hijos reciban una fuente de verdad común."
+        },
+        {
+          "id": "react-practical-2",
+          "question": "¿Qué característica debe tener una key de una lista?",
+          "options": [
+            "Ser estable y corresponder a la identidad del dato",
+            "Cambiar en cada render",
+            "Ser siempre el índice",
+            "Ser un objeto"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una key estable ayuda a React a preservar correctamente la identidad de cada elemento."
+        },
+        {
+          "id": "react-practical-3",
+          "question": "¿Cuándo no necesitas un estado adicional?",
+          "options": [
+            "Cuando el valor puede derivarse de props o estado existente",
+            "Cuando el valor aparece en pantalla",
+            "Cuando existe un botón",
+            "Cuando el componente tiene children"
+          ],
+          "answerIndex": 0,
+          "explanation": "El estado redundante puede desincronizarse; los valores derivados se calculan durante el render."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Lifting state up",
+          "back": "Mover estado al ancestro común que coordina a varios componentes."
+        },
+        {
+          "front": "Key",
+          "back": "Identificador estable que permite a React reconocer la identidad de un elemento en una lista."
+        }
+      ],
+      "exercise": "Construye una lista de favoritos con formulario, filtros y persistencia local. Define primero estados, eventos y árbol de componentes.",
+      "resources": [
+        {
+          "title": "React Docs: Sharing State Between Components",
+          "url": "https://react.dev/learn/sharing-state-between-components"
+        },
+        {
+          "title": "React Docs: Rendering Lists",
+          "url": "https://react.dev/learn/rendering-lists"
+        }
+      ]
+    },
+    {
       "id": "react-from-zero",
-      "title": "React from zero",
+      "title": "React desde cero: curso completo",
       "youtubeUrl": "https://www.youtube.com/watch?v=7iobxzd_2wY",
       "duration": 8663,
-      "description": "Learn the mental model behind components, JSX, props, state and effects.",
-      "notes": "# React foundations\n\nReact lets you describe an interface as a tree of components. The UI is a result of the current props and state.\n\n## Key ideas\n\n- Components should have a clear responsibility.\n- Props flow down; events communicate intent upward.\n- State stores information that changes what is rendered.\n- Effects synchronize React with systems outside React.\n\n## Before moving on\n\nIdentify one value in your exercise that belongs in state and one value that can be derived during render.",
+      "description": "Consolida componentes, hooks, efectos y arquitectura mediante un recorrido completo.",
+      "notes": "# React y sincronización\n\nLos efectos no son una herramienta general para calcular datos. Úsalos cuando React deba sincronizarse con un sistema externo como una conexión, API del navegador o widget.\n\n## Modelo mental\n\n- Render: calcular la interfaz a partir de props y estado.\n- Evento: responder a una acción del usuario.\n- Efecto: sincronizar con algo externo después del commit.\n- Cleanup: deshacer la sincronización anterior.\n\nEvita efectos que copian props a estado o calculan valores que podrían derivarse durante el render.\n\n## Antes de continuar\n\nRevisa tu ejercicio anterior e identifica qué lógica pertenece a render, evento o efecto.",
       "quiz": [
         {
           "id": "react-zero-1",
-          "question": "What should React state represent?",
+          "question": "¿Para qué se usa principalmente un efecto?",
           "options": [
-            "Every variable in a component",
-            "Information that changes the rendered result",
-            "Only data from an API",
-            "CSS class names"
+            "Para sincronizar con un sistema externo",
+            "Para calcular cualquier valor",
+            "Para declarar props",
+            "Para crear JSX"
           ],
-          "answerIndex": 1,
-          "explanation": "State is for changing information that affects the UI; derived values usually do not need separate state."
+          "answerIndex": 0,
+          "explanation": "Los efectos conectan el ciclo de React con sistemas fuera de React."
         },
         {
           "id": "react-zero-2",
-          "question": "What is an effect primarily for?",
+          "question": "¿Qué debería hacer el cleanup de un efecto?",
           "options": [
-            "Formatting JSX",
-            "Replacing event handlers",
-            "Synchronizing with an external system",
-            "Declaring component props"
+            "Deshacer la sincronización anterior",
+            "Actualizar todas las props",
+            "Crear otro componente",
+            "Convertir el estado en global"
           ],
-          "answerIndex": 2,
-          "explanation": "Effects synchronize with things such as network connections, browser APIs or third-party widgets."
+          "answerIndex": 0,
+          "explanation": "El cleanup evita conexiones, timers o listeners duplicados."
+        },
+        {
+          "id": "react-zero-3",
+          "question": "¿Dónde debe calcularse un valor derivado simple?",
+          "options": [
+            "Durante el render",
+            "En un efecto con estado duplicado",
+            "En localStorage obligatoriamente",
+            "Fuera de la aplicación"
+          ],
+          "answerIndex": 0,
+          "explanation": "Calcularlo durante render evita sincronización y estados redundantes."
         }
       ],
       "flashcards": [
         {
-          "front": "Props",
-          "back": "Read-only inputs passed from a parent to a component."
-        },
-        {
-          "front": "State",
-          "back": "Component memory that triggers a render when it changes."
-        },
-        {
           "front": "Effect",
-          "back": "A synchronization step between React and an external system."
+          "back": "Sincronización entre un componente y un sistema externo."
+        },
+        {
+          "front": "Cleanup",
+          "back": "Función que deshace la sincronización anterior antes de repetirla o desmontar."
         }
       ],
-      "exercise": "Build a small searchable list using components, props, state and a derived filtered result.",
-      "resources": []
+      "exercise": "Crea una búsqueda con debounce y petición remota. Cancela o ignora respuestas obsoletas y modela loading, empty, error y success.",
+      "resources": [
+        {
+          "title": "React Docs: Synchronizing with Effects",
+          "url": "https://react.dev/learn/synchronizing-with-effects"
+        },
+        {
+          "title": "React Docs: You Might Not Need an Effect",
+          "url": "https://react.dev/learn/you-might-not-need-an-effect"
+        }
+      ]
     },
     {
       "id": "react-applications",
-      "title": "Build complete React applications",
+      "title": "Crear aplicaciones completas con React",
       "youtubeUrl": "https://www.youtube.com/watch?v=yIr_1CasXkM",
       "duration": 9125,
-      "description": "Put React fundamentals together in a complete application and practice organizing real features.",
-      "notes": "# Building React applications\n\nAs an application grows, organize code around user-facing features and keep data flow visible.\n\n## Key ideas\n\n- Keep state close to the components that need it.\n- Extract a component when it creates a useful boundary, not only to shorten a file.\n- Model loading, empty, error and success states explicitly.\n- Build the smallest complete flow before adding polish.\n\n## Before moving on\n\nSketch the component tree and state ownership for the Todo project before writing code.",
+      "description": "Organiza una aplicación real con estados explícitos, componentes bien delimitados y flujos mantenibles.",
+      "notes": "# Arquitectura de una aplicación React\n\nOrganiza el código alrededor de capacidades del usuario. Los límites deberían hacer visible quién posee los datos y quién puede cambiarlos.\n\n## Decisiones importantes\n\n- Mantén el estado cerca de donde se usa.\n- Usa un reducer cuando muchas transiciones afectan un mismo estado.\n- Usa context para datos que atraviesan capas, no para todo.\n- Separa obtención de datos, estado de la interfaz y componentes visuales.\n- Implementa primero una pequeña ruta vertical completa.\n\n## Antes de continuar\n\nEscribe los estados y eventos de tu proyecto final antes de elegir hooks o carpetas.",
       "quiz": [
         {
           "id": "react-app-1",
-          "question": "Where should state usually live?",
+          "question": "¿Cuándo es útil un reducer?",
           "options": [
-            "In a global store by default",
-            "As close as practical to the components that use it",
-            "In every child component",
-            "Outside React"
+            "Cuando varias transiciones actualizan un estado relacionado",
+            "Para cada booleano",
+            "Para escribir CSS",
+            "Para sustituir componentes"
           ],
-          "answerIndex": 1,
-          "explanation": "Keeping state close reduces hidden dependencies and makes data flow easier to understand."
+          "answerIndex": 0,
+          "explanation": "Un reducer concentra eventos y transiciones complejas en una función explícita."
         },
         {
           "id": "react-app-2",
-          "question": "What is the best first milestone for a new feature?",
+          "question": "¿Qué problema resuelve principalmente context?",
           "options": [
-            "A complete vertical user flow",
-            "A perfect design system",
-            "Every possible edge case",
-            "A global state architecture"
+            "Pasar datos a través de capas profundas",
+            "Evitar todos los renders",
+            "Hacer peticiones automáticamente",
+            "Crear rutas"
           ],
           "answerIndex": 0,
-          "explanation": "A small vertical slice validates the full interaction before additional complexity."
+          "explanation": "Context hace disponible un valor a descendientes sin pasarlo por cada componente intermedio."
+        },
+        {
+          "id": "react-app-3",
+          "question": "¿Qué es una ruta vertical?",
+          "options": [
+            "El flujo de usuario más pequeño que funciona de extremo a extremo",
+            "Una carpeta con muchos componentes",
+            "Un diseño de una sola columna",
+            "Una lista de dependencias"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una ruta vertical valida UI, comportamiento y persistencia antes de ampliar el alcance."
         }
       ],
       "flashcards": [
         {
-          "front": "State ownership",
-          "back": "The component responsible for storing and updating a piece of state."
+          "front": "Reducer",
+          "back": "Función pura que calcula el siguiente estado a partir del estado actual y un evento."
         },
         {
           "front": "Vertical slice",
-          "back": "The smallest complete user flow spanning UI, behavior and persistence."
+          "back": "El flujo de usuario más pequeño que funciona de principio a fin."
         }
       ],
-      "exercise": "Plan the Todo App as a component tree, then implement add, toggle, filter and delete flows.",
+      "exercise": "Diseña e implementa un Todo App con estados explícitos, filtros, persistencia y separación entre datos y presentación.",
       "project": {
         "title": "Build a Todo App",
-        "description": "Create a focused React application that demonstrates typed components, state ownership and persistence.",
+        "description": "Crea una aplicación React enfocada en componentes tipados, propiedad del estado y persistencia.",
         "requirements": [
-          "Add, complete and delete todos",
-          "Filter by active and completed",
-          "Persist todos locally",
-          "Publish the source in a GitHub repository"
+          "Añadir, completar y eliminar tareas",
+          "Filtrar por pendientes y completadas",
+          "Persistir las tareas localmente",
+          "Publicar el código en GitHub"
         ]
       },
-      "resources": []
+      "resources": [
+        {
+          "title": "React Docs: Managing State",
+          "url": "https://react.dev/learn/managing-state"
+        },
+        {
+          "title": "React Docs: Scaling Up with Reducer and Context",
+          "url": "https://react.dev/learn/scaling-up-with-reducer-and-context"
+        }
+      ]
     }
   ]
 }

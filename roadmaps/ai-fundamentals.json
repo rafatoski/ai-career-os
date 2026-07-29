@@ -1,9 +1,9 @@
 {
   "slug": "ai-fundamentals",
-  "order": 11,
+  "order": 12,
   "category": {
-    "title": "05 · AI Engineering",
-    "order": 5
+    "title": "06 · AI Engineering",
+    "order": 6
   },
   "alwaysAvailable": false,
   "title": "AI Fundamentals",

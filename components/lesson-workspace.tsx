@@ -13,10 +13,11 @@ import { Button } from "@/components/ui/button";
 import { YouTubePlayer } from "@/components/youtube-player";
 import type { LessonPageData } from "@/lib/learning-data";
 import { formatDuration } from "@/lib/utils";
-import { getYouTubeVideoId } from "@/lib/youtube";
+import { getYouTubeStartSeconds, getYouTubeVideoId } from "@/lib/youtube";
 
 export function LessonWorkspace({ data }: { data: LessonPageData }) {
   const videoId = getYouTubeVideoId(data.lesson.youtubeUrl);
+  const configuredStart = getYouTubeStartSeconds(data.lesson.youtubeUrl);
 
   if (!videoId) {
     throw new Error(`Invalid YouTube URL for lesson "${data.lesson.id}".`);
@@ -47,7 +48,11 @@ export function LessonWorkspace({ data }: { data: LessonPageData }) {
         moduleSlug={data.roadmap.slug}
         lessonId={data.lesson.id}
         videoId={videoId}
-        initialPosition={data.lessonState.playbackSeconds}
+        initialPosition={
+          data.lessonState.playbackSeconds > 0
+            ? data.lessonState.playbackSeconds
+            : configuredStart
+        }
         initialPercent={data.lessonState.watchedPercent}
       />
 

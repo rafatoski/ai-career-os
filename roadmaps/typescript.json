@@ -7,104 +7,266 @@
   },
   "alwaysAvailable": false,
   "title": "TypeScript",
-  "description": "Use TypeScript to make React applications safer and easier to maintain.",
-  "thumbnail": "https://i.ytimg.com/vi/m66k4U4_LPg/maxresdefault.jpg",
+  "description": "Añade contratos de tipos a JavaScript y aprende a modelar datos con precisión.",
+  "thumbnail": "https://i.ytimg.com/vi/4W3UWjyyVkQ/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "typescript-first-steps",
+      "title": "TypeScript desde cero: primeros pasos",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4W3UWjyyVkQ",
+      "duration": 4127,
+      "description": "Comprende qué aporta TypeScript, cómo funciona la inferencia y cómo describir funciones, objetos y uniones.",
+      "notes": "# Primeros pasos con TypeScript\n\nTypeScript analiza el código antes de ejecutarlo. Sus tipos desaparecen al compilar, pero ayudan a detectar estados y operaciones inválidas durante el desarrollo.\n\n## Ideas clave\n\n- TypeScript es JavaScript con un sistema de tipos estático.\n- La inferencia evita anotaciones innecesarias.\n- Usa tipos primitivos en minúscula: `string`, `number`, `boolean`.\n- Una unión como `string | null` describe alternativas válidas.\n- Evita `any`: desactiva la comprobación precisamente donde más la necesitas.\n\n## Antes de continuar\n\nModela un usuario con nombre, edad opcional y un rol que solo pueda ser `admin`, `editor` o `viewer`.",
+      "quiz": [
+        {
+          "id": "ts-first-1",
+          "question": "¿Qué sucede con los tipos de TypeScript al ejecutar el JavaScript compilado?",
+          "options": [
+            "Se eliminan durante la compilación",
+            "Se convierten en objetos",
+            "Se guardan en SQLite",
+            "Se transforman en CSS"
+          ],
+          "answerIndex": 0,
+          "explanation": "Los tipos sirven para el análisis y no forman parte del JavaScript ejecutado."
+        },
+        {
+          "id": "ts-first-2",
+          "question": "¿Qué tipo representa exactamente tres roles permitidos?",
+          "options": [
+            "string",
+            "\"admin\" | \"editor\" | \"viewer\"",
+            "any",
+            "object"
+          ],
+          "answerIndex": 1,
+          "explanation": "Una unión de literales impide valores que no pertenecen al dominio."
+        },
+        {
+          "id": "ts-first-3",
+          "question": "¿Por qué conviene limitar el uso de any?",
+          "options": [
+            "Desactiva la comprobación de tipos",
+            "Solo admite números",
+            "No permite funciones",
+            "Hace obligatorio usar clases"
+          ],
+          "answerIndex": 0,
+          "explanation": "any permite operaciones sin verificar y puede ocultar errores."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Inferencia",
+          "back": "Capacidad de TypeScript para deducir un tipo a partir del valor y su contexto."
+        },
+        {
+          "front": "Unión",
+          "back": "Tipo que permite una de varias alternativas declaradas."
+        }
+      ],
+      "exercise": "Crea los tipos User, Role y ApiResponse<T>. Escribe una función que reciba una respuesta y devuelva el usuario solo cuando la operación sea exitosa.",
+      "resources": [
+        {
+          "title": "TypeScript Handbook: TypeScript desde cero",
+          "url": "https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html"
+        },
+        {
+          "title": "TypeScript Handbook: Everyday Types",
+          "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html"
+        }
+      ]
+    },
+    {
+      "id": "typescript-novice-to-ninja",
+      "title": "TypeScript de novato a ninja",
+      "youtubeUrl": "https://www.youtube.com/watch?v=fUgxxhI_bvc",
+      "duration": 6152,
+      "description": "Profundiza en tipos de objetos, narrowing, utilidades, contratos reutilizables y diseño seguro de funciones.",
+      "notes": "# Modelado con TypeScript\n\nUn buen tipo no replica la base de datos: expresa lo que una operación necesita y los estados que realmente puede tener.\n\n## Narrowing\n\nCuando un valor puede tener varios tipos, comprueba una propiedad, `typeof`, `in` o un discriminante antes de usarlo. TypeScript reduce la unión dentro de cada rama.\n\n## Tipos de objetos\n\n- Usa propiedades opcionales solo cuando la ausencia sea válida.\n- Prefiere uniones discriminadas para estados relacionados.\n- Deriva variantes con `Pick`, `Omit`, `Partial` y `Required` cuando la relación sea clara.\n- Mantén los tipos cerca del dominio que describen.\n\n## Antes de continuar\n\nModela los estados `idle`, `loading`, `success` y `error` de una petición sin usar propiedades opcionales contradictorias.",
+      "quiz": [
+        {
+          "id": "ts-ninja-1",
+          "question": "¿Qué consigue el narrowing?",
+          "options": [
+            "Reduce una unión a un tipo más específico según el flujo",
+            "Convierte todo a any",
+            "Elimina las funciones",
+            "Crea una base de datos"
+          ],
+          "answerIndex": 0,
+          "explanation": "Las comprobaciones de ejecución permiten a TypeScript saber qué alternativa es válida en cada rama."
+        },
+        {
+          "id": "ts-ninja-2",
+          "question": "¿Qué utilidad crea un tipo sin ciertas propiedades?",
+          "options": ["Pick", "Omit", "Required", "ReadonlyArray"],
+          "answerIndex": 1,
+          "explanation": "Omit<T, Keys> conserva las propiedades de T excepto las indicadas."
+        },
+        {
+          "id": "ts-ninja-3",
+          "question": "¿Qué patrón representa mejor estados mutuamente excluyentes?",
+          "options": [
+            "Una unión discriminada",
+            "Un objeto con todas las propiedades opcionales",
+            "Un arreglo de any",
+            "Una cadena libre"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una propiedad discriminante conecta cada estado con los datos que le corresponden."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Narrowing",
+          "back": "Proceso mediante el cual el flujo del programa reduce un tipo a una alternativa más específica."
+        },
+        {
+          "front": "Unión discriminada",
+          "back": "Unión de objetos que usan una propiedad literal común para identificar cada variante."
+        }
+      ],
+      "exercise": "Implementa un reducer tipado para una petición con estados idle, loading, success y error. Haz imposible acceder a data durante error.",
+      "resources": [
+        {
+          "title": "TypeScript Handbook: Narrowing",
+          "url": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html"
+        },
+        {
+          "title": "TypeScript Handbook: Object Types",
+          "url": "https://www.typescriptlang.org/docs/handbook/2/objects.html"
+        }
+      ]
+    },
+    {
       "id": "typescript-for-react",
-      "title": "TypeScript for React from zero",
+      "title": "TypeScript para React desde cero",
       "youtubeUrl": "https://www.youtube.com/watch?v=m66k4U4_LPg",
       "duration": 9095,
-      "description": "Learn the TypeScript concepts you need to type components, props, state and events in React.",
-      "notes": "# TypeScript for React\n\nFocus on the boundary between data and UI. Types should describe the values a component accepts and the events it emits.\n\n## Key ideas\n\n- Prefer precise object types for component props.\n- Let TypeScript infer local values when the intent is obvious.\n- Type browser and React events at the boundary.\n- Use unions to represent a small set of valid states.\n\n## Before moving on\n\nExplain in your own words why a union is safer than a free-form string for a component status.",
+      "description": "Aplica TypeScript a props, estado, eventos, children y componentes reutilizables de React.",
+      "notes": "# TypeScript para React\n\nLos tipos de un componente forman su contrato público. Deben comunicar qué datos necesita, qué variantes admite y qué eventos puede emitir.\n\n## Ideas clave\n\n- Declara props con nombres del dominio.\n- Usa uniones para variantes visuales o estados.\n- Especifica eventos en el límite del handler.\n- Usa `ReactNode` para contenido renderizable y tipos más precisos cuando la estructura importe.\n- Deja que TypeScript infiera el estado desde su valor inicial cuando sea suficiente.\n\n## Antes de continuar\n\nDiseña las props de un componente Alert que soporte variantes, contenido y una acción opcional sin usar any.",
       "quiz": [
         {
           "id": "ts-react-1",
-          "question": "What is the main purpose of a props type?",
+          "question": "¿Cuál es la función principal del tipo de props?",
           "options": [
-            "Describe the values a component accepts",
-            "Make the component render faster",
-            "Replace component tests",
-            "Generate CSS classes"
+            "Definir el contrato de entrada del componente",
+            "Acelerar el render",
+            "Generar estilos",
+            "Sustituir las pruebas"
           ],
           "answerIndex": 0,
-          "explanation": "A props type defines the public data contract of a component."
+          "explanation": "Las props describen los valores que un consumidor puede entregar al componente."
         },
         {
           "id": "ts-react-2",
-          "question": "Which type best represents a status with exactly three valid values?",
+          "question": "¿Qué tipo suele representar contenido renderizable recibido como children?",
+          "options": ["ReactNode", "HTMLElement", "any[]", "CSSProperties"],
+          "answerIndex": 0,
+          "explanation": "ReactNode describe los valores que React puede renderizar."
+        },
+        {
+          "id": "ts-react-3",
+          "question": "¿Qué tipo conviene para una variante con valores success, warning y error?",
           "options": [
+            "\"success\" | \"warning\" | \"error\"",
             "string",
             "any",
-            "\"idle\" | \"loading\" | \"success\"",
-            "object"
+            "number"
           ],
-          "answerIndex": 2,
-          "explanation": "A string literal union prevents unsupported status values."
+          "answerIndex": 0,
+          "explanation": "Una unión literal documenta y restringe las variantes admitidas."
         }
       ],
       "flashcards": [
         {
-          "front": "Type inference",
-          "back": "TypeScript derives a value's type from its initial value or surrounding context."
+          "front": "Props",
+          "back": "Contrato de datos y callbacks que un componente recibe de su consumidor."
         },
         {
-          "front": "Union type",
-          "back": "A type that permits one value from a defined set of alternatives."
-        },
-        {
-          "front": "Component props",
-          "back": "The typed input contract exposed by a React component."
+          "front": "ReactNode",
+          "back": "Tipo que representa contenido que React puede renderizar."
         }
       ],
-      "exercise": "Create a typed ProfileCard component with name, role and a status union. Add a typed click handler.",
-      "resources": []
+      "exercise": "Crea componentes tipados Alert y Button con variantes, children y handlers. Verifica que valores no soportados produzcan error.",
+      "resources": [
+        {
+          "title": "React Docs: Using TypeScript",
+          "url": "https://react.dev/learn/typescript"
+        },
+        {
+          "title": "TypeScript Handbook: JSX",
+          "url": "https://www.typescriptlang.org/docs/handbook/jsx.html"
+        }
+      ]
     },
     {
       "id": "typescript-generics",
-      "title": "TypeScript generics without the intimidation",
+      "title": "Generics sin intimidación",
       "youtubeUrl": "https://www.youtube.com/watch?v=dLPgQRbVquo",
       "duration": 1099,
-      "description": "Understand generics as a way to preserve relationships between input and output types.",
-      "notes": "# Generics\n\nA generic is a placeholder for a type that will be known when a function, type or component is used.\n\n## Key ideas\n\n- Use a generic when two or more types must stay related.\n- Give type parameters clear names when a single letter would hide intent.\n- Add constraints only when the implementation needs a specific capability.\n- Do not introduce a generic when a concrete type is enough.\n\n## Before moving on\n\nDescribe what type information would be lost if an identity function returned `unknown` instead of its generic input type.",
+      "description": "Entiende los generics como relaciones entre tipos de entrada, salida y estructuras reutilizables.",
+      "notes": "# Generics\n\nUn generic captura un tipo conocido en el momento de uso y permite conservarlo a través de una operación.\n\n## Cuándo usarlo\n\n- Cuando la salida depende del tipo de la entrada.\n- Cuando una estructura debe contener diferentes tipos sin perder precisión.\n- Cuando varias posiciones deben compartir la misma relación de tipos.\n\nNo introduzcas un generic si un tipo concreto o una unión expresa mejor el dominio. Añade constraints solo cuando la implementación necesita una capacidad determinada.\n\n## Antes de continuar\n\nExplica qué información se perdería si `firstItem` devolviera `unknown` en lugar de `T`.",
       "quiz": [
         {
           "id": "ts-generics-1",
-          "question": "When is a generic most useful?",
+          "question": "¿Cuándo es más útil un generic?",
           "options": [
-            "When input and output types need to remain related",
-            "Whenever a function has no arguments",
-            "Only when working with classes",
-            "To disable type checking"
+            "Cuando debe conservarse una relación entre tipos",
+            "Para desactivar el tipado",
+            "Solo al usar clases",
+            "Para convertir valores en strings"
           ],
           "answerIndex": 0,
-          "explanation": "Generics preserve type relationships while allowing reusable code."
+          "explanation": "Los generics permiten reutilización sin perder la identidad del tipo suministrado."
         },
         {
           "id": "ts-generics-2",
-          "question": "What does a generic constraint do?",
+          "question": "¿Qué hace un generic constraint?",
           "options": [
-            "Removes the type parameter",
-            "Limits the capabilities a type argument must have",
-            "Converts every value to a string",
-            "Makes the type optional"
+            "Exige una capacidad mínima al tipo",
+            "Elimina el parámetro",
+            "Convierte el resultado en any",
+            "Hace opcionales todas las propiedades"
           ],
-          "answerIndex": 1,
-          "explanation": "A constraint describes the minimum shape or capability required by an implementation."
+          "answerIndex": 0,
+          "explanation": "Un constraint limita los tipos válidos a aquellos que ofrecen la forma necesaria."
+        },
+        {
+          "id": "ts-generics-3",
+          "question": "¿Cuándo deberías evitar un generic?",
+          "options": [
+            "Cuando un tipo concreto expresa toda la operación",
+            "Cuando existe una entrada",
+            "Cuando la función retorna algo",
+            "Cuando se usa TypeScript"
+          ],
+          "answerIndex": 0,
+          "explanation": "Un parámetro de tipo sin una relación útil añade complejidad sin mejorar seguridad."
         }
       ],
       "flashcards": [
         {
-          "front": "Generic type parameter",
-          "back": "A placeholder that captures a type supplied or inferred at the point of use."
+          "front": "Parámetro de tipo",
+          "back": "Placeholder que captura un tipo suministrado o inferido en el punto de uso."
         },
         {
           "front": "Generic constraint",
-          "back": "A rule that limits which types can be used while preserving their specific identity."
+          "back": "Regla que exige una forma o capacidad mínima sin perder el tipo específico."
         }
       ],
-      "exercise": "Write a firstItem<T> function and a reusable ApiResponse<T> type. Verify that both preserve the concrete type.",
-      "resources": []
+      "exercise": "Implementa firstItem<T>, groupBy<T, K> y ApiResponse<T>. Comprueba que cada función conserva los tipos concretos.",
+      "resources": [
+        {
+          "title": "TypeScript Handbook: Generics",
+          "url": "https://www.typescriptlang.org/docs/handbook/2/generics.html"
+        },
+        {
+          "title": "TypeScript Handbook: Creating Types from Types",
+          "url": "https://www.typescriptlang.org/docs/handbook/2/types-from-types.html"
+        }
+      ]
     }
   ]
 }

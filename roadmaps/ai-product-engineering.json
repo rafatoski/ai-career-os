@@ -1,9 +1,9 @@
 {
   "slug": "ai-product-engineering",
-  "order": 13,
+  "order": 14,
   "category": {
-    "title": "05 · AI Engineering",
-    "order": 5
+    "title": "06 · AI Engineering",
+    "order": 6
   },
   "alwaysAvailable": false,
   "title": "AI Product Engineering",

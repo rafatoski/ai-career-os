@@ -7,7 +7,307 @@
   },
   "alwaysAvailable": false,
   "title": "JavaScript",
-  "description": "The language of the web, from syntax to asynchronous code.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Domina el lenguaje de la web desde variables y funciones hasta DOM, asincronía y módulos.",
+  "thumbnail": "https://i.ytimg.com/vi/W6NZfCO5SIk/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "javascript-first-step",
+      "title": "JavaScript: tu primer paso al desarrollo web",
+      "youtubeUrl": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+      "duration": 2897,
+      "description": "Una introducción directa a variables, tipos, operadores, condiciones, bucles, objetos y funciones.",
+      "notes": "# Primeros pasos con JavaScript\n\nJavaScript permite representar datos y transformarlos mediante instrucciones. Empieza distinguiendo valores, operaciones y control de flujo.\n\n## Ideas clave\n\n- Usa `const` cuando la referencia no debe reasignarse y `let` cuando sí.\n- Los tipos primitivos más frecuentes son `string`, `number` y `boolean`.\n- Una expresión produce un valor; una instrucción indica una acción.\n- Las condiciones eligen caminos y los bucles controlan repeticiones.\n- Una función agrupa una transformación con entradas y salida.\n\n## Ejemplo\n\n`const total = price * quantity` calcula un valor. Después, una condición puede decidir si aplicar un descuento.\n\n## Antes de continuar\n\nExplica con tus palabras la diferencia entre guardar un valor, tomar una decisión y repetir una operación.",
+      "quiz": [
+        {
+          "id": "js-first-1",
+          "question": "¿Cuándo es apropiado usar let en lugar de const?",
+          "options": [
+            "Cuando la variable será reasignada",
+            "Cuando el valor es una cadena",
+            "Siempre que escribimos una función",
+            "Solo dentro de un objeto"
+          ],
+          "answerIndex": 0,
+          "explanation": "Usa let cuando la referencia necesita recibir otro valor durante la ejecución."
+        },
+        {
+          "id": "js-first-2",
+          "question": "¿Qué devuelve una comparación como edad >= 18?",
+          "options": ["Un número", "Una cadena", "Un booleano", "Un arreglo"],
+          "answerIndex": 2,
+          "explanation": "Las comparaciones producen true o false."
+        },
+        {
+          "id": "js-first-3",
+          "question": "¿Qué ventaja principal ofrece una función?",
+          "options": [
+            "Agrupa una tarea con entradas y una posible salida",
+            "Evita usar variables",
+            "Convierte todo en texto",
+            "Ejecuta siempre un bucle"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una función crea una unidad de comportamiento que puede nombrarse, probarse y reutilizarse."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Expresión",
+          "back": "Fragmento de código que se evalúa y produce un valor."
+        },
+        {
+          "front": "Tipo primitivo",
+          "back": "Valor básico como string, number, boolean, null, undefined, bigint o symbol."
+        }
+      ],
+      "exercise": "Crea una función calculateTotal(price, quantity, hasCoupon) que calcule el total y aplique 15% de descuento cuando hasCoupon sea true.",
+      "resources": [
+        {
+          "title": "MDN: Gramática y tipos",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Grammar_and_types"
+        },
+        {
+          "title": "MDN: Expresiones y operadores",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Expressions_and_operators"
+        }
+      ]
+    },
+    {
+      "id": "javascript-programming-introduction",
+      "title": "Introducción práctica a JavaScript",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Z34BF9PCfYg&t=106s",
+      "duration": 7011,
+      "description": "Refuerza la lógica del lenguaje con ejercicios de variables, funciones, arreglos y objetos.",
+      "notes": "# Pensar con JavaScript\n\nDespués de conocer la sintaxis, el siguiente paso es modelar datos y dividir problemas en transformaciones pequeñas.\n\n## Arreglos y objetos\n\n- Un arreglo representa una colección ordenada.\n- Un objeto agrupa propiedades relacionadas bajo un mismo concepto.\n- `map` transforma cada elemento.\n- `filter` selecciona los elementos que cumplen una condición.\n- `find` devuelve el primer elemento coincidente.\n\n## Funciones\n\nUna función debería tener un propósito que pueda expresarse con un nombre. Mantén visibles sus entradas y evita modificar datos externos sin necesidad.\n\n## Antes de continuar\n\nToma una lista de productos y describe qué usarías para obtener solo los disponibles y calcular sus precios con impuesto.",
+      "quiz": [
+        {
+          "id": "js-intro-1",
+          "question": "¿Qué estructura representa mejor una colección ordenada de productos?",
+          "options": ["Un arreglo", "Un booleano", "Una condición", "Un número"],
+          "answerIndex": 0,
+          "explanation": "Los arreglos almacenan colecciones ordenadas y ofrecen operaciones para recorrerlas."
+        },
+        {
+          "id": "js-intro-2",
+          "question": "¿Qué método usarías para conservar únicamente productos disponibles?",
+          "options": ["map", "filter", "join", "push"],
+          "answerIndex": 1,
+          "explanation": "filter crea un arreglo con los elementos que cumplen el predicado."
+        },
+        {
+          "id": "js-intro-3",
+          "question": "¿Qué método transforma todos los elementos y devuelve un nuevo arreglo?",
+          "options": ["find", "some", "map", "includes"],
+          "answerIndex": 2,
+          "explanation": "map aplica una función a cada elemento y devuelve los resultados."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "map",
+          "back": "Transforma cada elemento y devuelve un nuevo arreglo con la misma cantidad de elementos."
+        },
+        {
+          "front": "filter",
+          "back": "Devuelve un nuevo arreglo con los elementos que cumplen una condición."
+        }
+      ],
+      "exercise": "Dado un arreglo de productos con name, price y available, devuelve los nombres de productos disponibles cuyo precio con impuesto sea menor de 100.",
+      "resources": [
+        {
+          "title": "MDN: Arreglos",
+          "url": "https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Arrays"
+        },
+        {
+          "title": "MDN: Trabajando con objetos",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_objects"
+        }
+      ]
+    },
+    {
+      "id": "javascript-complete-from-zero",
+      "title": "JavaScript completo desde cero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=1glVfFxj8a4",
+      "duration": 22830,
+      "description": "Un recorrido completo para consolidar sintaxis, estructuras de datos, funciones, objetos y programación práctica.",
+      "notes": "# Consolidación de JavaScript\n\nUn curso completo es más útil cuando conviertes cada bloque en una pequeña práctica. No intentes memorizar toda la sintaxis: aprende a buscar, probar y explicar.\n\n## Fundamentos que debes dominar\n\n- Alcance de bloque con `let` y `const`.\n- Funciones, parámetros, retorno y callbacks.\n- Arreglos y objetos sin mutaciones accidentales.\n- Manejo explícito de valores ausentes.\n- Errores que aportan contexto.\n\n## Estrategia de estudio\n\nDespués de cada sección, escribe un ejemplo sin copiar. Predice el resultado antes de ejecutarlo y explica cualquier diferencia.\n\n## Antes de continuar\n\nImplementa una solución pequeña que combine al menos una condición, un bucle o método de arreglo y dos funciones.",
+      "quiz": [
+        {
+          "id": "js-complete-1",
+          "question": "¿Qué palabra clave crea alcance de bloque y permite reasignación?",
+          "options": ["var", "let", "function", "return"],
+          "answerIndex": 1,
+          "explanation": "let tiene alcance de bloque y permite reasignar la referencia."
+        },
+        {
+          "id": "js-complete-2",
+          "question": "¿Qué hace return dentro de una función?",
+          "options": [
+            "Termina la función y entrega un valor",
+            "Repite la función",
+            "Declara una variable global",
+            "Convierte el resultado en arreglo"
+          ],
+          "answerIndex": 0,
+          "explanation": "return detiene la ejecución de la función y opcionalmente entrega un valor al llamador."
+        },
+        {
+          "id": "js-complete-3",
+          "question": "¿Por qué conviene evitar mutaciones accidentales?",
+          "options": [
+            "Hacen más difícil razonar sobre cambios compartidos",
+            "JavaScript no permite modificar valores",
+            "Impiden declarar funciones",
+            "Siempre producen errores de sintaxis"
+          ],
+          "answerIndex": 0,
+          "explanation": "Las mutaciones compartidas pueden generar efectos difíciles de localizar y predecir."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Callback",
+          "back": "Función entregada a otra función para que sea ejecutada en un momento determinado."
+        },
+        {
+          "front": "Alcance",
+          "back": "Reglas que determinan desde qué parte del programa puede accederse a una variable."
+        }
+      ],
+      "exercise": "Construye un gestor de gastos en JavaScript: añade movimientos, filtra por categoría y calcula ingresos, gastos y balance.",
+      "resources": [
+        {
+          "title": "MDN: Guía de funciones",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Functions"
+        },
+        {
+          "title": "MDN: Control de flujo y errores",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+        }
+      ]
+    },
+    {
+      "id": "javascript-modern-complete",
+      "title": "JavaScript moderno completo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=S9ojNaeC1RI",
+      "duration": 8732,
+      "description": "Aplica JavaScript moderno al navegador, el DOM, eventos, módulos y operaciones asíncronas.",
+      "notes": "# JavaScript en el navegador\n\nEl lenguaje se combina con APIs del navegador para leer y modificar documentos, responder a eventos y solicitar datos.\n\n## DOM y eventos\n\n- Consulta elementos con selectores claros.\n- Escucha eventos y mantén los handlers pequeños.\n- Cambia el DOM como resultado de un estado, no de operaciones dispersas.\n\n## Asincronía\n\nUna promesa representa un resultado futuro. `async/await` hace explícita la secuencia, pero los errores todavía deben manejarse con `try/catch`.\n\n## Módulos\n\nUsa `export` e `import` para crear límites entre responsabilidades. Evita un único archivo que conozca toda la aplicación.\n\n## Antes de continuar\n\nDibuja el flujo de una búsqueda: evento del formulario → estado de carga → petición → resultado o error → render.",
+      "quiz": [
+        {
+          "id": "js-modern-1",
+          "question": "¿Qué representa una Promise?",
+          "options": [
+            "Un resultado que puede estar disponible en el futuro",
+            "Un elemento HTML",
+            "Una variable constante",
+            "Un módulo CSS"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una promesa modela el estado eventual de una operación asíncrona."
+        },
+        {
+          "id": "js-modern-2",
+          "question": "¿Cómo se maneja normalmente un error al usar await?",
+          "options": ["Con try/catch", "Con un bucle for", "Con innerHTML", "Con export"],
+          "answerIndex": 0,
+          "explanation": "try/catch permite controlar rechazos o errores lanzados durante una operación esperada."
+        },
+        {
+          "id": "js-modern-3",
+          "question": "¿Qué beneficio principal ofrecen los módulos?",
+          "options": [
+            "Separan responsabilidades mediante imports y exports",
+            "Eliminan la necesidad de funciones",
+            "Convierten todo el código en HTML",
+            "Evitan cualquier error de ejecución"
+          ],
+          "answerIndex": 0,
+          "explanation": "Los módulos crean límites explícitos y dependencias visibles."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Promise",
+          "back": "Objeto que representa una operación pendiente, cumplida o rechazada."
+        },
+        {
+          "front": "Módulo ES",
+          "back": "Archivo con una interfaz explícita definida mediante export e import."
+        }
+      ],
+      "exercise": "Construye una búsqueda de usuarios que consuma una API pública. Muestra estados de carga, vacío, éxito y error, y separa la petición del render.",
+      "resources": [
+        {
+          "title": "MDN: Introducción a JavaScript asíncrono",
+          "url": "https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Async_JS/Introducing"
+        },
+        {
+          "title": "MDN: Módulos de JavaScript",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules"
+        },
+        {
+          "title": "MDN: Introducción al DOM",
+          "url": "https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction"
+        }
+      ]
+    },
+    {
+      "id": "javascript-for-react",
+      "title": "El JavaScript que necesitas para React",
+      "youtubeUrl": "https://www.youtube.com/watch?v=sKsNO-quEAw",
+      "duration": 1932,
+      "description": "Repasa las características de JavaScript moderno que aparecen constantemente en aplicaciones React.",
+      "notes": "# JavaScript antes de React\n\nReact utiliza JavaScript, no lo reemplaza. Debes sentirte cómodo leyendo transformaciones de arreglos, destructuring, spread, módulos y funciones.\n\n## Herramientas frecuentes\n\n- Destructuring para extraer propiedades.\n- Spread para crear nuevos objetos o arreglos.\n- `map` para convertir datos en elementos de interfaz.\n- Ternarios y `&&` para expresiones condicionales breves.\n- Imports y exports para organizar componentes.\n- Funciones flecha para handlers y transformaciones.\n\n## Antes de continuar\n\nTransforma una colección de objetos en otra colección sin modificar los objetos originales.",
+      "quiz": [
+        {
+          "id": "js-react-1",
+          "question": "¿Qué método se usa habitualmente para convertir datos en una lista de elementos React?",
+          "options": ["map", "find", "pop", "sort"],
+          "answerIndex": 0,
+          "explanation": "map produce un resultado por cada elemento, lo que encaja con el render de listas."
+        },
+        {
+          "id": "js-react-2",
+          "question": "¿Qué sintaxis ayuda a crear un objeto nuevo conservando propiedades anteriores?",
+          "options": ["Spread (...)", "delete", "while", "switch"],
+          "answerIndex": 0,
+          "explanation": "El spread copia propiedades enumerables en un nuevo objeto."
+        },
+        {
+          "id": "js-react-3",
+          "question": "¿Qué hace el destructuring?",
+          "options": [
+            "Extrae valores de objetos o arreglos",
+            "Elimina un módulo",
+            "Convierte una función en promesa",
+            "Crea un bucle infinito"
+          ],
+          "answerIndex": 0,
+          "explanation": "El destructuring asigna propiedades o posiciones a variables de forma declarativa."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Destructuring",
+          "back": "Sintaxis para extraer propiedades de objetos o posiciones de arreglos."
+        },
+        {
+          "front": "Spread",
+          "back": "Sintaxis que expande elementos o propiedades al crear una nueva estructura."
+        }
+      ],
+      "exercise": "Implementa funciones puras para añadir, actualizar y eliminar una tarea dentro de un arreglo sin mutar el arreglo ni sus objetos.",
+      "resources": [
+        {
+          "title": "MDN: Sintaxis spread",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax"
+        },
+        {
+          "title": "MDN: Destructuring",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring"
+        }
+      ]
+    }
+  ]
 }

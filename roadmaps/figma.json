@@ -1,9 +1,9 @@
 {
   "slug": "figma",
-  "order": 10,
+  "order": 11,
   "category": {
-    "title": "04 · Producto y diseño",
-    "order": 4
+    "title": "05 · Producto y diseño",
+    "order": 5
   },
   "alwaysAvailable": false,
   "title": "Figma",

@@ -1,0 +1,126 @@
+{
+  "slug": "github",
+  "order": 5,
+  "category": {
+    "title": "03 · Herramientas",
+    "order": 3
+  },
+  "alwaysAvailable": false,
+  "title": "Git & GitHub",
+  "description": "Controla versiones, trabaja con ramas y publica cambios mediante un flujo profesional en GitHub.",
+  "thumbnail": "https://i.ytimg.com/vi/niPExbK8lSw/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "git-github-from-zero",
+      "title": "Git y GitHub desde cero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=niPExbK8lSw",
+      "duration": 5970,
+      "description": "Aprende repositorios, commits, ramas, remotos, pull requests y el flujo para contribuir a proyectos.",
+      "notes": "# Git y GitHub\n\nGit registra la evolución de un proyecto mediante snapshots. GitHub aloja repositorios Git y añade colaboración, revisión y automatización.\n\n## Modelo mental\n\n- Working tree: los archivos que estás editando.\n- Staging area: los cambios elegidos para el próximo commit.\n- Commit: snapshot con una intención concreta.\n- Branch: referencia móvil a una línea de commits.\n- Remote: copia del repositorio alojada en otro lugar.\n\n## Flujo de trabajo\n\n1. Actualiza `main`.\n2. Crea una rama para una tarea concreta.\n3. Realiza cambios pequeños y verificables.\n4. Revisa el diff antes de hacer commit.\n5. Publica la rama y abre un pull request.\n6. Integra el cambio después de revisarlo.\n\n## Commits útiles\n\nUn commit debería representar una decisión coherente y dejar el proyecto funcionando. El mensaje explica la intención, no solo los archivos modificados.\n\n## Antes de continuar\n\nExplica la diferencia entre guardar un archivo, añadirlo al staging area, crear un commit y hacer push.",
+      "quiz": [
+        {
+          "id": "git-1",
+          "question": "¿Qué representa un commit?",
+          "options": [
+            "Un snapshot del proyecto con una intención",
+            "Una copia completa de GitHub",
+            "Una contraseña",
+            "Un servidor de desarrollo"
+          ],
+          "answerIndex": 0,
+          "explanation": "Un commit registra el estado de los cambios seleccionados junto con sus metadatos."
+        },
+        {
+          "id": "git-2",
+          "question": "¿Cuál es la función del staging area?",
+          "options": [
+            "Elegir qué cambios formarán el próximo commit",
+            "Eliminar el historial",
+            "Publicar automáticamente en producción",
+            "Guardar contraseñas"
+          ],
+          "answerIndex": 0,
+          "explanation": "El staging area permite construir un commit deliberado a partir de cambios seleccionados."
+        },
+        {
+          "id": "git-3",
+          "question": "¿Por qué crear una rama para una nueva funcionalidad?",
+          "options": [
+            "Para aislar el trabajo de la línea principal",
+            "Para eliminar main",
+            "Para evitar hacer commits",
+            "Para no revisar cambios"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una rama permite desarrollar y revisar cambios sin alterar directamente la línea estable."
+        },
+        {
+          "id": "git-4",
+          "question": "¿Qué acción envía commits locales a un repositorio remoto?",
+          "options": ["push", "add", "status", "diff"],
+          "answerIndex": 0,
+          "explanation": "git push actualiza una referencia remota con commits locales."
+        },
+        {
+          "id": "git-5",
+          "question": "¿Qué deberías revisar antes de crear un commit?",
+          "options": [
+            "El diff y las comprobaciones relevantes",
+            "Solo el nombre de la rama",
+            "El color del editor",
+            "La cantidad de carpetas"
+          ],
+          "answerIndex": 0,
+          "explanation": "Revisar el diff confirma que el commit incluye exactamente el cambio intencionado."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Commit",
+          "back": "Snapshot inmutable de los cambios seleccionados, con autor, fecha, mensaje y referencia al historial."
+        },
+        {
+          "front": "Branch",
+          "back": "Referencia móvil a una línea de commits que permite aislar trabajo."
+        },
+        {
+          "front": "Pull request",
+          "back": "Propuesta para revisar e integrar cambios de una rama en otra."
+        },
+        {
+          "front": "Remote",
+          "back": "Referencia a otra copia del repositorio, normalmente alojada en GitHub."
+        }
+      ],
+      "exercise": "Crea un repositorio de práctica, añade un README en una rama, realiza dos commits coherentes, publícala y abre un pull request describiendo qué cambió y cómo lo verificaste.",
+      "project": {
+        "title": "Tu primer flujo completo en GitHub",
+        "description": "Publica un proyecto mediante rama, commits enfocados y pull request.",
+        "requirements": [
+          "Repositorio con README",
+          "Rama separada para el cambio",
+          "Al menos dos commits claros",
+          "Pull request con descripción y evidencia de verificación"
+        ]
+      },
+      "resources": [
+        {
+          "title": "GitHub Docs: Getting started with Git",
+          "url": "https://docs.github.com/en/get-started/learning-to-code/getting-started-with-git"
+        },
+        {
+          "title": "Pro Git: Getting a Git Repository",
+          "url": "https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+        },
+        {
+          "title": "Pro Git: Basic Branching and Merging",
+          "url": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging.html"
+        },
+        {
+          "title": "GitHub Skills: Introduction to GitHub",
+          "url": "https://github.com/skills/introduction-to-github"
+        }
+      ]
+    }
+  ]
+}
