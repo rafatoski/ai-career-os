@@ -7,7 +7,284 @@
   },
   "alwaysAvailable": false,
   "title": "Design Systems",
-  "description": "Build consistent interfaces through shared foundations and patterns.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Diseña, documenta e implementa un sistema compartido que conecte producto, diseño y código.",
+  "thumbnail": "https://i.ytimg.com/vi/4UJcg-Rl_pw/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "design-system-figma-from-zero",
+      "title": "Design System desde cero en Figma",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4UJcg-Rl_pw",
+      "duration": 3997,
+      "description": "Construye las bases de un sistema de diseño en Figma con variables, tokens, estilos y componentes preparados para un flujo con IA.",
+      "notes": "# Design System desde cero\n\nUn sistema de diseño no es únicamente una colección de componentes. Es un lenguaje compartido formado por principios, fundamentos, componentes, patrones, documentación y procesos.\n\n## Antes de construir\n\nEmpieza con una auditoría de las interfaces existentes. Identifica colores, tipografías, espacios y componentes repetidos. El objetivo no es crear abstracciones perfectas, sino resolver inconsistencias reales.\n\n## Capas del sistema\n\n- **Principios:** criterios que orientan decisiones.\n- **Foundations:** color, tipografía, espacio, grid, elevación e iconografía.\n- **Tokens:** nombres reutilizables para decisiones visuales.\n- **Componentes:** soluciones reutilizables con estados y propiedades.\n- **Patrones:** combinaciones que resuelven flujos completos.\n- **Documentación:** cuándo, cómo y por qué usar cada pieza.\n\n## Tokens en Figma\n\nSepara valores primitivos como `blue-600` de tokens semánticos como `background-brand`. Los aliases permiten cambiar la paleta sin modificar el significado. Usa modes para temas como light y dark.\n\n## Antes de continuar\n\nAudita una pantalla existente y registra cada color, tamaño tipográfico y espacio repetido. Después agrúpalos por función, no solamente por valor.",
+      "quiz": [
+        {
+          "id": "ds-figma-1",
+          "question": "¿Cuál es el mejor punto de partida para un sistema de diseño?",
+          "options": [
+            "Auditar necesidades e inconsistencias reales del producto",
+            "Crear cien componentes inmediatamente",
+            "Elegir una herramienta de animación",
+            "Copiar otro sistema completo"
+          ],
+          "answerIndex": 0,
+          "explanation": "La auditoría ayuda a definir un alcance basado en problemas reales y evita abstracciones innecesarias."
+        },
+        {
+          "id": "ds-figma-2",
+          "question": "¿Qué describe mejor un token semántico?",
+          "options": [
+            "El propósito del valor dentro de la interfaz",
+            "El valor hexadecimal únicamente",
+            "El nombre de una capa de Figma",
+            "Una imagen exportada"
+          ],
+          "answerIndex": 0,
+          "explanation": "Un nombre semántico como text-danger expresa intención y puede apuntar a distintos valores según el tema."
+        },
+        {
+          "id": "ds-figma-3",
+          "question": "¿Para qué sirven los modes de variables en Figma?",
+          "options": [
+            "Para representar contextos como light y dark",
+            "Para eliminar componentes",
+            "Para convertir diseños en videos",
+            "Para sustituir la documentación"
+          ],
+          "answerIndex": 0,
+          "explanation": "Cada mode proporciona valores diferentes para las mismas variables dentro de un contexto."
+        },
+        {
+          "id": "ds-figma-4",
+          "question": "¿Qué diferencia principal existe entre foundations y componentes?",
+          "options": [
+            "Las foundations definen decisiones base; los componentes las combinan en UI reutilizable",
+            "No existe ninguna diferencia",
+            "Los componentes solo contienen colores",
+            "Las foundations son exclusivas de código"
+          ],
+          "answerIndex": 0,
+          "explanation": "Color, tipografía y espacio forman la base que los componentes utilizan para resolver interacciones."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Design token",
+          "back": "Nombre reutilizable que representa una decisión de diseño y conecta herramientas y plataformas."
+        },
+        {
+          "front": "Token semántico",
+          "back": "Token cuyo nombre describe una función, como text-primary o border-danger."
+        },
+        {
+          "front": "Foundation",
+          "back": "Decisión base del lenguaje visual: color, tipografía, espacio, grid, elevación o iconografía."
+        }
+      ],
+      "exercise": "Crea en Figma una colección de variables para color y espacio. Incluye primitivas, aliases semánticos y modes light/dark. Aplica el sistema a una pantalla real y documenta tres decisiones.",
+      "resources": [
+        {
+          "title": "Figma Learn: Introducción a design systems",
+          "url": "https://help.figma.com/hc/en-us/articles/14552901442839-Overview-Introduction-to-design-systems"
+        },
+        {
+          "title": "Figma Learn: Variables, collections y modes",
+          "url": "https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes"
+        },
+        {
+          "title": "Design Tokens Community Group: Format specification",
+          "url": "https://www.designtokens.org/TR/2025.10/format/"
+        }
+      ]
+    },
+    {
+      "id": "build-a-complete-design-system",
+      "title": "Construye un Design System completo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=opTANvl9G1g",
+      "duration": 12863,
+      "description": "Profundiza en foundations, arquitectura de componentes, variantes, documentación y mantenimiento de un sistema de diseño.",
+      "notes": "# Construir un sistema completo\n\nUn componente del sistema debe resolver un problema frecuente sin impedir casos de uso válidos. Su API debe expresar decisiones de producto, no reflejar accidentalmente cada propiedad interna.\n\n## Arquitectura de componentes\n\n- Empieza por anatomía y comportamiento.\n- Define estados como default, hover, focus, disabled y loading.\n- Usa propiedades para variaciones independientes.\n- Usa variantes para combinaciones válidas, no para crear una matriz imposible de mantener.\n- Conserva slots para contenido flexible con límites claros.\n\n## Accesibilidad\n\nLa accesibilidad forma parte del contrato del componente. Documenta nombre accesible, orden de foco, interacción por teclado, contraste y comportamiento de estados.\n\n## Documentación útil\n\nCada componente debe explicar:\n\n- Cuándo usarlo y cuándo evitarlo.\n- Anatomía y propiedades.\n- Estados y comportamiento.\n- Contenido recomendado.\n- Accesibilidad.\n- Ejemplos correctos e incorrectos.\n\n## Mantenimiento\n\nDefine cómo se proponen cambios, quién decide, cómo se prueban y cómo se comunican mediante versiones y changelog.\n\n## Antes de continuar\n\nElige un botón o input existente. Documenta anatomía, estados, propiedades, accesibilidad y criterios de aceptación antes de diseñar variantes.",
+      "quiz": [
+        {
+          "id": "ds-complete-1",
+          "question": "¿Qué debería definir primero un componente?",
+          "options": [
+            "El problema, anatomía y comportamiento que resuelve",
+            "Todas las combinaciones visuales posibles",
+            "El nombre del archivo",
+            "La animación más compleja"
+          ],
+          "answerIndex": 0,
+          "explanation": "La arquitectura parte del propósito y comportamiento antes de decidir variantes."
+        },
+        {
+          "id": "ds-complete-2",
+          "question": "¿Cuál es un riesgo de crear demasiadas variantes?",
+          "options": [
+            "Generar combinaciones difíciles de comprender y mantener",
+            "Mejorar demasiado la accesibilidad",
+            "Reducir el tamaño de la librería",
+            "Simplificar siempre la API"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una matriz excesiva es difícil de descubrir, documentar y mantener sincronizada con código."
+        },
+        {
+          "id": "ds-complete-3",
+          "question": "¿Qué debe formar parte del contrato de un botón?",
+          "options": [
+            "Interacción por teclado, foco y nombre accesible",
+            "Solo su color de fondo",
+            "La herramienta usada para diseñarlo",
+            "El nombre del diseñador"
+          ],
+          "answerIndex": 0,
+          "explanation": "Un componente debe funcionar para teclado y tecnologías de asistencia, no solo verse correctamente."
+        },
+        {
+          "id": "ds-complete-4",
+          "question": "¿Qué facilita evolucionar un sistema entre equipos?",
+          "options": [
+            "Proceso de contribución, versionado y changelog",
+            "Cambios silenciosos",
+            "Componentes sin documentación",
+            "Duplicar la librería para cada proyecto"
+          ],
+          "answerIndex": 0,
+          "explanation": "La gobernanza hace que las decisiones y actualizaciones sean predecibles."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Component API",
+          "back": "Conjunto de propiedades, estados, eventos y restricciones que un componente ofrece a sus consumidores."
+        },
+        {
+          "front": "Variant",
+          "back": "Alternativa explícita de un componente para una diferencia de tamaño, estilo, estado o propósito."
+        },
+        {
+          "front": "Governance",
+          "back": "Proceso para proponer, revisar, publicar y mantener cambios en el sistema."
+        }
+      ],
+      "exercise": "Diseña un componente Button y un Text Field completos. Incluye anatomía, propiedades, estados, teclado, errores, ejemplos de uso y una propuesta de versionado.",
+      "resources": [
+        {
+          "title": "Figma Learn: Construir un design system",
+          "url": "https://help.figma.com/hc/en-us/articles/14548865734679-Lesson-3-Build-your-design-system"
+        },
+        {
+          "title": "Figma Learn: Component properties",
+          "url": "https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties"
+        },
+        {
+          "title": "WAI-ARIA APG: Button pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/"
+        },
+        {
+          "title": "Figma Learn: Documentar componentes y variables",
+          "url": "https://help.figma.com/hc/en-us/articles/7938814091287-Add-descriptions-to-styles-components-and-variables"
+        }
+      ]
+    },
+    {
+      "id": "figma-to-code-with-ai",
+      "title": "De Figma a código con IA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=mRbXEMFUEVo",
+      "duration": 14246,
+      "description": "Lleva un diseño profesional a código utilizando especificaciones claras, componentes del sistema y un flujo asistido por IA.",
+      "notes": "# De diseño a código con IA\n\nLa IA puede acelerar la implementación, pero necesita una fuente de verdad clara. Un buen handoff contiene estructura, comportamiento, tokens, componentes existentes, estados y criterios verificables.\n\n## Preparar el diseño\n\n- Usa nombres semánticos para frames, capas y componentes.\n- Marca qué pantallas están listas para desarrollo.\n- Conecta variables a propiedades en lugar de copiar valores.\n- Especifica comportamiento responsive, estados y contenido real.\n- Añade anotaciones cuando la intención no sea visible.\n\n## Implementar con el sistema\n\nLa implementación debe reutilizar componentes y tokens existentes. El código generado que reproduce píxeles pero ignora el sistema crea deuda y divergencia.\n\n## Verificar\n\nCompara diseño e implementación en varios tamaños. Prueba teclado, foco, contenido largo, estados vacíos y errores. Revisa el código generado antes de aceptarlo.\n\n## Code Connect\n\nCode Connect puede vincular componentes de Figma con componentes reales del repositorio para que Dev Mode y herramientas con IA dispongan de referencias más precisas.\n\n## Antes de continuar\n\nConvierte una pantalla en un brief de implementación: componentes, tokens, estados, comportamiento responsive y criterios de aceptación.",
+      "quiz": [
+        {
+          "id": "ds-code-1",
+          "question": "¿Qué mejora más la implementación asistida por IA?",
+          "options": [
+            "Componentes, tokens, estados y criterios explícitos",
+            "Capas sin nombre",
+            "Un screenshot sin contexto",
+            "Aceptar el primer resultado sin revisión"
+          ],
+          "answerIndex": 0,
+          "explanation": "El contexto estructurado reduce ambigüedad y orienta la implementación hacia el sistema real."
+        },
+        {
+          "id": "ds-code-2",
+          "question": "¿Qué problema genera copiar valores visuales en lugar de usar tokens?",
+          "options": [
+            "Crea divergencia y dificulta actualizaciones globales",
+            "Mejora automáticamente el responsive",
+            "Documenta el sistema",
+            "Reduce el código"
+          ],
+          "answerIndex": 0,
+          "explanation": "Los valores aislados pierden su relación con la fuente de verdad del sistema."
+        },
+        {
+          "id": "ds-code-3",
+          "question": "¿Qué conecta Code Connect?",
+          "options": [
+            "Componentes de diseño con componentes reales del código",
+            "Videos con bases de datos",
+            "Colores con cuentas de usuario",
+            "Ramas Git con prototipos únicamente"
+          ],
+          "answerIndex": 0,
+          "explanation": "Code Connect relaciona componentes de Figma con implementaciones mantenidas en el repositorio."
+        },
+        {
+          "id": "ds-code-4",
+          "question": "¿Qué debe incluir una validación más allá de comparar una captura?",
+          "options": [
+            "Responsive, teclado, foco, contenido largo y estados",
+            "Solo el color principal",
+            "Solo el tamaño de escritorio",
+            "La cantidad de archivos generados"
+          ],
+          "answerIndex": 0,
+          "explanation": "La calidad de producto incluye comportamiento, accesibilidad y resistencia a contenido real."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Design handoff",
+          "back": "Transferencia de intención, especificaciones, comportamiento y contexto desde diseño hacia implementación."
+        },
+        {
+          "front": "Code Connect",
+          "back": "Puente entre componentes de Figma y componentes reales mantenidos en el código."
+        },
+        {
+          "front": "Acceptance criteria",
+          "back": "Condiciones observables que permiten verificar que una implementación cumple el diseño y comportamiento esperado."
+        }
+      ],
+      "exercise": "Selecciona una pantalla de Figma y crea su implementación usando tokens y componentes reutilizables. Documenta el brief, revisa el diff generado y valida desktop, mobile, teclado y contenido largo.",
+      "project": {
+        "title": "Implementa una pantalla desde Figma",
+        "description": "Convierte una pantalla de producto en una implementación mantenible, accesible y alineada con el sistema.",
+        "requirements": [
+          "Brief con componentes, estados y comportamiento responsive",
+          "Uso de tokens en lugar de valores duplicados",
+          "Componentes reutilizables con API clara",
+          "Validación visual, responsive y por teclado",
+          "Repositorio en GitHub con decisiones documentadas"
+        ]
+      },
+      "resources": [
+        {
+          "title": "Figma Learn: Guide to Dev Mode",
+          "url": "https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode"
+        },
+        {
+          "title": "Figma Learn: Code Connect",
+          "url": "https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect"
+        },
+        {
+          "title": "Figma Learn: Code snippets in Dev Mode",
+          "url": "https://help.figma.com/hc/en-us/articles/15023202277399-Use-code-snippets-in-Dev-Mode"
+        }
+      ]
+    }
+  ]
 }
