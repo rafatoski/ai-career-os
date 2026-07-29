@@ -50,6 +50,10 @@ const lessonSchema = z.object({
 const roadmapSchema = z.object({
   slug: z.string().min(1),
   order: z.number().int().nonnegative(),
+  category: z.object({
+    title: z.string().min(1),
+    order: z.number().int().nonnegative(),
+  }),
   alwaysAvailable: z.boolean().default(false),
   title: z.string().min(1),
   description: z.string().min(1),

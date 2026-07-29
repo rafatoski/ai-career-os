@@ -29,8 +29,8 @@ export function LessonWorkspace({ data }: { data: LessonPageData }) {
   ];
 
   return (
-    <div className="mx-auto min-h-screen w-full max-w-5xl px-5 py-6 sm:px-8 sm:py-8 xl:px-10">
-      <header className="mb-6 flex items-center justify-between gap-4">
+    <div className="min-h-screen w-full py-6 sm:py-8">
+      <header className="mb-6 flex items-center justify-between gap-4 px-5 sm:px-8 xl:px-10">
         <Link
           href="/"
           className="flex items-center gap-2 text-xs text-[#707681] transition-colors hover:text-white"
@@ -51,7 +51,7 @@ export function LessonWorkspace({ data }: { data: LessonPageData }) {
         initialPercent={data.lessonState.watchedPercent}
       />
 
-      <div className="mt-8">
+      <div className="mt-8 px-5 sm:px-8 xl:px-10">
         <div className="flex flex-wrap items-center gap-2 text-[10px] text-[#666c76]">
           <span>Lesson {data.roadmap.lessons.findIndex((lesson) => lesson.id === data.lesson.id) + 1}</span>
           <span aria-hidden="true">·</span>
@@ -98,7 +98,7 @@ export function LessonWorkspace({ data }: { data: LessonPageData }) {
 
       <nav
         aria-label="Lesson navigation"
-        className="mt-10 grid gap-3 border-t border-white/[0.065] pt-6 sm:grid-cols-2"
+        className="mx-5 mt-10 grid gap-3 border-t border-white/[0.065] pt-6 sm:mx-8 sm:grid-cols-2 xl:mx-10"
       >
         {data.previous ? (
           <Button asChild variant="outline" className="h-auto justify-start py-3">
@@ -137,7 +137,7 @@ export function LessonWorkspace({ data }: { data: LessonPageData }) {
         )}
       </nav>
 
-      <section className="mt-10 border-t border-white/[0.065] pt-7">
+      <section className="mx-5 mt-10 border-t border-white/[0.065] pt-7 sm:mx-8 xl:mx-10">
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-sm font-semibold text-[#e4e6e8]">
             Lessons in this module

@@ -1,6 +1,10 @@
 {
   "slug": "react",
   "order": 3,
+  "category": {
+    "title": "02 · Frontend",
+    "order": 2
+  },
   "alwaysAvailable": false,
   "title": "React",
   "description": "Build component-driven interfaces with clear state and predictable data flow.",

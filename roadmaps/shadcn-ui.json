@@ -1,6 +1,10 @@
 {
   "slug": "shadcn-ui",
   "order": 8,
+  "category": {
+    "title": "02 · Frontend",
+    "order": 2
+  },
   "alwaysAvailable": false,
   "title": "shadcn/ui",
   "description": "Own and extend accessible interface components.",

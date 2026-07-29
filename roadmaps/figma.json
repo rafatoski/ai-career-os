@@ -1,6 +1,10 @@
 {
   "slug": "figma",
   "order": 10,
+  "category": {
+    "title": "04 · Producto y diseño",
+    "order": 4
+  },
   "alwaysAvailable": false,
   "title": "Figma",
   "description": "Design, prototype and communicate interface decisions.",

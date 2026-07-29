@@ -28,6 +28,10 @@ export type ModuleState = {
   title: string;
   description: string;
   thumbnail: string;
+  category: {
+    title: string;
+    order: number;
+  };
   alwaysAvailable: boolean;
   configured: boolean;
   completed: boolean;
@@ -140,6 +144,7 @@ function buildModuleStates(
       title: roadmap.title,
       description: roadmap.description,
       thumbnail: roadmap.thumbnail,
+      category: roadmap.category,
       alwaysAvailable: roadmap.alwaysAvailable,
       configured,
       completed: moduleCompletion.get(roadmap.slug) ?? false,

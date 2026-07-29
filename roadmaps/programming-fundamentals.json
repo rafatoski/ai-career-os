@@ -1,9 +1,232 @@
 {
   "slug": "programming-fundamentals",
   "order": 0,
+  "category": {
+    "title": "01 · Fundamentos",
+    "order": 1
+  },
   "alwaysAvailable": false,
   "title": "Programming Fundamentals",
-  "description": "Core concepts for reasoning about programs and solving problems.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Empieza desde cero: cómo pensar un problema, convertirlo en pasos y expresarlo con código.",
+  "thumbnail": "https://i.ytimg.com/vi/QvmjNtrFiuk/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "introduction-to-programming",
+      "title": "Introducción a la programación desde cero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=QvmjNtrFiuk",
+      "duration": 9855,
+      "description": "Construye una base clara sobre programas, lenguajes, algoritmos y las herramientas que utiliza un desarrollador.",
+      "notes": "# Introducción a la programación\n\nProgramar consiste en describir una solución mediante instrucciones precisas que una computadora pueda ejecutar.\n\n## El proceso básico\n\n- Entender el problema antes de escribir código.\n- Identificar los datos de entrada y el resultado esperado.\n- Dividir la solución en pasos pequeños y ordenados.\n- Traducir esos pasos a un lenguaje de programación.\n- Ejecutar, observar y corregir.\n\n## Conceptos esenciales\n\nUn **algoritmo** es una secuencia finita y ordenada de pasos. Una **variable** permite recordar un valor. Una **condición** elige qué camino seguir. Un **bucle** repite una operación. Una **función** agrupa una tarea con un nombre y puede recibir datos o devolver un resultado.\n\n## Ejemplo\n\nPara decidir si una persona es mayor de edad:\n\n1. Recibir su edad.\n2. Comparar la edad con 18.\n3. Si es 18 o más, mostrar «Mayor de edad».\n4. En caso contrario, mostrar «Menor de edad».\n\n## Antes de continuar\n\nEscribe en tus notas un algoritmo, sin código, para preparar una taza de café. Debe tener una entrada, una secuencia clara y una condición.",
+      "quiz": [
+        {
+          "id": "fundamentals-intro-1",
+          "question": "¿Qué es un algoritmo?",
+          "options": [
+            "Una secuencia finita y ordenada de pasos para resolver un problema",
+            "Un tipo específico de computadora",
+            "Un error dentro del código",
+            "Una aplicación terminada"
+          ],
+          "answerIndex": 0,
+          "explanation": "Un algoritmo describe pasos precisos y finitos que llevan desde una entrada hasta un resultado."
+        },
+        {
+          "id": "fundamentals-intro-2",
+          "question": "¿Qué deberías hacer antes de empezar a escribir código?",
+          "options": [
+            "Elegir colores para la interfaz",
+            "Entender el problema y el resultado esperado",
+            "Crear muchas funciones",
+            "Instalar varios frameworks"
+          ],
+          "answerIndex": 1,
+          "explanation": "Una solución correcta comienza entendiendo el problema, sus datos y el resultado que se necesita."
+        },
+        {
+          "id": "fundamentals-intro-3",
+          "question": "¿Qué concepto permite elegir entre dos caminos?",
+          "options": [
+            "Una variable",
+            "Un comentario",
+            "Una condición",
+            "Un archivo"
+          ],
+          "answerIndex": 2,
+          "explanation": "Una condición evalúa una expresión y decide qué bloque de instrucciones debe ejecutarse."
+        },
+        {
+          "id": "fundamentals-intro-4",
+          "question": "¿Cuál es la función principal de una variable?",
+          "options": [
+            "Guardar un valor que el programa necesita",
+            "Dibujar una interfaz",
+            "Repetir automáticamente todo el programa",
+            "Conectar el equipo a internet"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una variable asigna un nombre a un valor para poder consultarlo o actualizarlo durante el programa."
+        },
+        {
+          "id": "fundamentals-intro-5",
+          "question": "Un programa produce un resultado incorrecto. ¿Cuál es el mejor siguiente paso?",
+          "options": [
+            "Cambiar de lenguaje inmediatamente",
+            "Borrar todo el programa",
+            "Observar el comportamiento y revisar los pasos de la solución",
+            "Añadir más código sin revisar"
+          ],
+          "answerIndex": 2,
+          "explanation": "Depurar implica observar, localizar dónde difiere el comportamiento esperado y corregir la causa."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Algoritmo",
+          "back": "Secuencia finita y ordenada de pasos para transformar una entrada en un resultado."
+        },
+        {
+          "front": "Variable",
+          "back": "Nombre asociado a un valor que el programa puede consultar y, en algunos casos, modificar."
+        },
+        {
+          "front": "Condición",
+          "back": "Decisión que permite ejecutar instrucciones distintas según una expresión verdadera o falsa."
+        },
+        {
+          "front": "Depuración",
+          "back": "Proceso de observar, localizar y corregir la causa de un comportamiento incorrecto."
+        }
+      ],
+      "exercise": "Escribe pseudocódigo para calcular el precio final de una compra: recibe precio y cantidad, aplica 10% de descuento si el total supera 100 y muestra el resultado.",
+      "resources": [
+        {
+          "title": "MDN: ¿Qué es JavaScript?",
+          "url": "https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/What_is_JavaScript"
+        },
+        {
+          "title": "MDN: Un primer acercamiento a JavaScript",
+          "url": "https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/A_first_splash"
+        },
+        {
+          "title": "GitHub Skills: Introduction to GitHub",
+          "url": "https://github.com/skills/introduction-to-github"
+        }
+      ]
+    },
+    {
+      "id": "programming-logic",
+      "title": "Lógica de programación desde cero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=TdITcVD64zI",
+      "duration": 26996,
+      "description": "Practica variables, operadores, condiciones, bucles, funciones y resolución estructurada de problemas.",
+      "notes": "# Lógica de programación\n\nLa lógica de programación convierte un problema grande en decisiones y operaciones pequeñas que pueden comprobarse por separado.\n\n## Modelo entrada → proceso → salida\n\nTodo ejercicio puede empezar con tres preguntas:\n\n- ¿Qué datos recibo?\n- ¿Qué transformación debo realizar?\n- ¿Qué resultado debo entregar?\n\n## Variables y tipos\n\nLos números permiten calcular, las cadenas representan texto y los booleanos representan `true` o `false`. Elegir el tipo correcto ayuda a expresar la intención del dato.\n\n## Control de flujo\n\n- Usa una condición cuando la solución tiene alternativas.\n- Usa un bucle cuando una operación se repite.\n- Usa una función cuando una tarea tiene un propósito claro y reutilizable.\n\n## Ejemplo razonado\n\nPara obtener el número mayor de una lista:\n\n1. Guardar el primer número como `mayor`.\n2. Recorrer los demás números.\n3. Si el número actual es mayor que `mayor`, reemplazarlo.\n4. Al terminar el recorrido, devolver `mayor`.\n\n## Cómo resolver un examen práctico\n\n1. Escribe uno o dos ejemplos manuales.\n2. Define entradas y salida.\n3. Describe la solución en lenguaje natural.\n4. Convierte cada paso en pseudocódigo.\n5. Prueba casos normales y casos límite.\n\n## Antes de continuar\n\nResuelve el ejercicio de esta lección primero en papel. Después compáralo con una implementación en JavaScript.",
+      "quiz": [
+        {
+          "id": "logic-1",
+          "question": "¿Qué modelo ayuda a entender la estructura de un problema?",
+          "options": [
+            "Color → diseño → animación",
+            "Entrada → proceso → salida",
+            "Archivo → carpeta → servidor",
+            "Framework → biblioteca → paquete"
+          ],
+          "answerIndex": 1,
+          "explanation": "Separar entrada, proceso y salida aclara qué datos existen y qué transformación debe realizarse."
+        },
+        {
+          "id": "logic-2",
+          "question": "¿Qué estructura usarías para mostrar un mensaje diferente según la edad?",
+          "options": [
+            "Una condición",
+            "Un bucle infinito",
+            "Un comentario",
+            "Una importación"
+          ],
+          "answerIndex": 0,
+          "explanation": "La edad se evalúa y una condición selecciona el mensaje correspondiente."
+        },
+        {
+          "id": "logic-3",
+          "question": "¿Cuándo es apropiado utilizar un bucle?",
+          "options": [
+            "Cuando una tarea debe repetirse",
+            "Cuando solo queremos guardar un nombre",
+            "Cuando queremos escribir un comentario",
+            "Cuando el programa nunca debe ejecutar código"
+          ],
+          "answerIndex": 0,
+          "explanation": "Los bucles expresan repeticiones controladas por una colección, contador o condición."
+        },
+        {
+          "id": "logic-4",
+          "question": "Para encontrar el mayor número de una lista, ¿qué valor inicial es una opción segura?",
+          "options": [
+            "Siempre cero",
+            "El primer elemento de la lista",
+            "Siempre cien",
+            "Una cadena vacía"
+          ],
+          "answerIndex": 1,
+          "explanation": "Usar el primer elemento funciona también cuando todos los números son negativos."
+        },
+        {
+          "id": "logic-5",
+          "question": "¿Qué caso límite deberías probar al calcular el promedio de una lista?",
+          "options": [
+            "Una lista vacía",
+            "Solo una lista con diez elementos",
+            "El color del editor",
+            "El nombre del archivo"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una lista vacía puede producir una división entre cero y debe manejarse explícitamente."
+        },
+        {
+          "id": "logic-6",
+          "question": "¿Cuál es la mejor señal de que una tarea debería convertirse en función?",
+          "options": [
+            "Tiene un propósito claro que puede nombrarse",
+            "Contiene una sola palabra",
+            "Usa un número",
+            "Está al final del archivo"
+          ],
+          "answerIndex": 0,
+          "explanation": "Una función representa una tarea con una responsabilidad clara, entradas definidas y, cuando corresponde, un resultado."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Entrada → proceso → salida",
+          "back": "Modelo para identificar los datos recibidos, su transformación y el resultado esperado."
+        },
+        {
+          "front": "Caso límite",
+          "back": "Una entrada válida pero extrema o poco frecuente que puede revelar errores en la solución."
+        },
+        {
+          "front": "Bucle",
+          "back": "Estructura que repite instrucciones mientras se cumpla una condición o queden elementos."
+        },
+        {
+          "front": "Función",
+          "back": "Bloque con un propósito definido que puede recibir entradas y devolver un resultado."
+        }
+      ],
+      "exercise": "Crea el algoritmo de un sistema de calificaciones: recibe una lista de notas, calcula el promedio, indica si el estudiante aprueba con 70 o más y encuentra la nota mayor. Incluye el caso de una lista vacía.",
+      "resources": [
+        {
+          "title": "MDN: Variables y tipos de datos",
+          "url": "https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Variables"
+        },
+        {
+          "title": "MDN: Control de flujo y manejo de errores",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+        },
+        {
+          "title": "MDN: Bucles e iteración",
+          "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration"
+        }
+      ]
+    }
+  ]
 }

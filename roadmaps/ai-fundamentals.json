@@ -1,6 +1,10 @@
 {
   "slug": "ai-fundamentals",
   "order": 11,
+  "category": {
+    "title": "05 · AI Engineering",
+    "order": 5
+  },
   "alwaysAvailable": false,
   "title": "AI Fundamentals",
   "description": "Understand the capabilities and limitations of modern AI systems.",

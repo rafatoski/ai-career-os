@@ -1,6 +1,10 @@
 {
   "slug": "ai-product-engineering",
   "order": 13,
+  "category": {
+    "title": "05 · AI Engineering",
+    "order": 5
+  },
   "alwaysAvailable": false,
   "title": "AI Product Engineering",
   "description": "Use AI coding tools as part of a deliberate product engineering workflow.",

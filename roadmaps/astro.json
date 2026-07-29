@@ -1,6 +1,10 @@
 {
   "slug": "astro",
   "order": 4,
+  "category": {
+    "title": "02 · Frontend",
+    "order": 2
+  },
   "alwaysAvailable": false,
   "title": "Astro",
   "description": "Create fast content-focused sites with Astro and selective interactivity.",

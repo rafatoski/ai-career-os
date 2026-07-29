@@ -1,6 +1,10 @@
 {
   "slug": "nextjs",
   "order": 5,
+  "category": {
+    "title": "02 · Frontend",
+    "order": 2
+  },
   "alwaysAvailable": false,
   "title": "Next.js",
   "description": "Full-stack React applications with the App Router.",

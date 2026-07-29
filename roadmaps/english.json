@@ -1,6 +1,10 @@
 {
   "slug": "english",
   "order": 14,
+  "category": {
+    "title": "06 · Práctica diaria",
+    "order": 6
+  },
   "alwaysAvailable": true,
   "title": "English",
   "description": "Daily speaking, listening, vocabulary and interview practice.",

@@ -1,6 +1,10 @@
 {
   "slug": "prompt-engineering",
   "order": 12,
+  "category": {
+    "title": "05 · AI Engineering",
+    "order": 5
+  },
   "alwaysAvailable": false,
   "title": "Prompt Engineering",
   "description": "Design clear instructions and reliable evaluation loops.",

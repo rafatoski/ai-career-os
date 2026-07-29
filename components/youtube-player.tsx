@@ -196,10 +196,10 @@ export function YouTubePlayer({
 
   return (
     <div>
-      <div className="aspect-video overflow-hidden rounded-xl border border-white/[0.08] bg-black shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
+      <div className="aspect-video w-full overflow-hidden border-y border-white/[0.08] bg-black shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
         <div ref={mountRef} className="h-full w-full" />
       </div>
-      <div className="mt-4 flex items-center justify-between gap-4 text-[11px] text-[#707681]">
+      <div className="mt-4 flex items-center justify-between gap-4 px-5 text-[11px] text-[#707681] sm:px-8 xl:px-10">
         <span className="flex items-center gap-1.5 tabular-nums">
           <Clock3 className="size-3.5" />
           {formatTimestamp(position)} / {formatTimestamp(duration)}
@@ -208,7 +208,7 @@ export function YouTubePlayer({
       </div>
       <Progress
         value={livePercent}
-        className="mt-2"
+        className="mx-5 mt-2 w-auto sm:mx-8 xl:mx-10"
         label="Video watched"
       />
     </div>

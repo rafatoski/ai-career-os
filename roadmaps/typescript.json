@@ -1,6 +1,10 @@
 {
   "slug": "typescript",
   "order": 2,
+  "category": {
+    "title": "01 · Fundamentos",
+    "order": 1
+  },
   "alwaysAvailable": false,
   "title": "TypeScript",
   "description": "Use TypeScript to make React applications safer and easier to maintain.",

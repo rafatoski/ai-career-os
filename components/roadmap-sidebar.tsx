@@ -23,6 +23,32 @@ export function RoadmapSidebar({
   activeModuleSlug,
   activeLessonId,
 }: RoadmapSidebarProps) {
+  const categories = modules.reduce<
+    Array<{
+      title: string;
+      order: number;
+      modules: ModuleState[];
+    }>
+  >((groups, module) => {
+    const existing = groups.find(
+      (group) =>
+        group.title === module.category.title &&
+        group.order === module.category.order,
+    );
+
+    if (existing) {
+      existing.modules.push(module);
+    } else {
+      groups.push({
+        title: module.category.title,
+        order: module.category.order,
+        modules: [module],
+      });
+    }
+
+    return groups;
+  }, []);
+
   return (
     <aside className="roadmap-sidebar border-r border-white/[0.065] bg-[#0d0f13]">
       <div className="sticky top-0 z-10 border-b border-white/[0.065] bg-[#0d0f13]/95 px-5 py-5 backdrop-blur">
@@ -41,103 +67,119 @@ export function RoadmapSidebar({
         </Link>
       </div>
 
-      <nav aria-label="Learning roadmap" className="space-y-1 p-3">
-        {modules.map((module) => {
-          const isActive = module.slug === activeModuleSlug;
-          const moduleHref =
-            module.unlocked && module.currentLessonId
-              ? `/learn/${module.slug}/${module.currentLessonId}`
-              : null;
+      <nav aria-label="Learning roadmap" className="space-y-5 p-3">
+        {categories
+          .sort((a, b) => a.order - b.order)
+          .map((category) => (
+            <section key={`${category.order}-${category.title}`}>
+              <div className="mb-1.5 flex items-center gap-2 px-3">
+                <span className="h-px flex-1 bg-white/[0.055]" />
+                <h2 className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[#555b65]">
+                  {category.title}
+                </h2>
+                <span className="h-px flex-1 bg-white/[0.055]" />
+              </div>
+              <div className="space-y-1">
+                {category.modules.map((module) => {
+                  const isActive = module.slug === activeModuleSlug;
+                  const moduleHref =
+                    module.unlocked && module.currentLessonId
+                      ? `/learn/${module.slug}/${module.currentLessonId}`
+                      : null;
 
-          return (
-            <div
-              key={module.slug}
-              className={cn(
-                "rounded-xl border transition-colors",
-                isActive
-                  ? "border-white/[0.09] bg-white/[0.04]"
-                  : "border-transparent",
-              )}
-            >
-              {moduleHref ? (
-                <Link
-                  href={moduleHref}
-                  className="flex min-h-12 items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-white/[0.035]"
-                >
-                  <ModuleIcon module={module} />
-                  <ModuleLabel module={module} />
-                  <ChevronRight
-                    className="size-3.5 shrink-0 text-[#4f5560]"
-                    aria-hidden="true"
-                  />
-                </Link>
-              ) : (
-                <div className="flex min-h-12 items-center gap-3 px-3 py-2.5">
-                  <ModuleIcon module={module} />
-                  <ModuleLabel module={module} />
-                </div>
-              )}
-
-              {isActive && module.lessons.length > 0 ? (
-                <ol className="space-y-0.5 px-2 pb-2">
-                  {module.lessons.map((lesson, index) => {
-                    const lessonActive = lesson.id === activeLessonId;
-                    const content = (
-                      <>
-                        <span
-                          className={cn(
-                            "grid size-5 shrink-0 place-items-center rounded-full border text-[9px]",
-                            lesson.completed
-                              ? "border-[#9cf0d0]/20 bg-[#9cf0d0]/10 text-[#9cf0d0]"
-                              : lessonActive
-                                ? "border-white/15 bg-white/8 text-white"
-                                : "border-white/[0.07] text-[#656b76]",
-                          )}
+                  return (
+                    <div
+                      key={module.slug}
+                      className={cn(
+                        "rounded-xl border transition-colors",
+                        isActive
+                          ? "border-white/[0.09] bg-white/[0.04]"
+                          : "border-transparent",
+                      )}
+                    >
+                      {moduleHref ? (
+                        <Link
+                          href={moduleHref}
+                          className="flex min-h-12 items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-white/[0.035]"
                         >
-                          {lesson.completed ? (
-                            <Check className="size-2.5" />
-                          ) : lesson.unlocked ? (
-                            index + 1
-                          ) : (
-                            <LockKeyhole className="size-2.5" />
-                          )}
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          <span className="block truncate text-[11px]">
-                            {lesson.title}
-                          </span>
-                          <span className="mt-0.5 block text-[9px] text-[#555b65]">
-                            {formatDuration(lesson.duration)}
-                          </span>
-                        </span>
-                      </>
-                    );
+                          <ModuleIcon module={module} />
+                          <ModuleLabel module={module} />
+                          <ChevronRight
+                            className="size-3.5 shrink-0 text-[#4f5560]"
+                            aria-hidden="true"
+                          />
+                        </Link>
+                      ) : (
+                        <div className="flex min-h-12 items-center gap-3 px-3 py-2.5">
+                          <ModuleIcon module={module} />
+                          <ModuleLabel module={module} />
+                        </div>
+                      )}
 
-                    return (
-                      <li key={lesson.id}>
-                        {lesson.unlocked ? (
-                          <Link
-                            href={`/learn/${module.slug}/${lesson.id}`}
-                            className={cn(
-                              "flex items-center gap-2.5 rounded-lg px-2 py-2 text-[#858b96] transition-colors hover:bg-white/[0.035] hover:text-white",
-                              lessonActive && "bg-white/[0.045] text-white",
-                            )}
-                          >
-                            {content}
-                          </Link>
-                        ) : (
-                          <div className="flex items-center gap-2.5 px-2 py-2 text-[#474c55]">
-                            {content}
-                          </div>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ol>
-              ) : null}
-            </div>
-          );
-        })}
+                      {isActive && module.lessons.length > 0 ? (
+                        <ol className="space-y-0.5 px-2 pb-2">
+                          {module.lessons.map((lesson, index) => {
+                            const lessonActive = lesson.id === activeLessonId;
+                            const content = (
+                              <>
+                                <span
+                                  className={cn(
+                                    "grid size-5 shrink-0 place-items-center rounded-full border text-[9px]",
+                                    lesson.completed
+                                      ? "border-[#9cf0d0]/20 bg-[#9cf0d0]/10 text-[#9cf0d0]"
+                                      : lessonActive
+                                        ? "border-white/15 bg-white/8 text-white"
+                                        : "border-white/[0.07] text-[#656b76]",
+                                  )}
+                                >
+                                  {lesson.completed ? (
+                                    <Check className="size-2.5" />
+                                  ) : lesson.unlocked ? (
+                                    index + 1
+                                  ) : (
+                                    <LockKeyhole className="size-2.5" />
+                                  )}
+                                </span>
+                                <span className="min-w-0 flex-1">
+                                  <span className="block truncate text-[11px]">
+                                    {lesson.title}
+                                  </span>
+                                  <span className="mt-0.5 block text-[9px] text-[#555b65]">
+                                    {formatDuration(lesson.duration)}
+                                  </span>
+                                </span>
+                              </>
+                            );
+
+                            return (
+                              <li key={lesson.id}>
+                                {lesson.unlocked ? (
+                                  <Link
+                                    href={`/learn/${module.slug}/${lesson.id}`}
+                                    className={cn(
+                                      "flex items-center gap-2.5 rounded-lg px-2 py-2 text-[#858b96] transition-colors hover:bg-white/[0.035] hover:text-white",
+                                      lessonActive &&
+                                        "bg-white/[0.045] text-white",
+                                    )}
+                                  >
+                                    {content}
+                                  </Link>
+                                ) : (
+                                  <div className="flex items-center gap-2.5 px-2 py-2 text-[#474c55]">
+                                    {content}
+                                  </div>
+                                )}
+                              </li>
+                            );
+                          })}
+                        </ol>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
       </nav>
     </aside>
   );

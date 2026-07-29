@@ -57,6 +57,10 @@ Add or edit JSON files in `roadmaps/`:
 {
   "slug": "example",
   "order": 20,
+  "category": {
+    "title": "07 · New section",
+    "order": 7
+  },
   "alwaysAvailable": false,
   "title": "Example module",
   "description": "What this module teaches.",
@@ -104,6 +108,10 @@ Add or edit JSON files in `roadmaps/`:
 
 Invalid content fails fast with a readable Zod validation error, so a malformed
 roadmap cannot silently corrupt the learning flow.
+
+Modules are grouped in the sidebar by their `category`. Categories and modules
+are sorted by their numeric `order`, so the learning structure remains entirely
+controlled by JSON rather than UI code.
 
 ## Architecture
 

@@ -1,6 +1,10 @@
 {
   "slug": "design-systems",
   "order": 9,
+  "category": {
+    "title": "04 · Producto y diseño",
+    "order": 4
+  },
   "alwaysAvailable": false,
   "title": "Design Systems",
   "description": "Build consistent interfaces through shared foundations and patterns.",
