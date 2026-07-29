@@ -24,12 +24,45 @@ type YouTubePlayerInstance = {
   destroy: () => void;
 };
 
+function getPlaybackSnapshot(player: YouTubePlayerInstance | null) {
+  if (
+    !player ||
+    typeof player.getCurrentTime !== "function" ||
+    typeof player.getDuration !== "function"
+  ) {
+    return null;
+  }
+
+  try {
+    const position = player.getCurrentTime();
+    const duration = player.getDuration();
+
+    if (
+      !Number.isFinite(position) ||
+      !Number.isFinite(duration) ||
+      duration <= 0
+    ) {
+      return null;
+    }
+
+    return {
+      position: Math.max(0, position),
+      duration,
+    };
+  } catch {
+    // The iframe API can invalidate the player before React runs cleanup.
+    return null;
+  }
+}
+
 declare global {
   interface Window {
     YT?: {
       Player: new (
         element: HTMLElement,
         options: {
+          width?: string | number;
+          height?: string | number;
           videoId: string;
           host?: string;
           playerVars?: Record<string, number>;
@@ -61,6 +94,7 @@ export function YouTubePlayer({
 }: YouTubePlayerProps) {
   const mountRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YouTubePlayerInstance | null>(null);
+  const playerReadyRef = useRef(false);
   const saveInFlightRef = useRef(false);
   const [position, setPosition] = useState(initialPosition);
   const [duration, setDuration] = useState(0);
@@ -69,23 +103,24 @@ export function YouTubePlayer({
   const persist = useCallback(
     async (ended = false) => {
       const player = playerRef.current;
-      if (!player || saveInFlightRef.current) return;
+      if (!playerReadyRef.current || saveInFlightRef.current) return;
 
-      const currentPosition = player.getCurrentTime() || 0;
-      const currentDuration = player.getDuration() || 1;
+      const snapshot = getPlaybackSnapshot(player);
+      if (!snapshot) return;
+
       saveInFlightRef.current = true;
 
       try {
         const result = await savePlaybackProgressAction({
           moduleSlug,
           lessonId,
-          position: currentPosition,
-          duration: currentDuration,
+          position: snapshot.position,
+          duration: snapshot.duration,
           ended,
         });
         setPosition(result.playbackSeconds);
         setWatchedPercent(result.watchedPercent);
-        setDuration(currentDuration);
+        setDuration(snapshot.duration);
       } finally {
         saveInFlightRef.current = false;
       }
@@ -95,15 +130,16 @@ export function YouTubePlayer({
 
   const sendBeacon = useCallback(() => {
     const player = playerRef.current;
-    if (!player) return;
+    if (!playerReadyRef.current) return;
 
-    const currentPosition = player.getCurrentTime() || 0;
-    const currentDuration = player.getDuration() || 1;
+    const snapshot = getPlaybackSnapshot(player);
+    if (!snapshot) return;
+
     const payload = JSON.stringify({
       moduleSlug,
       lessonId,
-      position: currentPosition,
-      duration: currentDuration,
+      position: snapshot.position,
+      duration: snapshot.duration,
     });
     navigator.sendBeacon(
       "/api/progress/playback",
@@ -114,11 +150,20 @@ export function YouTubePlayer({
   useEffect(() => {
     let interval: ReturnType<typeof setInterval> | undefined;
     let disposed = false;
+    let previousReady: (() => void) | undefined;
+    let apiReadyHandler: (() => void) | undefined;
+    const mountNode = mountRef.current;
 
     const createPlayer = () => {
-      if (!mountRef.current || !window.YT || disposed) return;
+      if (!mountNode || !window.YT || disposed) return;
 
-      playerRef.current = new window.YT.Player(mountRef.current, {
+      const playerHost = document.createElement("div");
+      playerHost.className = "h-full w-full";
+      mountNode.replaceChildren(playerHost);
+
+      const player = new window.YT.Player(playerHost, {
+        width: "100%",
+        height: "100%",
         videoId,
         host: "https://www.youtube-nocookie.com",
         playerVars: {
@@ -129,7 +174,15 @@ export function YouTubePlayer({
         },
         events: {
           onReady: ({ target }) => {
-            const videoDuration = target.getDuration() || 0;
+            if (disposed) {
+              if (typeof target.destroy === "function") target.destroy();
+              return;
+            }
+
+            playerRef.current = target;
+            playerReadyRef.current = true;
+            const snapshot = getPlaybackSnapshot(target);
+            const videoDuration = snapshot?.duration ?? 0;
             setDuration(videoDuration);
             if (initialPosition > 2 && initialPosition < videoDuration - 5) {
               target.seekTo(initialPosition, true);
@@ -137,21 +190,37 @@ export function YouTubePlayer({
             target.playVideo();
           },
           onStateChange: ({ data }) => {
-            if (!window.YT) return;
+            if (disposed || !playerReadyRef.current || !window.YT) return;
             if (data === window.YT.PlayerState.PAUSED) void persist();
             if (data === window.YT.PlayerState.ENDED) void persist(true);
           },
         },
       });
+      playerRef.current = player;
 
       interval = setInterval(() => {
         const player = playerRef.current;
-        if (!player || !window.YT) return;
-        if (player.getPlayerState() === window.YT.PlayerState.PLAYING) {
-          setPosition(player.getCurrentTime() || 0);
-          setDuration(player.getDuration() || 0);
-          void persist();
+        if (
+          !playerReadyRef.current ||
+          !player ||
+          !window.YT ||
+          typeof player.getPlayerState !== "function"
+        ) {
+          return;
         }
+
+        try {
+          if (player.getPlayerState() !== window.YT.PlayerState.PLAYING) return;
+        } catch {
+          return;
+        }
+
+        const snapshot = getPlaybackSnapshot(player);
+        if (!snapshot) return;
+
+        setPosition(snapshot.position);
+        setDuration(snapshot.duration);
+        void persist();
       }, 10_000);
     };
 
@@ -166,11 +235,12 @@ export function YouTubePlayer({
         script.src = "https://www.youtube.com/iframe_api";
         document.head.appendChild(script);
       }
-      const previousReady = window.onYouTubeIframeAPIReady;
-      window.onYouTubeIframeAPIReady = () => {
+      previousReady = window.onYouTubeIframeAPIReady;
+      apiReadyHandler = () => {
         previousReady?.();
         createPlayer();
       };
+      window.onYouTubeIframeAPIReady = apiReadyHandler;
     }
 
     const handleVisibility = () => {
@@ -185,8 +255,22 @@ export function YouTubePlayer({
       window.removeEventListener("pagehide", sendBeacon);
       document.removeEventListener("visibilitychange", handleVisibility);
       sendBeacon();
-      playerRef.current?.destroy();
+      playerReadyRef.current = false;
+
+      if (apiReadyHandler && window.onYouTubeIframeAPIReady === apiReadyHandler) {
+        window.onYouTubeIframeAPIReady = previousReady;
+      }
+
+      const player = playerRef.current;
       playerRef.current = null;
+      if (player && typeof player.destroy === "function") {
+        try {
+          player.destroy();
+        } catch {
+          // The iframe may already have been removed by navigation.
+        }
+      }
+      mountNode?.replaceChildren();
     };
   }, [initialPosition, persist, sendBeacon, videoId]);
 
