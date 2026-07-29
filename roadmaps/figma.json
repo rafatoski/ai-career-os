@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/VdS9ZGHHXWQ/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "figma-introduction",
+      "type": "reading",
+      "title": "Introducción: diseñar para comunicar",
+      "duration": 600,
+      "description": "Conoce frames, auto layout, componentes y prototipos antes de usar Figma.",
+      "notes": "# Diseño como conversación\n\nFigma permite explorar una solución, explicar cómo debe comportarse y compartirla con otras personas.\n\n## Conceptos iniciales\n\nUn **frame** define el contexto de una pantalla o componente. **Auto layout** organiza contenido con reglas de dirección, separación, padding y tamaño. Los **componentes** convierten patrones en piezas reutilizables y las **instancias** conservan su relación con el original.\n\nUn prototipo comunica navegación y estados, pero una entrega completa también explica restricciones, contenido real y comportamiento responsive.",
+      "quiz": [
+        {"id": "figma-intro-1", "question": "¿Qué permite Auto layout?", "options": ["Organizar y adaptar elementos mediante reglas", "Ejecutar un servidor", "Crear una base de datos", "Compilar TypeScript"], "answerIndex": 0, "explanation": "Auto layout define flujo, espacio y comportamiento de tamaño."}
+      ],
+      "flashcards": [
+        {"front": "Frame", "back": "Contenedor que establece un contexto de diseño y layout."},
+        {"front": "Instancia", "back": "Uso conectado de un componente principal."}
+      ]
+    },
+    {
       "id": "figma-from-zero",
       "title": "Figma desde cero",
       "youtubeUrl": "https://www.youtube.com/watch?v=VdS9ZGHHXWQ",

@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/niPExbK8lSw/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "github-introduction",
+      "type": "reading",
+      "title": "Introducción: guardar la historia del código",
+      "duration": 600,
+      "description": "Diferencia Git y GitHub y aprende el flujo básico de control de versiones.",
+      "notes": "# Git registra cambios\n\nGit es un sistema de control de versiones. Permite guardar puntos coherentes de la historia, comparar cambios y recuperar estados anteriores. GitHub aloja repositorios Git y añade herramientas para compartir y revisar trabajo.\n\n## Flujo esencial\n\n1. Modificas archivos en tu espacio de trabajo.\n2. Seleccionas cambios para el siguiente commit.\n3. Creas un commit con un mensaje que explica la intención.\n4. Sincronizas la rama con un repositorio remoto.\n\nUn commit útil representa una decisión pequeña y comprensible, no una copia arbitraria de todo.",
+      "quiz": [
+        {"id": "github-intro-1", "question": "¿Qué representa un commit útil?", "options": ["Un cambio coherente con una intención clara", "Cualquier archivo temporal", "Una contraseña", "Toda la computadora"], "answerIndex": 0, "explanation": "Los commits pequeños y coherentes hacen la historia fácil de entender y revisar."}
+      ],
+      "flashcards": [
+        {"front": "Git", "back": "Sistema distribuido de control de versiones."},
+        {"front": "GitHub", "back": "Servicio para alojar y colaborar sobre repositorios Git."}
+      ]
+    },
+    {
       "id": "git-github-from-zero",
       "title": "Git y GitHub desde cero",
       "youtubeUrl": "https://www.youtube.com/watch?v=niPExbK8lSw",

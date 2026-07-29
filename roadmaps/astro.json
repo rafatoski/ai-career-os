@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/Qe7MytTo7Vg/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "astro-introduction",
+      "type": "reading",
+      "title": "Introducción: sitios centrados en contenido",
+      "duration": 600,
+      "description": "Comprende el enfoque server-first de Astro y el uso selectivo de JavaScript.",
+      "notes": "# HTML por defecto\n\nAstro está pensado para sitios donde el contenido es protagonista. Renderiza componentes en el servidor y envía HTML ligero al navegador.\n\n## Islas interactivas\n\nLa mayor parte de una página puede permanecer estática. Solo los componentes que necesitan interacción reciben JavaScript mediante directivas de cliente. Este modelo se conoce como arquitectura de islas.\n\nAstro puede combinar componentes propios con React u otros frameworks, pero conviene añadir interactividad únicamente cuando aporta valor al usuario.",
+      "quiz": [
+        {"id": "astro-intro-1", "question": "¿Qué parte de una página Astro debería recibir JavaScript del cliente?", "options": ["La que realmente necesita interacción", "Toda la página siempre", "Solo los títulos", "Ninguna imagen"], "answerIndex": 0, "explanation": "Las islas permiten enviar JavaScript únicamente a componentes interactivos."}
+      ],
+      "flashcards": [
+        {"front": "Arquitectura de islas", "back": "HTML principalmente estático con zonas interactivas independientes."},
+        {"front": "Server-first", "back": "Preferencia por producir contenido en el servidor antes de añadir JavaScript del cliente."}
+      ]
+    },
+    {
       "id": "astro-first-site",
       "title": "Astro para principiantes en 10 minutos",
       "youtubeUrl": "https://www.youtube.com/watch?v=Qe7MytTo7Vg",

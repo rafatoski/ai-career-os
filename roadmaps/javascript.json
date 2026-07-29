@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/W6NZfCO5SIk/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "javascript-introduction",
+      "type": "reading",
+      "title": "Introducción: el papel de JavaScript",
+      "duration": 600,
+      "description": "Conoce dónde se ejecuta JavaScript y las piezas fundamentales del lenguaje.",
+      "notes": "# JavaScript da comportamiento a la web\n\nJavaScript es un lenguaje que se ejecuta en navegadores y también fuera de ellos mediante entornos como Node.js. En una página puede responder a eventos, cambiar la interfaz, validar datos y comunicarse con servicios.\n\n## Piezas fundamentales\n\n- Los **valores** representan información.\n- Las **variables** permiten referirse a esos valores.\n- Las **funciones** agrupan comportamiento reutilizable.\n- Los **objetos** reúnen datos relacionados.\n- Los **eventos** conectan acciones del usuario con funciones.\n\nAprender JavaScript significa entender cómo fluyen los datos y cuándo se ejecuta cada parte del código.",
+      "quiz": [
+        {"id": "javascript-intro-1", "question": "¿Qué conecta una interacción del usuario con el código?", "options": ["Un evento", "Una hoja de cálculo", "Una base de datos obligatoria", "Un comentario"], "answerIndex": 0, "explanation": "Los eventos permiten ejecutar funciones en respuesta a acciones como clicks o escritura."}
+      ],
+      "flashcards": [
+        {"front": "Función", "back": "Bloque reutilizable de código que puede recibir entradas y devolver un resultado."},
+        {"front": "Evento", "back": "Suceso que puede activar una respuesta del programa."}
+      ]
+    },
+    {
       "id": "javascript-first-step",
       "title": "JavaScript: tu primer paso al desarrollo web",
       "youtubeUrl": "https://www.youtube.com/watch?v=W6NZfCO5SIk",

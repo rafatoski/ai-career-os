@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/s2EYIDY8wSM/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "english-introduction",
+      "type": "reading",
+      "title": "Cómo practicar inglés cada día",
+      "duration": 480,
+      "description": "Prepara una rutina breve para escuchar, hablar, leer y escribir sin traducir todo.",
+      "notes": "# Una práctica pequeña y diaria\n\nEl objetivo es comunicar, no esperar a hablar sin errores. Practica expresiones completas y reutilízalas en situaciones reales.\n\n## Rutina de 20 minutos\n\n1. **Listening:** escucha una vez para entender la idea general.\n2. **Vocabulary:** guarda tres expresiones completas.\n3. **Speaking:** repítelas imitando ritmo y entonación.\n4. **Writing:** escribe tres frases relacionadas con tu trabajo.\n\nNo traduzcas cada palabra. Usa el contexto, comprueba solo aquello que bloquea la comprensión y registra una breve nota sobre lo aprendido.",
+      "quiz": [
+        {"id": "english-intro-1", "question": "What should you identify during the first listen?", "options": ["The main idea", "Every unknown word", "A perfect translation", "All grammar rules"], "answerIndex": 0, "explanation": "Listening for the main idea builds comprehension before focusing on details."}
+      ],
+      "flashcards": [
+        {"front": "Could you repeat that, please?", "back": "¿Podrías repetir eso, por favor?"},
+        {"front": "What I mean is...", "back": "Lo que quiero decir es..."}
+      ]
+    },
+    {
       "id": "english-listening-a1",
       "title": "Daily English: listening para principiantes",
       "youtubeUrl": "https://www.youtube.com/watch?v=s2EYIDY8wSM",

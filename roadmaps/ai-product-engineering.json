@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/zVK9CAdsc-g/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "ai-product-engineering-introduction",
+      "type": "reading",
+      "title": "Introducción: construir productos con IA",
+      "duration": 600,
+      "description": "Conecta necesidades del usuario, ingeniería de producto y comportamiento probabilístico.",
+      "notes": "# IA dentro de un producto\n\nUn AI Product Engineer no solo conecta un modelo. Diseña una experiencia donde una capacidad probabilística resuelve una necesidad concreta de forma comprensible y segura.\n\n## El ciclo de trabajo\n\n- Define el resultado del usuario.\n- Construye una ruta vertical pequeña.\n- Reúne casos reales y criterios de evaluación.\n- Observa errores y mejora prompt, contexto, interfaz o modelo.\n- Mantén una alternativa cuando la IA no pueda responder.\n\nLa calidad depende del sistema completo: datos, modelo, instrucciones, código, UX y evaluación.",
+      "quiz": [
+        {"id": "ai-product-engineering-intro-1", "question": "¿Qué debe definir primero un producto con IA?", "options": ["El resultado que necesita el usuario", "El modelo más grande disponible", "Una animación", "La cantidad máxima de prompts"], "answerIndex": 0, "explanation": "La tecnología debe estar al servicio de un resultado de usuario concreto."}
+      ],
+      "flashcards": [
+        {"front": "Ruta vertical", "back": "Versión pequeña y completa de un flujo que permite aprender con usuarios reales."},
+        {"front": "Fallback", "back": "Alternativa segura cuando la IA no puede producir un resultado confiable."}
+      ]
+    },
+    {
       "id": "claude-code-professionals",
       "title": "Claude Code for professionals",
       "youtubeUrl": "https://www.youtube.com/watch?v=zVK9CAdsc-g",

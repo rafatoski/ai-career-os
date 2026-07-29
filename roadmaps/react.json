@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/EMk6nom1aS4/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "react-introduction",
+      "type": "reading",
+      "title": "Introducción: interfaces declarativas",
+      "duration": 600,
+      "description": "Aprende el modelo mental de componentes, datos e interfaz antes de escribir React.",
+      "notes": "# La interfaz como resultado de los datos\n\nReact permite describir qué debe verse para un estado determinado. Cuando los datos cambian, React vuelve a calcular la interfaz necesaria.\n\n## Conceptos iniciales\n\n- Un **componente** representa una pieza de interfaz.\n- Las **props** son datos que un componente recibe.\n- El **estado** conserva información que cambia con la interacción.\n- JSX permite describir la estructura visual junto con expresiones de JavaScript.\n\nAntes de crear componentes, separa la pantalla en responsabilidades y decide dónde debe vivir cada dato.",
+      "quiz": [
+        {"id": "react-intro-1", "question": "¿Qué describe un componente de React?", "options": ["Una parte de la interfaz", "Una tabla SQL obligatoria", "Un servidor físico", "Un archivo de diseño únicamente"], "answerIndex": 0, "explanation": "Los componentes dividen la interfaz en unidades comprensibles y reutilizables."}
+      ],
+      "flashcards": [
+        {"front": "Props", "back": "Entradas de solo lectura que un componente recibe."},
+        {"front": "Estado", "back": "Información cambiante que afecta lo que renderiza un componente."}
+      ]
+    },
+    {
       "id": "react-basic",
       "title": "React básico en 30 minutos",
       "youtubeUrl": "https://www.youtube.com/watch?v=EMk6nom1aS4",

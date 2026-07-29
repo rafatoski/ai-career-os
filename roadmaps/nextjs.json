@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/C9b1dhPsGec/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "nextjs-introduction",
+      "type": "reading",
+      "title": "Introducción: de React a una aplicación completa",
+      "duration": 600,
+      "description": "Conoce qué añade Next.js a React y cómo organiza una aplicación con el App Router.",
+      "notes": "# Next.js aporta estructura\n\nReact resuelve la composición de interfaces. Next.js añade convenciones para rutas, layouts, renderizado en servidor, carga de datos y optimización.\n\n## App Router\n\nLa carpeta `app` representa la estructura de navegación. Un archivo `page.tsx` crea una página y `layout.tsx` comparte interfaz entre rutas hijas.\n\nLos componentes se ejecutan en el servidor por defecto. Marca un límite de cliente solo cuando necesites estado interactivo, eventos o APIs del navegador.",
+      "quiz": [
+        {"id": "nextjs-intro-1", "question": "¿Qué archivo representa una página en el App Router?", "options": ["page.tsx", "database.sql", "styles.json", "route.jpg"], "answerIndex": 0, "explanation": "Next.js utiliza archivos especiales dentro de app para definir la navegación."}
+      ],
+      "flashcards": [
+        {"front": "App Router", "back": "Sistema de rutas de Next.js basado en carpetas y archivos especiales."},
+        {"front": "Server Component", "back": "Componente que se renderiza en el servidor y no envía su lógica al navegador."}
+      ]
+    },
+    {
       "id": "nextjs-app-router",
       "title": "Next.js desde cero: App Router",
       "youtubeUrl": "https://www.youtube.com/watch?v=C9b1dhPsGec",

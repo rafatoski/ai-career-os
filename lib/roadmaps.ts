@@ -13,39 +13,50 @@ const quizQuestionSchema = z.object({
   explanation: z.string().min(1),
 });
 
-const lessonSchema = z.object({
-  id: z.string().min(1),
-  title: z.string().min(1),
-  youtubeUrl: z.string().url(),
-  duration: z.number().int().positive(),
-  description: z.string().min(1),
-  notes: z.string().min(1),
-  quiz: z.array(quizQuestionSchema).min(1),
-  flashcards: z
-    .array(
-      z.object({
-        front: z.string().min(1),
-        back: z.string().min(1),
-      }),
-    )
-    .default([]),
-  exercise: z.string().default(""),
-  project: z
-    .object({
-      title: z.string().min(1),
-      description: z.string().min(1),
-      requirements: z.array(z.string().min(1)).default([]),
-    })
-    .optional(),
-  resources: z
-    .array(
-      z.object({
+const lessonSchema = z
+  .object({
+    id: z.string().min(1),
+    type: z.enum(["reading", "video"]).default("video"),
+    title: z.string().min(1),
+    youtubeUrl: z.string().url().optional(),
+    duration: z.number().int().positive(),
+    description: z.string().min(1),
+    notes: z.string().min(1),
+    quiz: z.array(quizQuestionSchema).min(1),
+    flashcards: z
+      .array(
+        z.object({
+          front: z.string().min(1),
+          back: z.string().min(1),
+        }),
+      )
+      .default([]),
+    exercise: z.string().default(""),
+    project: z
+      .object({
         title: z.string().min(1),
-        url: z.string().url(),
-      }),
-    )
-    .default([]),
-});
+        description: z.string().min(1),
+        requirements: z.array(z.string().min(1)).default([]),
+      })
+      .optional(),
+    resources: z
+      .array(
+        z.object({
+          title: z.string().min(1),
+          url: z.string().url(),
+        }),
+      )
+      .default([]),
+  })
+  .superRefine((lesson, context) => {
+    if (lesson.type === "video" && !lesson.youtubeUrl) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["youtubeUrl"],
+        message: "A video lesson requires a YouTube URL.",
+      });
+    }
+  });
 
 const roadmapSchema = z.object({
   slug: z.string().min(1),

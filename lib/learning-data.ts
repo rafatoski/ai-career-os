@@ -11,6 +11,7 @@ import {
 
 export type LessonState = {
   id: string;
+  type: "reading" | "video";
   title: string;
   duration: number;
   completed: boolean;
@@ -79,6 +80,7 @@ function buildModuleStates(
     progressRecords.map((progress) => [progress.lessonKey, progress]),
   );
   const moduleCompletion = new Map<string, boolean>();
+  const moduleVideoCompletion = new Map<string, boolean>();
 
   for (const roadmap of roadmaps) {
     const configured = roadmap.lessons.length > 0;
@@ -90,24 +92,31 @@ function buildModuleStates(
             progressByKey.get(lessonKey(roadmap.slug, lesson.id))?.completed,
         ),
     );
+    moduleVideoCompletion.set(
+      roadmap.slug,
+      roadmap.lessons.some(
+        (lesson) =>
+          lesson.type === "video" &&
+          progressByKey.get(lessonKey(roadmap.slug, lesson.id))?.videoCompleted,
+      ),
+    );
   }
 
   const sequencedRoadmaps = roadmaps.filter(
     (roadmap) => roadmap.lessons.length > 0 && !roadmap.alwaysAvailable,
   );
-  const unlockedModules = new Set<string>();
-
-  for (const [index, roadmap] of sequencedRoadmaps.entries()) {
-    const previous = sequencedRoadmaps[index - 1];
-    if (!previous || moduleCompletion.get(previous.slug)) {
-      unlockedModules.add(roadmap.slug);
-    }
-  }
 
   return roadmaps.map<ModuleState>((roadmap) => {
     const configured = roadmap.lessons.length > 0;
-    const moduleUnlocked =
-      roadmap.alwaysAvailable || unlockedModules.has(roadmap.slug);
+    const sequenceIndex = sequencedRoadmaps.findIndex(
+      (candidate) => candidate.slug === roadmap.slug,
+    );
+    const previousModule =
+      sequenceIndex > 0 ? sequencedRoadmaps[sequenceIndex - 1] : null;
+    const previousModuleVideoComplete =
+      !previousModule ||
+      Boolean(moduleVideoCompletion.get(previousModule.slug));
+    const moduleUnlocked = configured;
     const lessons = roadmap.lessons.map<LessonState>((lesson, index) => {
       const progress = progressByKey.get(lessonKey(roadmap.slug, lesson.id));
       const previousLesson = roadmap.lessons[index - 1];
@@ -120,11 +129,17 @@ function buildModuleStates(
 
       return {
         id: lesson.id,
+        type: lesson.type,
         title: lesson.title,
         duration: lesson.duration,
         completed: progress?.completed ?? false,
         unlocked:
-          moduleUnlocked && (roadmap.alwaysAvailable || previousComplete),
+          index === 0
+            ? lesson.type === "reading"
+            : previousComplete &&
+              (lesson.type === "reading" ||
+                roadmap.alwaysAvailable ||
+                previousModuleVideoComplete),
         playbackSeconds: progress?.playbackSeconds ?? 0,
         watchedPercent: progress?.watchedPercent ?? 0,
         videoCompleted: progress?.videoCompleted ?? false,
@@ -136,7 +151,7 @@ function buildModuleStates(
     const completedCount = lessons.filter((lesson) => lesson.completed).length;
     const currentLesson =
       lessons.find((lesson) => lesson.unlocked && !lesson.completed) ??
-      lessons.at(-1) ??
+      lessons.findLast((lesson) => lesson.unlocked) ??
       null;
 
     return {

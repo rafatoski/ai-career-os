@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/-cKoQOA-eX4/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "shadcn-introduction",
+      "type": "reading",
+      "title": "Introducción: componentes que puedes modificar",
+      "duration": 600,
+      "description": "Comprende el modelo open-code de shadcn/ui antes de instalar componentes.",
+      "notes": "# Tu proyecto posee el componente\n\nshadcn/ui distribuye código fuente de componentes accesibles. Al añadir una pieza, esta pasa a formar parte de tu repositorio y puedes adaptarla a las necesidades del producto.\n\n## No es una caja negra\n\nEl valor está en una base coherente de composición, accesibilidad y estilos. Personalizar no significa eliminar esos fundamentos. Conserva estados de foco, navegación por teclado y nombres accesibles.\n\nLos tokens semánticos como `background`, `foreground` o `primary` permiten cambiar el tema sin acoplar cada componente a un color literal.",
+      "quiz": [
+        {"id": "shadcn-intro-1", "question": "¿Dónde vive el código de un componente añadido con shadcn/ui?", "options": ["Dentro de tu proyecto", "Solo en un servidor externo", "En una imagen", "En la base de datos"], "answerIndex": 0, "explanation": "El enfoque open-code permite inspeccionar y adaptar cada componente."}
+      ],
+      "flashcards": [
+        {"front": "Open code", "back": "Código del componente visible y modificable dentro del proyecto."},
+        {"front": "Token semántico", "back": "Variable visual nombrada por su función y no por un valor literal."}
+      ]
+    },
+    {
       "id": "shadcn-dashboard",
       "title": "Introducción a shadcn/ui con un dashboard",
       "youtubeUrl": "https://www.youtube.com/watch?v=-cKoQOA-eX4",

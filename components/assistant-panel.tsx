@@ -60,7 +60,9 @@ export function AssistantPanel({
   initialNote,
   projectProgress,
 }: AssistantPanelProps) {
-  const [activeTab, setActiveTab] = useState<TabId>("notes");
+  const [activeTab, setActiveTab] = useState<TabId>(
+    lesson.type === "reading" ? "quiz" : "notes",
+  );
 
   return (
     <div className="flex h-screen min-h-[680px] flex-col lg:sticky lg:top-0">
@@ -608,7 +610,9 @@ function ResourcesTab({
 
   const resources = useMemo(
     () => [
-      { title: "Open video on YouTube", url: lesson.youtubeUrl },
+      ...(lesson.youtubeUrl
+        ? [{ title: "Open video on YouTube", url: lesson.youtubeUrl }]
+        : []),
       ...lesson.resources,
     ],
     [lesson.resources, lesson.youtubeUrl],

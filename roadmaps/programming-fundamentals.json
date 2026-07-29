@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/QvmjNtrFiuk/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "fundamentals-introduction",
+      "type": "reading",
+      "title": "Antes de programar: cómo piensa un programa",
+      "duration": 600,
+      "description": "Comprende qué es un programa y cómo convierte datos de entrada en resultados.",
+      "notes": "# Cómo piensa un programa\n\nUn programa es una secuencia de instrucciones que transforma una entrada en una salida. Antes de escribir código, necesitas aprender a dividir un problema grande en pasos pequeños, ordenados y comprobables.\n\n## El ciclo básico\n\n1. **Entrada:** los datos que recibe el programa.\n2. **Proceso:** las reglas y decisiones que aplica.\n3. **Salida:** el resultado observable.\n\nLas variables guardan valores, las condiciones eligen caminos y los ciclos repiten acciones. Estos conceptos aparecen en casi todos los lenguajes.\n\n## Práctica mental\n\nDescribe preparar una taza de café como un algoritmo. Identifica entradas, decisiones, repeticiones y resultado.",
+      "quiz": [
+        {"id": "fundamentals-intro-1", "question": "¿Qué hace un algoritmo?", "options": ["Describe una secuencia de pasos para resolver un problema", "Elige colores para una interfaz", "Sustituye todos los datos", "Garantiza que nunca existan errores"], "answerIndex": 0, "explanation": "Un algoritmo expresa pasos ordenados y verificables para alcanzar un resultado."}
+      ],
+      "flashcards": [
+        {"front": "Algoritmo", "back": "Secuencia finita de pasos para resolver un problema."},
+        {"front": "Entrada → proceso → salida", "back": "Modelo básico para entender cómo un programa transforma información."}
+      ]
+    },
+    {
       "id": "introduction-to-programming",
       "title": "Introducción a la programación desde cero",
       "youtubeUrl": "https://www.youtube.com/watch?v=QvmjNtrFiuk",

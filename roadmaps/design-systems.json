@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/4UJcg-Rl_pw/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "design-systems-introduction",
+      "type": "reading",
+      "title": "Introducción: decisiones reutilizables",
+      "duration": 600,
+      "description": "Diferencia una colección de componentes de un verdadero sistema de diseño.",
+      "notes": "# Un lenguaje compartido\n\nUn sistema de diseño reúne decisiones reutilizables para crear productos coherentes. Incluye fundamentos visuales, componentes, patrones, documentación y acuerdos de trabajo.\n\n## Capas del sistema\n\n- **Fundamentos:** color, tipografía, espacio y movimiento.\n- **Tokens:** nombres que expresan decisiones de diseño.\n- **Componentes:** piezas con estructura, estados y comportamiento.\n- **Patrones:** soluciones para flujos completos.\n- **Documentación:** explica cuándo y por qué usar cada opción.\n\nUn sistema tiene valor cuando ayuda a tomar mejores decisiones, no solo cuando contiene muchas piezas.",
+      "quiz": [
+        {"id": "design-systems-intro-1", "question": "¿Qué convierte una colección de componentes en un sistema?", "options": ["Reglas, patrones y documentación compartida", "Tener muchos colores", "Usar una sola herramienta", "Eliminar todas las variantes"], "answerIndex": 0, "explanation": "Un sistema conecta piezas con principios y criterios de uso."}
+      ],
+      "flashcards": [
+        {"front": "Design token", "back": "Nombre reutilizable que representa una decisión visual."},
+        {"front": "Patrón", "back": "Solución repetible para una interacción o flujo de producto."}
+      ]
+    },
+    {
       "id": "design-system-figma-from-zero",
       "title": "Design System desde cero en Figma",
       "youtubeUrl": "https://www.youtube.com/watch?v=4UJcg-Rl_pw",

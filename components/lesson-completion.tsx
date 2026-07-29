@@ -14,6 +14,7 @@ type LessonCompletionProps = {
   notesRead: boolean;
   quizPassed: boolean;
   completed: boolean;
+  requiresVideo: boolean;
 };
 
 export function LessonCompletion({
@@ -23,11 +24,12 @@ export function LessonCompletion({
   notesRead,
   quizPassed,
   completed,
+  requiresVideo,
 }: LessonCompletionProps) {
   const router = useRouter();
   const [message, setMessage] = useState("");
   const [isPending, startTransition] = useTransition();
-  const ready = videoCompleted && notesRead && quizPassed;
+  const ready = (!requiresVideo || videoCompleted) && notesRead && quizPassed;
 
   function complete() {
     startTransition(async () => {
@@ -65,7 +67,8 @@ export function LessonCompletion({
       </Button>
       {!ready ? (
         <p className="mt-2 text-[11px] text-[#656b76]">
-          Complete the video, reading and quiz to unlock this action.
+          Complete the {requiresVideo ? "video, reading and quiz" : "reading and quiz"} to
+          unlock this action.
         </p>
       ) : null}
       {message ? (

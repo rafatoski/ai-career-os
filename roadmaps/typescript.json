@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/4W3UWjyyVkQ/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "typescript-introduction",
+      "type": "reading",
+      "title": "Introducción: tipos como contratos",
+      "duration": 600,
+      "description": "Entiende por qué TypeScript añade tipos a JavaScript y qué problemas ayuda a prevenir.",
+      "notes": "# TypeScript hace explícitas las expectativas\n\nTypeScript analiza código JavaScript antes de ejecutarlo. Sus tipos describen qué datos espera una función, qué devuelve y qué propiedades contiene un objeto.\n\n## La idea principal\n\nUn tipo funciona como un contrato entre partes del programa. El editor puede detectar incompatibilidades temprano, explicar APIs y facilitar cambios seguros.\n\nTypeScript no reemplaza las validaciones de datos externos: una respuesta de red o un formulario todavía debe comprobarse durante la ejecución. Los tipos protegen aquello que el compilador puede conocer.",
+      "quiz": [
+        {"id": "typescript-intro-1", "question": "¿Cuándo detecta TypeScript la mayoría de incompatibilidades de tipos?", "options": ["Antes de ejecutar el programa", "Solo después de publicarlo", "Al diseñar en Figma", "Cuando cambia el CSS"], "answerIndex": 0, "explanation": "El análisis estático encuentra muchos errores durante el desarrollo."}
+      ],
+      "flashcards": [
+        {"front": "Tipo", "back": "Descripción de los valores y operaciones permitidos."},
+        {"front": "Análisis estático", "back": "Revisión del código sin necesidad de ejecutarlo."}
+      ]
+    },
+    {
       "id": "typescript-first-steps",
       "title": "TypeScript desde cero: primeros pasos",
       "youtubeUrl": "https://www.youtube.com/watch?v=4W3UWjyyVkQ",

@@ -114,14 +114,15 @@ export async function submitQuizAction(input: unknown) {
 
 export async function completeLessonAction(input: unknown) {
   const parsed = lessonIdentitySchema.parse(input);
-  await requireLesson(parsed.moduleSlug, parsed.lessonId);
+  const { lesson } = await requireLesson(parsed.moduleSlug, parsed.lessonId);
   const key = lessonKey(parsed.moduleSlug, parsed.lessonId);
   const progress = await prisma.lessonProgress.findUnique({
     where: { lessonKey: key },
   });
 
   if (
-    !progress?.videoCompleted ||
+    !progress ||
+    (lesson.type === "video" && !progress.videoCompleted) ||
     !progress.notesRead ||
     !progress.quizPassed
   ) {

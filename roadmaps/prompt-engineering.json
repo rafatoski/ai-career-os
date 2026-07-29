@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/8Wqgr7Ry3dk/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "prompt-engineering-introduction",
+      "type": "reading",
+      "title": "Introducción: prompts como especificaciones",
+      "duration": 600,
+      "description": "Aprende a convertir una petición ambigua en una instrucción evaluable.",
+      "notes": "# Definir antes de pedir\n\nUn prompt efectivo explica el resultado deseado, aporta contexto suficiente y permite comprobar la respuesta.\n\n## Estructura inicial\n\n1. **Objetivo:** qué debe conseguir la respuesta.\n2. **Contexto:** información necesaria y fuentes permitidas.\n3. **Restricciones:** límites y comportamiento ante incertidumbre.\n4. **Formato:** estructura de la salida.\n5. **Evaluación:** ejemplos con los que medirás calidad.\n\nNo existe una frase mágica que sustituya una tarea bien definida. Mejora prompts comparando resultados sobre los mismos casos.",
+      "quiz": [
+        {"id": "prompt-engineering-intro-1", "question": "¿Qué permite mejorar un prompt de forma confiable?", "options": ["Probarlo con casos y criterios repetibles", "Cambiarlo al azar", "Añadir palabras sin objetivo", "Evitar definir la salida"], "answerIndex": 0, "explanation": "Una evaluación repetible muestra si una versión realmente funciona mejor."}
+      ],
+      "flashcards": [
+        {"front": "Prompt", "back": "Contexto e instrucciones que orientan la respuesta de un modelo."},
+        {"front": "Eval", "back": "Conjunto de casos y criterios para medir el comportamiento de un sistema de IA."}
+      ]
+    },
+    {
       "id": "prompt-engineering-foundations",
       "title": "Prompt engineering desde cero",
       "youtubeUrl": "https://www.youtube.com/watch?v=8Wqgr7Ry3dk",

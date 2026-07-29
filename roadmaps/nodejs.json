@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/yB4n_K7dZV8/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "nodejs-introduction",
+      "type": "reading",
+      "title": "Introducción: JavaScript fuera del navegador",
+      "duration": 600,
+      "description": "Comprende qué es un runtime y cómo Node.js atiende trabajo asíncrono.",
+      "notes": "# Un runtime para el servidor\n\nNode.js ejecuta JavaScript fuera del navegador y ofrece APIs para archivos, procesos, redes y sistema operativo.\n\n## Entrada y salida asíncrona\n\nUn servidor pasa gran parte de su tiempo esperando archivos, bases de datos o conexiones. Node.js puede iniciar esas operaciones y continuar atendiendo otras tareas. El event loop coordina cuándo procesar sus resultados.\n\nEsto no significa que todo trabajo sea gratuito: una operación larga y síncrona puede bloquear el proceso e impedir que otras solicitudes avancen.",
+      "quiz": [
+        {"id": "nodejs-intro-1", "question": "¿Qué coordina las tareas asíncronas en Node.js?", "options": ["El event loop", "El archivo CSS", "El monitor", "Una imagen"], "answerIndex": 0, "explanation": "El event loop organiza callbacks y resultados de operaciones asíncronas."}
+      ],
+      "flashcards": [
+        {"front": "Runtime", "back": "Entorno que ejecuta código y proporciona APIs disponibles durante la ejecución."},
+        {"front": "Event loop", "back": "Mecanismo que coordina trabajo asíncrono sin esperar de forma bloqueante."}
+      ]
+    },
+    {
       "id": "nodejs-foundations",
       "title": "Node.js desde cero: fundamentos y módulos",
       "youtubeUrl": "https://www.youtube.com/watch?v=yB4n_K7dZV8",

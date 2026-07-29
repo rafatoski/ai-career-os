@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import { LessonCompletion } from "@/components/lesson-completion";
+import { ReadingLessonContent } from "@/components/reading-lesson-content";
 import { Button } from "@/components/ui/button";
 import { YouTubePlayer } from "@/components/youtube-player";
 import type { LessonPageData } from "@/lib/learning-data";
@@ -16,15 +17,22 @@ import { formatDuration } from "@/lib/utils";
 import { getYouTubeStartSeconds, getYouTubeVideoId } from "@/lib/youtube";
 
 export function LessonWorkspace({ data }: { data: LessonPageData }) {
-  const videoId = getYouTubeVideoId(data.lesson.youtubeUrl);
-  const configuredStart = getYouTubeStartSeconds(data.lesson.youtubeUrl);
+  const isVideoLesson = data.lesson.type === "video";
+  const videoId = isVideoLesson
+    ? getYouTubeVideoId(data.lesson.youtubeUrl ?? "")
+    : null;
+  const configuredStart = isVideoLesson
+    ? getYouTubeStartSeconds(data.lesson.youtubeUrl ?? "")
+    : 0;
 
-  if (!videoId) {
+  if (isVideoLesson && !videoId) {
     throw new Error(`Invalid YouTube URL for lesson "${data.lesson.id}".`);
   }
 
   const requirements = [
-    { label: "Watch video", complete: data.lessonState.videoCompleted },
+    ...(isVideoLesson
+      ? [{ label: "Watch video", complete: data.lessonState.videoCompleted }]
+      : []),
     { label: "Read notes", complete: data.lessonState.notesRead },
     { label: "Pass quiz", complete: data.lessonState.quizPassed },
   ];
@@ -44,21 +52,32 @@ export function LessonWorkspace({ data }: { data: LessonPageData }) {
         </span>
       </header>
 
-      <YouTubePlayer
-        moduleSlug={data.roadmap.slug}
-        lessonId={data.lesson.id}
-        videoId={videoId}
-        initialPosition={
-          data.lessonState.playbackSeconds > 0
-            ? data.lessonState.playbackSeconds
-            : configuredStart
-        }
-        initialPercent={data.lessonState.watchedPercent}
-      />
+      {isVideoLesson && videoId ? (
+        <YouTubePlayer
+          moduleSlug={data.roadmap.slug}
+          lessonId={data.lesson.id}
+          videoId={videoId}
+          initialPosition={
+            data.lessonState.playbackSeconds > 0
+              ? data.lessonState.playbackSeconds
+              : configuredStart
+          }
+          initialPercent={data.lessonState.watchedPercent}
+        />
+      ) : (
+        <ReadingLessonContent
+          moduleSlug={data.roadmap.slug}
+          lessonId={data.lesson.id}
+          content={data.lesson.notes}
+          completed={data.lessonState.notesRead}
+        />
+      )}
 
       <div className="mt-8 px-5 sm:px-8 xl:px-10">
         <div className="flex flex-wrap items-center gap-2 text-[10px] text-[#666c76]">
           <span>Lesson {data.roadmap.lessons.findIndex((lesson) => lesson.id === data.lesson.id) + 1}</span>
+          <span aria-hidden="true">·</span>
+          <span>{isVideoLesson ? "Video" : "Reading"}</span>
           <span aria-hidden="true">·</span>
           <span>{formatDuration(data.lesson.duration)}</span>
         </div>
@@ -97,6 +116,7 @@ export function LessonWorkspace({ data }: { data: LessonPageData }) {
             notesRead={data.lessonState.notesRead}
             quizPassed={data.lessonState.quizPassed}
             completed={data.lessonState.completed}
+            requiresVideo={isVideoLesson}
           />
         </div>
       </div>

@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/R5EXap3vNDA/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "tailwind-introduction",
+      "type": "reading",
+      "title": "Introducción: diseñar con utilidades",
+      "duration": 600,
+      "description": "Entiende el enfoque utility-first y cómo mantener consistencia visual.",
+      "notes": "# Clases pequeñas, decisiones coherentes\n\nTailwind ofrece utilidades que representan una sola decisión de estilo: espacio, color, tamaño, distribución o estado.\n\n## El enfoque\n\nEn lugar de inventar un nombre CSS para cada bloque, compones la interfaz con una escala compartida. Variantes como `hover:` y `md:` expresan estados y cambios responsive.\n\nUtility-first no significa repetir sin criterio. Cuando un patrón representa una pieza reutilizable del producto, conviene convertirlo en componente y conservar una API clara.",
+      "quiz": [
+        {"id": "tailwind-intro-1", "question": "¿Qué expresa normalmente una utilidad de Tailwind?", "options": ["Una decisión de estilo concreta", "Una consulta a la base de datos", "Una ruta del servidor", "Un video"], "answerIndex": 0, "explanation": "Las utilidades tienen responsabilidades pequeñas y pueden combinarse."}
+      ],
+      "flashcards": [
+        {"front": "Utility-first", "back": "Composición de estilos mediante clases pequeñas con una responsabilidad concreta."},
+        {"front": "Variante", "back": "Prefijo que aplica una utilidad bajo un estado o condición."}
+      ]
+    },
+    {
       "id": "tailwind-v4-foundations",
       "title": "Tailwind CSS 4 desde cero",
       "youtubeUrl": "https://www.youtube.com/watch?v=R5EXap3vNDA",

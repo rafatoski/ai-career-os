@@ -11,6 +11,21 @@
   "thumbnail": "https://i.ytimg.com/vi/gYrfGnYob5Q/maxresdefault.jpg",
   "lessons": [
     {
+      "id": "ai-fundamentals-introduction",
+      "type": "reading",
+      "title": "Introducción: qué hace realmente un modelo",
+      "duration": 600,
+      "description": "Diferencia entrenamiento, inferencia y evaluación antes de estudiar herramientas de IA.",
+      "notes": "# Un modelo aprende patrones\n\nMachine learning crea sistemas que ajustan su comportamiento a partir de datos. Durante el entrenamiento se modifican parámetros; durante la inferencia se usa el modelo entrenado para producir una salida.\n\n## Capacidad no es confiabilidad\n\nUn modelo generativo puede producir texto convincente sin comprobar que sea verdadero. Por eso un producto de IA necesita ejemplos de evaluación, límites claros y una alternativa segura cuando la respuesta no es suficientemente buena.\n\nLa pregunta principal no es solo “¿puede hacerlo?”, sino “¿cómo sabremos cuándo lo hizo bien y qué ocurrirá cuando falle?”.",
+      "quiz": [
+        {"id": "ai-fundamentals-intro-1", "question": "¿Qué sucede durante la inferencia?", "options": ["Un modelo entrenado produce una salida", "Se garantiza que toda respuesta sea cierta", "Se diseña una interfaz", "Se eliminan todos los datos"], "answerIndex": 0, "explanation": "La inferencia usa los parámetros aprendidos para responder a una entrada."}
+      ],
+      "flashcards": [
+        {"front": "Entrenamiento", "back": "Proceso de ajustar los parámetros de un modelo usando datos."},
+        {"front": "Inferencia", "back": "Uso del modelo entrenado para producir una salida."}
+      ]
+    },
+    {
       "id": "ai-for-everyone",
       "title": "Inteligencia Artificial para todos",
       "youtubeUrl": "https://www.youtube.com/watch?v=gYrfGnYob5Q",

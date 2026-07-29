@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Clock3, Play } from "lucide-react";
+import { ArrowRight, BookOpenText, Clock3, Play } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -7,6 +7,8 @@ import type { LearningState } from "@/lib/learning-data";
 import { formatDuration, formatTimestamp } from "@/lib/utils";
 
 export function HomeContinue({ current }: Pick<LearningState, "current">) {
+  const isReading = current?.lesson.type === "reading";
+
   return (
     <div className="flex min-h-screen items-center justify-center px-5 py-14 sm:px-10">
       <div className="w-full max-w-2xl animate-enter">
@@ -48,18 +50,25 @@ export function HomeContinue({ current }: Pick<LearningState, "current">) {
                 <div className="flex items-center justify-between gap-4 text-[11px] text-[#737985]">
                   <span className="flex items-center gap-1.5">
                     <Clock3 className="size-3.5" aria-hidden="true" />
+                    {isReading ? "Reading · " : ""}
                     {formatDuration(current.lesson.duration)}
                   </span>
-                  <span className="tabular-nums">
-                    {current.lesson.watchedPercent}% watched
+                  <span>
+                    {isReading
+                      ? current.lesson.notesRead
+                        ? "Reading complete"
+                        : "Module introduction"
+                      : `${current.lesson.watchedPercent}% watched`}
                   </span>
                 </div>
-                <Progress
-                  value={current.lesson.watchedPercent}
-                  className="mt-3"
-                  label="Video watched"
-                />
-                {current.lesson.playbackSeconds > 0 ? (
+                {!isReading ? (
+                  <Progress
+                    value={current.lesson.watchedPercent}
+                    className="mt-3"
+                    label="Video watched"
+                  />
+                ) : null}
+                {!isReading && current.lesson.playbackSeconds > 0 ? (
                   <p className="mt-3 text-[11px] text-[#666c76]">
                     Resume at{" "}
                     {formatTimestamp(current.lesson.playbackSeconds)}
@@ -67,10 +76,18 @@ export function HomeContinue({ current }: Pick<LearningState, "current">) {
                 ) : null}
                 <Button asChild className="mt-7 w-full sm:w-auto">
                   <Link href={current.href}>
-                    <Play className="fill-current" aria-hidden="true" />
-                    {current.lesson.playbackSeconds > 0
-                      ? "Resume lesson"
-                      : "Start lesson"}
+                    {isReading ? (
+                      <BookOpenText aria-hidden="true" />
+                    ) : (
+                      <Play className="fill-current" aria-hidden="true" />
+                    )}
+                    {isReading
+                      ? current.lesson.notesRead
+                        ? "Continue lesson"
+                        : "Start reading"
+                      : current.lesson.playbackSeconds > 0
+                        ? "Resume lesson"
+                        : "Start lesson"}
                   </Link>
                 </Button>
               </div>

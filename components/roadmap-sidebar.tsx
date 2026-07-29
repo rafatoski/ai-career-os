@@ -145,6 +145,7 @@ export function RoadmapSidebar({
                                     {lesson.title}
                                   </span>
                                   <span className="mt-0.5 block text-[9px] text-[#555b65]">
+                                    {lesson.type === "reading" ? "Reading" : "Video"} ·{" "}
                                     {formatDuration(lesson.duration)}
                                   </span>
                                 </span>
