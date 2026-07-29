@@ -7,7 +7,42 @@
   },
   "alwaysAvailable": false,
   "title": "shadcn/ui",
-  "description": "Own and extend accessible interface components.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Construye y adapta componentes accesibles cuyo código pertenece a tu proyecto.",
+  "thumbnail": "https://i.ytimg.com/vi/-cKoQOA-eX4/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "shadcn-dashboard",
+      "title": "Introducción a shadcn/ui con un dashboard",
+      "youtubeUrl": "https://www.youtube.com/watch?v=-cKoQOA-eX4",
+      "duration": 2228,
+      "description": "Instala shadcn/ui, incorpora componentes y entiende cómo personalizarlos dentro de tu aplicación.",
+      "notes": "# Componentes que puedes poseer\n\nshadcn/ui distribuye código de componentes en tu proyecto. No importas una caja negra: puedes leer, adaptar y mantener cada pieza.\n\n## Ideas clave\n\n- El CLI copia componentes y sus dependencias a tu código fuente.\n- `components.json` describe estilo, aliases y configuración del proyecto.\n- Los tokens CSS separan decisiones semánticas como `background` o `primary` de colores concretos.\n- Composición y accesibilidad deben preservarse al personalizar.\n\n## Antes de continuar\n\nAbre el código de un componente instalado e identifica su API, sus estados accesibles y los tokens visuales que utiliza.",
+      "quiz": [
+        {
+          "id": "shadcn-intro-1",
+          "question": "¿Qué ocurre al añadir un componente de shadcn/ui?",
+          "options": ["Su código se incorpora al proyecto", "Solo se descarga una imagen", "Se crea una base de datos", "Se bloquea su personalización"],
+          "answerIndex": 0,
+          "explanation": "El enfoque open-code permite poseer y modificar la implementación."
+        },
+        {
+          "id": "shadcn-intro-2",
+          "question": "¿Para qué sirven tokens como `primary` o `background`?",
+          "options": ["Para expresar roles visuales semánticos", "Para guardar datos", "Para crear rutas", "Para reemplazar HTML"],
+          "answerIndex": 0,
+          "explanation": "Los tokens desacoplan el propósito visual de un valor de color específico."
+        }
+      ],
+      "flashcards": [
+        {"front": "Open code", "back": "El componente vive en tu repositorio y puede inspeccionarse, modificarse y extenderse."},
+        {"front": "Token semántico", "back": "Nombre que representa una función visual, como fondo o texto secundario, en vez de un color literal."}
+      ],
+      "exercise": "Añade Button, Card, Tabs y Dialog a una página. Personaliza el tema y verifica navegación por teclado, foco y contraste.",
+      "resources": [
+        {"title": "shadcn/ui: Introduction", "url": "https://ui.shadcn.com/docs"},
+        {"title": "shadcn/ui: Installation", "url": "https://ui.shadcn.com/docs/installation"},
+        {"title": "shadcn/ui: Theming", "url": "https://ui.shadcn.com/docs/theming"}
+      ]
+    }
+  ]
 }

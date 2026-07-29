@@ -7,7 +7,47 @@
   },
   "alwaysAvailable": false,
   "title": "Node.js",
-  "description": "Server-side JavaScript and reliable backend fundamentals.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Aprende JavaScript del lado del servidor y fundamentos de backend confiables.",
+  "thumbnail": "https://i.ytimg.com/vi/yB4n_K7dZV8/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "nodejs-foundations",
+      "title": "Node.js desde cero: fundamentos y módulos",
+      "youtubeUrl": "https://www.youtube.com/watch?v=yB4n_K7dZV8",
+      "duration": 8310,
+      "description": "Comprende el runtime de Node.js, módulos, npm, archivos, asincronía y un primer servidor HTTP.",
+      "notes": "# Node.js fuera del navegador\n\nNode.js ejecuta JavaScript sobre V8 y ofrece APIs para trabajar con archivos, procesos, red y sistema operativo.\n\n## Ideas clave\n\n- El event loop coordina tareas asíncronas sin bloquear el hilo principal.\n- Los módulos permiten dividir responsabilidades y reutilizar código.\n- `package.json` describe el proyecto, scripts y dependencias.\n- Las operaciones de entrada/salida deben preferir APIs asíncronas.\n- Una API HTTP recibe una solicitud y produce una respuesta con estado, cabeceras y cuerpo.\n\n## Antes de continuar\n\nDibuja el recorrido de una petición desde que llega al servidor hasta que se envía la respuesta.",
+      "quiz": [
+        {
+          "id": "node-foundations-1",
+          "question": "¿Qué tipo de trabajo conviene evitar en el hilo principal de Node.js?",
+          "options": ["Operaciones largas y bloqueantes", "Importar un módulo", "Declarar una constante", "Enviar una respuesta"],
+          "answerIndex": 0,
+          "explanation": "Bloquear el hilo impide que el event loop atienda otras tareas."
+        },
+        {
+          "id": "node-foundations-2",
+          "question": "¿Para qué sirve package.json?",
+          "options": ["Describe scripts, metadatos y dependencias", "Guarda contraseñas", "Sustituye el código fuente", "Renderiza HTML"],
+          "answerIndex": 0,
+          "explanation": "package.json es el manifiesto del proyecto Node.js."
+        }
+      ],
+      "flashcards": [
+        {"front": "Runtime", "back": "Entorno que ejecuta JavaScript y aporta APIs fuera del navegador."},
+        {"front": "Event loop", "back": "Mecanismo que coordina callbacks y operaciones asíncronas sin esperar de forma bloqueante."}
+      ],
+      "exercise": "Crea un servidor HTTP sin framework con rutas GET `/health` y `/tasks`. Lee las tareas de un archivo JSON mediante una API asíncrona.",
+      "project": {
+        "title": "API local de tareas",
+        "description": "Construye una API pequeña que permita listar, crear y completar tareas.",
+        "requirements": ["Usar módulos ES", "Validar entradas", "Responder con códigos HTTP correctos", "Documentar cómo ejecutarla"]
+      },
+      "resources": [
+        {"title": "Node.js: Introduction", "url": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs"},
+        {"title": "Node.js: The Event Loop", "url": "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick"},
+        {"title": "Código del curso", "url": "https://github.com/midudev/curso-node-js"}
+      ]
+    }
+  ]
 }

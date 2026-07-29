@@ -7,7 +7,42 @@
   },
   "alwaysAvailable": false,
   "title": "Next.js",
-  "description": "Full-stack React applications with the App Router.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Construye aplicaciones full-stack con React y el App Router.",
+  "thumbnail": "https://i.ytimg.com/vi/C9b1dhPsGec/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "nextjs-app-router",
+      "title": "Next.js desde cero: App Router",
+      "youtubeUrl": "https://www.youtube.com/watch?v=C9b1dhPsGec",
+      "duration": 3234,
+      "description": "Aprende la estructura de un proyecto, rutas, layouts, navegación y renderizado con el App Router.",
+      "notes": "# El modelo mental de Next.js\n\nNext.js extiende React con convenciones para crear rutas, cargar datos y ejecutar código en el servidor.\n\n## Ideas clave\n\n- La carpeta `app` define la navegación mediante el sistema de archivos.\n- Un `page.tsx` representa una ruta y un `layout.tsx` comparte interfaz entre rutas.\n- Los Server Components son el punto de partida; usa `\"use client\"` solo cuando necesites estado, eventos o APIs del navegador.\n- `Link` permite navegar sin recargar toda la página.\n\n## Antes de continuar\n\nExplica qué código de una página debe ejecutarse en el servidor y qué interacción necesita un Client Component.",
+      "quiz": [
+        {
+          "id": "next-app-router-1",
+          "question": "¿Qué archivo crea la interfaz de una ruta en el App Router?",
+          "options": ["page.tsx", "route.css", "index.html", "server.json"],
+          "answerIndex": 0,
+          "explanation": "Cada segmento de ruta se vuelve visible cuando contiene un archivo page."
+        },
+        {
+          "id": "next-app-router-2",
+          "question": "¿Cuándo necesitas normalmente `\"use client\"`?",
+          "options": ["Al usar estado o eventos del navegador", "En todos los componentes", "Para escribir HTML", "Para crear una carpeta"],
+          "answerIndex": 0,
+          "explanation": "La directiva marca el límite donde se necesitan capacidades interactivas del cliente."
+        }
+      ],
+      "flashcards": [
+        {"front": "App Router", "back": "Enrutador de Next.js basado en carpetas, archivos especiales y Server Components."},
+        {"front": "Layout", "back": "Interfaz compartida que preserva su estado al navegar entre páginas hijas."}
+      ],
+      "exercise": "Crea una aplicación con inicio, listado y detalle. Añade un layout compartido, navegación con Link y al menos un componente interactivo pequeño.",
+      "resources": [
+        {"title": "Next.js Docs: Getting Started", "url": "https://nextjs.org/docs/app/getting-started"},
+        {"title": "Next.js Docs: Layouts and Pages", "url": "https://nextjs.org/docs/app/getting-started/layouts-and-pages"},
+        {"title": "Curso oficial: Next.js Foundations", "url": "https://nextjs.org/learn/dashboard-app"}
+      ]
+    }
+  ]
 }

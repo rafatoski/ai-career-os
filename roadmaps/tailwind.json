@@ -7,7 +7,42 @@
   },
   "alwaysAvailable": false,
   "title": "TailwindCSS",
-  "description": "Compose maintainable interfaces with utility-first CSS.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Compón interfaces mantenibles con CSS utility-first.",
+  "thumbnail": "https://i.ytimg.com/vi/R5EXap3vNDA/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "tailwind-v4-foundations",
+      "title": "Tailwind CSS 4 desde cero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=R5EXap3vNDA",
+      "duration": 5904,
+      "description": "Aprende utilidades, estados, responsive design, temas y composición visual con Tailwind CSS 4.",
+      "notes": "# Diseñar con restricciones\n\nTailwind traduce decisiones de CSS en utilidades pequeñas y combinables. El objetivo no es memorizar clases, sino construir con una escala coherente.\n\n## Ideas clave\n\n- Empieza por el estilo móvil y añade variantes como `md:` cuando el diseño lo necesite.\n- Los estados se expresan con variantes como `hover:`, `focus-visible:` y `disabled:`.\n- Extrae un componente cuando una combinación representa una pieza con significado, no solo para acortar una línea.\n- Los tokens del tema mantienen colores, tipografía y espaciado consistentes.\n\n## Antes de continuar\n\nIdentifica en tu interfaz qué valores pertenecen al sistema visual y qué casos son excepciones reales.",
+      "quiz": [
+        {
+          "id": "tailwind-v4-1",
+          "question": "¿Cómo funciona una variante `md:`?",
+          "options": ["Aplica desde ese breakpoint hacia arriba", "Solo aplica en móviles", "Elimina la clase base", "Crea JavaScript"],
+          "answerIndex": 0,
+          "explanation": "Los breakpoints de Tailwind siguen un enfoque mobile-first."
+        },
+        {
+          "id": "tailwind-v4-2",
+          "question": "¿Cuándo conviene crear un componente reutilizable?",
+          "options": ["Cuando el patrón representa una pieza de interfaz con significado", "Por cada clase", "Antes de conocer el diseño", "Para evitar responsive design"],
+          "answerIndex": 0,
+          "explanation": "La abstracción debe seguir un patrón de producto reconocible."
+        }
+      ],
+      "flashcards": [
+        {"front": "Utility-first", "back": "Enfoque que compone estilos mediante clases pequeñas con una responsabilidad concreta."},
+        {"front": "Mobile-first", "back": "Los estilos sin prefijo son la base y los breakpoints añaden cambios para pantallas mayores."}
+      ],
+      "exercise": "Reproduce una tarjeta de curso responsive con estados hover, focus-visible y disabled. Usa una escala consistente y evita valores arbitrarios innecesarios.",
+      "resources": [
+        {"title": "Tailwind CSS: Installation", "url": "https://tailwindcss.com/docs/installation"},
+        {"title": "Tailwind CSS: Responsive Design", "url": "https://tailwindcss.com/docs/responsive-design"},
+        {"title": "Tailwind CSS: Theme Variables", "url": "https://tailwindcss.com/docs/theme"}
+      ]
+    }
+  ]
 }

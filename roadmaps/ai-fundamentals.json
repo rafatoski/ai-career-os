@@ -7,7 +7,43 @@
   },
   "alwaysAvailable": false,
   "title": "AI Fundamentals",
-  "description": "Understand the capabilities and limitations of modern AI systems.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Comprende las capacidades, límites y riesgos de los sistemas modernos de IA.",
+  "thumbnail": "https://i.ytimg.com/vi/gYrfGnYob5Q/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "ai-for-everyone",
+      "title": "Inteligencia Artificial para todos",
+      "youtubeUrl": "https://www.youtube.com/watch?v=gYrfGnYob5Q",
+      "duration": 5135,
+      "description": "Diferencia IA, machine learning y modelos generativos; aprende sus usos, límites y criterios básicos de evaluación.",
+      "notes": "# Un modelo aprende patrones\n\nLa inteligencia artificial reúne técnicas que producen comportamientos asociados con percepción, predicción, lenguaje o decisión. Machine learning es una parte de ese campo: aprende patrones a partir de datos.\n\n## Ideas clave\n\n- Entrenamiento ajusta parámetros con ejemplos; inferencia usa el modelo ya entrenado.\n- Un modelo generativo predice y construye contenido probable, no consulta una verdad perfecta.\n- Calidad de datos, objetivo y métrica determinan qué significa un buen resultado.\n- Alucinaciones, sesgos, privacidad y cambios de distribución requieren evaluación humana.\n- Un producto de IA necesita una alternativa segura cuando el modelo falla.\n\n## Antes de continuar\n\nElige una función de IA y define entrada, salida esperada, error costoso y método de evaluación.",
+      "quiz": [
+        {
+          "id": "ai-everyone-1",
+          "question": "¿Qué ocurre durante la inferencia?",
+          "options": ["Un modelo entrenado produce una salida para una entrada", "Se diseña la interfaz", "Se garantiza la verdad", "Se elimina todo sesgo"],
+          "answerIndex": 0,
+          "explanation": "Inferencia es el uso del modelo para generar una predicción o respuesta."
+        },
+        {
+          "id": "ai-everyone-2",
+          "question": "¿Por qué una respuesta fluida no basta para evaluar un modelo?",
+          "options": ["Puede sonar convincente y ser incorrecta", "La fluidez siempre indica error", "Los modelos no generan texto", "Solo importa la velocidad"],
+          "answerIndex": 0,
+          "explanation": "La evaluación debe medir exactitud, utilidad, seguridad y otros criterios del caso de uso."
+        }
+      ],
+      "flashcards": [
+        {"front": "Entrenamiento", "back": "Proceso de ajustar los parámetros de un modelo usando datos y una función objetivo."},
+        {"front": "Inferencia", "back": "Uso de un modelo entrenado para producir una predicción o generación."},
+        {"front": "Alucinación", "back": "Contenido generado que parece plausible pero no está respaldado por hechos o contexto."}
+      ],
+      "exercise": "Crea una ficha de evaluación para un asistente de estudio: define cinco casos normales, tres casos límite, el resultado esperado y qué debe ocurrir si falla.",
+      "resources": [
+        {"title": "Google: Introduction to Machine Learning", "url": "https://developers.google.com/machine-learning/intro-to-ml"},
+        {"title": "Google: Introduction to Large Language Models", "url": "https://developers.google.com/machine-learning/resources/intro-llms"},
+        {"title": "Google: Responsible AI", "url": "https://ai.google/responsibility/responsible-ai-practices/"}
+      ]
+    }
+  ]
 }

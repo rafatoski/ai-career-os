@@ -7,7 +7,123 @@
   },
   "alwaysAvailable": true,
   "title": "English",
-  "description": "Daily speaking, listening, vocabulary and interview practice.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Práctica diaria de listening, speaking, vocabulario técnico e entrevistas.",
+  "thumbnail": "https://i.ytimg.com/vi/s2EYIDY8wSM/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "english-listening-a1",
+      "title": "Daily English: listening para principiantes",
+      "youtubeUrl": "https://www.youtube.com/watch?v=s2EYIDY8wSM",
+      "duration": 534,
+      "description": "Entrena comprensión auditiva con una historia corta y vocabulario cotidiano.",
+      "notes": "# Rutina de listening\n\nNo intentes traducir cada palabra. Busca primero la idea general y después los detalles.\n\n## Tres pasadas\n\n1. Escucha sin subtítulos y escribe el tema en una frase.\n2. Escucha con subtítulos y anota cinco expresiones completas.\n3. Escucha otra vez y repite en voz alta imitando ritmo y entonación.\n\nUna expresión completa como `I usually start by...` es más útil que memorizar palabras aisladas.",
+      "quiz": [
+        {
+          "id": "english-listening-1",
+          "question": "What should you identify during the first listen?",
+          "options": ["The main idea", "Every spelling rule", "A full translation", "Only unknown words"],
+          "answerIndex": 0,
+          "explanation": "Listening for gist builds comprehension before focusing on details."
+        }
+      ],
+      "flashcards": [
+        {"front": "I usually start by...", "back": "Normalmente comienzo por..."},
+        {"front": "After that...", "back": "Después de eso..."},
+        {"front": "Listening for gist", "back": "Escuchar para comprender la idea general."}
+      ],
+      "exercise": "Escribe un resumen de cinco frases en inglés y graba un audio de un minuto describiendo tu rutina con tres expresiones del video.",
+      "resources": [
+        {"title": "British Council: A1 Listening", "url": "https://learnenglish.britishcouncil.org/skills/listening/a1-listening"},
+        {"title": "Cambridge Dictionary", "url": "https://dictionary.cambridge.org/"}
+      ]
+    },
+    {
+      "id": "english-speaking-practice",
+      "title": "Daily English: conversación guiada",
+      "youtubeUrl": "https://www.youtube.com/watch?v=CimU7TQDLJg",
+      "duration": 1466,
+      "description": "Practica respuestas completas y mejora fluidez mediante repetición y shadowing.",
+      "notes": "# Hablar para comunicar\n\nLa fluidez crece cuando recuperas estructuras completas con frecuencia. Responde primero de forma simple y luego añade razón y ejemplo.\n\n## Fórmula práctica\n\n- Answer: responde directamente.\n- Reason: explica por qué.\n- Example: añade una situación concreta.\n\nUsa shadowing: escucha una oración breve, pausa y repítela intentando conservar ritmo, enlaces y entonación.",
+      "quiz": [
+        {
+          "id": "english-speaking-1",
+          "question": "What is shadowing?",
+          "options": ["Repeating speech while imitating rhythm and pronunciation", "Translating every word", "Reading silently", "Memorizing grammar tables only"],
+          "answerIndex": 0,
+          "explanation": "Shadowing trains pronunciation, connected speech and automatic recall."
+        }
+      ],
+      "flashcards": [
+        {"front": "In my experience...", "back": "En mi experiencia..."},
+        {"front": "The main reason is...", "back": "La razón principal es..."},
+        {"front": "For example...", "back": "Por ejemplo..."}
+      ],
+      "exercise": "Responde cinco preguntas del video con la fórmula Answer–Reason–Example y graba dos minutos sin leer.",
+      "resources": [
+        {"title": "British Council: A1 Speaking", "url": "https://learnenglish.britishcouncil.org/skills/speaking/a1-speaking"},
+        {"title": "YouGlish: pronunciación en contexto", "url": "https://youglish.com/"}
+      ]
+    },
+    {
+      "id": "english-developer-standup",
+      "title": "English for developers: daily stand-up",
+      "youtubeUrl": "https://www.youtube.com/watch?v=MsxcpZr1LpM",
+      "duration": 449,
+      "description": "Aprende a explicar avances, plan del día y bloqueos en una reunión técnica.",
+      "notes": "# Tu actualización diaria\n\nUna buena actualización es breve, concreta y orientada al equipo.\n\n## Estructura\n\n- Yesterday: `Yesterday I finished...`\n- Today: `Today I'm going to...`\n- Blockers: `I'm currently blocked by...`\n\nUsa verbos de trabajo precisos: implement, debug, review, deploy, reproduce, investigate y verify. Si no hay bloqueo, di `I don't have any blockers right now`.",
+      "quiz": [
+        {
+          "id": "english-standup-1",
+          "question": "Which update is the most useful?",
+          "options": ["Yesterday I fixed the form validation; today I'll add tests; no blockers.", "I did some things.", "Everything is fine.", "I worked a lot."],
+          "answerIndex": 0,
+          "explanation": "A useful stand-up names completed work, the next action and blockers."
+        }
+      ],
+      "flashcards": [
+        {"front": "I finished implementing...", "back": "Terminé de implementar..."},
+        {"front": "I'm going to investigate...", "back": "Voy a investigar..."},
+        {"front": "I'm blocked by...", "back": "Estoy bloqueado por..."}
+      ],
+      "exercise": "Graba tu stand-up de hoy en 45 segundos. Incluye una tarea terminada, una siguiente acción y el estado de tus bloqueos.",
+      "resources": [
+        {"title": "20 English Words Every Software Developer Should Know", "url": "https://www.youtube.com/watch?v=fooBj0nkdak"},
+        {"title": "British Council: Business English", "url": "https://learnenglish.britishcouncil.org/business-english"}
+      ]
+    },
+    {
+      "id": "english-interview",
+      "title": "English interview: preguntas frecuentes",
+      "youtubeUrl": "https://www.youtube.com/watch?v=-AOQl94ZYn8",
+      "duration": 777,
+      "description": "Prepara respuestas claras para preguntas comunes de una entrevista laboral en inglés.",
+      "notes": "# Respuestas con evidencia\n\nUna respuesta sólida conecta tu experiencia con el puesto y evita generalidades.\n\n## Para preguntas de experiencia\n\nUsa STAR:\n\n- Situation: contexto breve.\n- Task: responsabilidad u objetivo.\n- Action: acciones que tú realizaste.\n- Result: resultado medible y aprendizaje.\n\nPara `Tell me about yourself`, resume presente, experiencia relevante y por qué este siguiente paso tiene sentido.",
+      "quiz": [
+        {
+          "id": "english-interview-1",
+          "question": "What does the A in STAR mean?",
+          "options": ["Action", "Audience", "Agreement", "Application"],
+          "answerIndex": 0,
+          "explanation": "Action describes the specific steps you personally took."
+        },
+        {
+          "id": "english-interview-2",
+          "question": "What should a strong interview answer include?",
+          "options": ["Specific evidence from a relevant example", "Only adjectives", "A memorized ten-minute speech", "Unrelated personal details"],
+          "answerIndex": 0,
+          "explanation": "Concrete evidence makes your skills credible and memorable."
+        }
+      ],
+      "flashcards": [
+        {"front": "I was responsible for...", "back": "Yo era responsable de..."},
+        {"front": "The result was...", "back": "El resultado fue..."},
+        {"front": "What I learned was...", "back": "Lo que aprendí fue..."}
+      ],
+      "exercise": "Escribe y graba respuestas de 60–90 segundos para `Tell me about yourself` y una historia STAR sobre un problema técnico.",
+      "resources": [
+        {"title": "British Council: You're Hired", "url": "https://learnenglish.britishcouncil.org/business-english/youre-hired"},
+        {"title": "British Council: B1 Writing", "url": "https://learnenglish.britishcouncil.org/skills/writing/b1-writing"}
+      ]
+    }
+  ]
 }

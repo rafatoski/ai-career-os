@@ -7,7 +7,43 @@
   },
   "alwaysAvailable": false,
   "title": "Prompt Engineering",
-  "description": "Design clear instructions and reliable evaluation loops.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Diseña instrucciones claras y ciclos de evaluación confiables.",
+  "thumbnail": "https://i.ytimg.com/vi/8Wqgr7Ry3dk/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "prompt-engineering-foundations",
+      "title": "Prompt engineering desde cero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=8Wqgr7Ry3dk",
+      "duration": 2775,
+      "description": "Aprende a definir contexto, instrucciones, restricciones, ejemplos y formatos de salida evaluables.",
+      "notes": "# Prompts como especificaciones\n\nUn buen prompt reduce ambigüedad y hace observable la calidad de la respuesta. No existe una frase mágica que sustituya una tarea bien definida.\n\n## Estructura útil\n\n1. Objetivo: qué resultado necesitas.\n2. Contexto: información necesaria para resolverlo.\n3. Restricciones: límites, audiencia y comportamiento ante incertidumbre.\n4. Formato: estructura concreta de la salida.\n5. Ejemplos: demostraciones cuando el patrón es difícil de describir.\n6. Evaluación: casos que permiten comparar versiones.\n\nSepara datos no confiables de las instrucciones y pide que el modelo reconozca cuando la evidencia no alcanza.\n\n## Antes de continuar\n\nConvierte una petición vaga en una especificación y escribe tres casos con los que comprobarías su calidad.",
+      "quiz": [
+        {
+          "id": "prompt-foundations-1",
+          "question": "¿Qué mejora más la confiabilidad de un prompt?",
+          "options": ["Un objetivo y criterios de evaluación explícitos", "Añadir adjetivos sin límite", "Cambiarlo sin probar", "Ocultar el formato esperado"],
+          "answerIndex": 0,
+          "explanation": "Una especificación clara permite medir si la respuesta cumple el propósito."
+        },
+        {
+          "id": "prompt-foundations-2",
+          "question": "¿Cuándo son especialmente útiles los ejemplos?",
+          "options": ["Cuando el patrón de salida es difícil de explicar solo con reglas", "Siempre deben reemplazar instrucciones", "Para guardar contraseñas", "Para evitar toda evaluación"],
+          "answerIndex": 0,
+          "explanation": "Los ejemplos muestran concretamente la relación esperada entre entrada y salida."
+        }
+      ],
+      "flashcards": [
+        {"front": "Zero-shot", "back": "Solicitud resuelta mediante instrucciones sin ejemplos de entrada y salida."},
+        {"front": "Few-shot", "back": "Prompt que incluye algunos ejemplos para demostrar el patrón esperado."},
+        {"front": "Eval", "back": "Conjunto repetible de casos y criterios que compara la calidad de distintas versiones."}
+      ],
+      "exercise": "Diseña un prompt para explicar una lección solo con su material. Exige citas al contexto, respuesta ante evidencia insuficiente y salida en Markdown. Pruébalo con cinco preguntas.",
+      "resources": [
+        {"title": "Google Cloud: Introduction to Prompt Design", "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/introduction-prompt-design"},
+        {"title": "Google AI: Prompt Design Strategies", "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies"},
+        {"title": "Anthropic: Prompt Engineering Overview", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"}
+      ]
+    }
+  ]
 }

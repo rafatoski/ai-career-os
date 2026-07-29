@@ -7,7 +7,47 @@
   },
   "alwaysAvailable": false,
   "title": "Figma",
-  "description": "Design, prototype and communicate interface decisions.",
-  "thumbnail": "",
-  "lessons": []
+  "description": "Diseña, prototipa y comunica decisiones de interfaz.",
+  "thumbnail": "https://i.ytimg.com/vi/VdS9ZGHHXWQ/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "figma-from-zero",
+      "title": "Figma desde cero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=VdS9ZGHHXWQ",
+      "duration": 7255,
+      "description": "Aprende la interfaz de Figma, frames, estilos, auto layout, componentes y prototipos.",
+      "notes": "# Diseñar sistemas, no pantallas aisladas\n\nFigma permite explorar decisiones visuales y convertir patrones repetidos en componentes mantenibles.\n\n## Ideas clave\n\n- Un frame define un contexto de layout; no es solo un rectángulo decorativo.\n- Auto layout organiza elementos según dirección, separación, padding y reglas de tamaño.\n- Los componentes crean una fuente reutilizable y las instancias conservan variaciones locales.\n- Un prototipo comunica navegación y comportamiento, pero no reemplaza criterios de aceptación.\n- Nombra capas y componentes por su función para facilitar la entrega a desarrollo.\n\n## Antes de continuar\n\nExplica cómo respondería tu diseño si el texto fuera el doble de largo o la pantalla fuera más estrecha.",
+      "quiz": [
+        {
+          "id": "figma-zero-1",
+          "question": "¿Qué resuelve principalmente Auto layout?",
+          "options": ["Distribución y adaptación de elementos", "Consultas SQL", "Compilación de código", "Autenticación"],
+          "answerIndex": 0,
+          "explanation": "Auto layout controla flujo, espacio y reglas de tamaño dentro de un frame."
+        },
+        {
+          "id": "figma-zero-2",
+          "question": "¿Qué relación existe entre componente e instancia?",
+          "options": ["La instancia reutiliza el componente y admite ajustes definidos", "Son archivos sin relación", "La instancia elimina el componente", "Ambos son imágenes planas"],
+          "answerIndex": 0,
+          "explanation": "Las instancias reciben cambios del componente principal conservando overrides permitidos."
+        }
+      ],
+      "flashcards": [
+        {"front": "Auto layout", "back": "Sistema que distribuye y redimensiona capas mediante flujo, gap, padding y reglas de tamaño."},
+        {"front": "Instancia", "back": "Copia conectada a un componente principal que puede recibir variantes y ajustes controlados."}
+      ],
+      "exercise": "Diseña una pantalla móvil de aprendizaje con auto layout. Convierte botón, tarjeta y navegación en componentes con estados y nombres claros.",
+      "project": {
+        "title": "Prototipo de Learning Companion",
+        "description": "Diseña el flujo para continuar una lección, responder el quiz y avanzar.",
+        "requirements": ["Usar Auto layout", "Definir componentes y variantes", "Incluir estados vacío y completado", "Crear un prototipo navegable"]
+      },
+      "resources": [
+        {"title": "Figma Learn: Get Started", "url": "https://help.figma.com/hc/en-us/categories/360002051613-Get-started"},
+        {"title": "Figma Learn: Auto layout", "url": "https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties"},
+        {"title": "Figma Learn: Components", "url": "https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma"}
+      ]
+    }
+  ]
 }
