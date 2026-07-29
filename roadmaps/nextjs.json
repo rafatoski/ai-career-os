@@ -1,0 +1,9 @@
+{
+  "slug": "nextjs",
+  "order": 5,
+  "alwaysAvailable": false,
+  "title": "Next.js",
+  "description": "Full-stack React applications with the App Router.",
+  "thumbnail": "",
+  "lessons": []
+}

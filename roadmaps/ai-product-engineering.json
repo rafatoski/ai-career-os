@@ -1,0 +1,66 @@
+{
+  "slug": "ai-product-engineering",
+  "order": 13,
+  "alwaysAvailable": false,
+  "title": "AI Product Engineering",
+  "description": "Use AI coding tools as part of a deliberate product engineering workflow.",
+  "thumbnail": "https://i.ytimg.com/vi/zVK9CAdsc-g/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "claude-code-professionals",
+      "title": "Claude Code for professionals",
+      "youtubeUrl": "https://www.youtube.com/watch?v=zVK9CAdsc-g",
+      "duration": 4949,
+      "description": "Explore an agentic coding workflow and the habits required to keep changes focused and verifiable.",
+      "notes": "# Agentic coding workflow\n\nA coding agent is most useful when the goal, boundaries and verification criteria are explicit.\n\n## Key ideas\n\n- Start with the user outcome and the smallest verifiable change.\n- Give the agent relevant repository context and constraints.\n- Inspect diffs and run checks before accepting work.\n- Keep human judgment responsible for product and architecture decisions.\n\n## Before moving on\n\nWrite a short task brief containing an outcome, scope, constraints and acceptance checks.",
+      "quiz": [
+        {
+          "id": "agent-1",
+          "question": "What makes an agentic coding task easier to verify?",
+          "options": [
+            "A broad request with no constraints",
+            "A clear outcome and explicit acceptance checks",
+            "Skipping the diff review",
+            "Changing many unrelated areas"
+          ],
+          "answerIndex": 1,
+          "explanation": "Specific outcomes and checks make the resulting change inspectable."
+        },
+        {
+          "id": "agent-2",
+          "question": "Who remains responsible for product decisions?",
+          "options": [
+            "The coding agent alone",
+            "The package manager",
+            "The human product engineer",
+            "The test runner"
+          ],
+          "answerIndex": 2,
+          "explanation": "The agent supports implementation; human judgment owns product intent and trade-offs."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Acceptance check",
+          "back": "An observable condition that demonstrates the requested outcome works."
+        },
+        {
+          "front": "Focused diff",
+          "back": "A change set limited to the files and behavior needed for one outcome."
+        }
+      ],
+      "exercise": "Use an AI coding agent to implement one small feature. Review every changed file and document how you verified it.",
+      "project": {
+        "title": "Ship an AI-assisted product slice",
+        "description": "Complete one small user-facing feature with an AI coding agent while preserving ownership of the decisions.",
+        "requirements": [
+          "Define scope and acceptance checks before implementation",
+          "Keep the change focused",
+          "Run automated checks",
+          "Publish the reviewed source in GitHub"
+        ]
+      },
+      "resources": []
+    }
+  ]
+}

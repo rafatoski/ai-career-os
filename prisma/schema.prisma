@@ -7,176 +7,53 @@ datasource db {
   provider = "sqlite"
 }
 
-enum ResourceType {
-  YOUTUBE
-  ARTICLE
-  DOCUMENTATION
-  COURSE
-}
-
-enum ResourceSource {
-  MANUAL
-  NOTEBOOKLM
-}
-
-enum ProjectStatus {
-  PLANNED
+enum ProjectProgressStatus {
+  NOT_STARTED
   IN_PROGRESS
-  PAUSED
   COMPLETED
 }
 
-enum MissionTaskType {
-  LESSON
-  WATCH_RESOURCE
-  MINI_PROJECT
-  QUIZ
-  GITHUB_COMMIT
-  ENGLISH_PRACTICE
-  REVIEW_NOTES
-  INTERVIEW_PRACTICE
-}
+model LessonProgress {
+  id                   Int       @id @default(autoincrement())
+  lessonKey            String    @unique
+  moduleSlug           String
+  lessonId             String
+  playbackSeconds      Float     @default(0)
+  videoDurationSeconds Int       @default(0)
+  watchedPercent       Int       @default(0)
+  videoCompleted       Boolean   @default(false)
+  notesRead            Boolean   @default(false)
+  quizPassed           Boolean   @default(false)
+  quizScore            Int       @default(0)
+  quizAnswers          String    @default("{}")
+  completed            Boolean   @default(false)
+  completedAt          DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
 
-model Topic {
-  id             Int            @id @default(autoincrement())
-  slug           String         @unique
-  title          String
-  description    String
-  estimatedHours Int
-  priority       Int            @default(50)
-  sortOrder      Int            @default(0)
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
-  lessons        Lesson[]
-  resources      Resource[]
-  projects       Project[]
-  studySessions  StudySession[]
-
-  @@index([sortOrder])
-}
-
-model Lesson {
-  id           Int           @id @default(autoincrement())
-  topicId      Int
-  title        String
-  description  String
-  completed    Boolean       @default(false)
-  duration     Int
-  notes        String        @default("")
-  sortOrder    Int           @default(0)
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  topic        Topic         @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  missionTasks MissionTask[]
-
-  @@index([topicId, sortOrder])
+  @@index([moduleSlug, lessonId])
   @@index([completed])
 }
 
-model Resource {
-  id               Int            @id @default(autoincrement())
-  topicId          Int?
-  title            String
-  url              String
-  type             ResourceType
-  summary          String         @default("")
-  estimatedMinutes Int            @default(15)
-  sourceProvider   ResourceSource @default(MANUAL)
-  notebookUrl      String         @default("")
-  completed        Boolean        @default(false)
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
-  topic            Topic?         @relation(fields: [topicId], references: [id], onDelete: SetNull)
-  missionTasks     MissionTask[]
+model LessonNote {
+  id         Int      @id @default(autoincrement())
+  lessonKey  String   @unique
+  moduleSlug String
+  lessonId   String
+  content    String   @default("")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
-  @@index([topicId])
-  @@index([completed])
-  @@index([sourceProvider])
+  @@index([updatedAt])
 }
 
-model StudySession {
-  id             Int      @id @default(autoincrement())
-  topicId        Int?
-  date           DateTime
-  minutesStudied Int
-  topic          String
-  notes          String   @default("")
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  roadmapTopic   Topic?   @relation(fields: [topicId], references: [id], onDelete: SetNull)
-
-  @@index([date])
-  @@index([topicId])
-}
-
-model Project {
-  id           Int           @id @default(autoincrement())
-  topicId      Int
-  title        String
-  description  String
-  githubUrl    String        @default("")
-  status       ProjectStatus @default(PLANNED)
-  completed    Boolean       @default(false)
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  topic        Topic         @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  missionTasks MissionTask[]
-
-  @@index([topicId])
-  @@index([status])
-  @@index([completed])
-}
-
-model EnglishPractice {
-  id        Int      @id @default(autoincrement())
-  date      DateTime @unique
-  speaking  Int      @default(0)
-  listening Int      @default(0)
-  reading   Int      @default(0)
-  writing   Int      @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([date])
-}
-
-model DailyMission {
-  id               Int           @id @default(autoincrement())
-  date             DateTime      @unique
-  availableMinutes Int           @default(90)
-  generatedAt      DateTime      @default(now())
-  createdAt        DateTime      @default(now())
-  updatedAt        DateTime      @updatedAt
-  tasks            MissionTask[]
-
-  @@index([date])
-}
-
-model MissionTask {
-  id               Int             @id @default(autoincrement())
-  missionId        Int
-  title            String
-  description      String
-  estimatedMinutes Int
-  category         MissionTaskType
-  completed        Boolean         @default(false)
-  skipped          Boolean         @default(false)
-  order            Int
-  xp               Int
-  isPersonal       Boolean         @default(false)
-  lessonId         Int?
-  resourceId       Int?
-  projectId        Int?
-  createdAt        DateTime        @default(now())
-  updatedAt        DateTime        @updatedAt
-  mission          DailyMission    @relation(fields: [missionId], references: [id], onDelete: Cascade)
-  lesson           Lesson?         @relation(fields: [lessonId], references: [id], onDelete: SetNull)
-  resource         Resource?       @relation(fields: [resourceId], references: [id], onDelete: SetNull)
-  project          Project?        @relation(fields: [projectId], references: [id], onDelete: SetNull)
-
-  @@index([missionId, order])
-  @@index([completed])
-  @@index([lessonId])
-  @@index([resourceId])
-  @@index([projectId])
+model ProjectProgress {
+  id         Int                   @id @default(autoincrement())
+  moduleSlug String                @unique
+  lessonKey  String
+  githubUrl  String                @default("")
+  status     ProjectProgressStatus @default(NOT_STARTED)
+  completed  Boolean               @default(false)
+  createdAt  DateTime              @default(now())
+  updatedAt  DateTime              @updatedAt
 }

@@ -1,0 +1,60 @@
+{
+  "slug": "astro",
+  "order": 4,
+  "alwaysAvailable": false,
+  "title": "Astro",
+  "description": "Create fast content-focused sites with Astro and selective interactivity.",
+  "thumbnail": "https://i.ytimg.com/vi/WHqZAXHZN_w/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "astro-five",
+      "title": "Astro 5 from zero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=WHqZAXHZN_w",
+      "duration": 5784,
+      "description": "Build an Astro application while learning server islands, view transitions and the component model.",
+      "notes": "# Astro 5\n\nAstro renders content on the server by default and lets you opt individual components into client-side interactivity.\n\n## Key ideas\n\n- Ship HTML by default.\n- Use client directives only where interaction requires JavaScript.\n- Server islands defer dynamic server-rendered sections independently.\n- View transitions can preserve context between navigations.\n\n## Before moving on\n\nFor each interactive element in your exercise, explain why it needs client-side JavaScript.",
+      "quiz": [
+        {
+          "id": "astro-1",
+          "question": "What does Astro ship by default for a non-interactive component?",
+          "options": [
+            "Only client JavaScript",
+            "HTML without component JavaScript",
+            "A React runtime",
+            "A service worker"
+          ],
+          "answerIndex": 1,
+          "explanation": "Astro renders components to HTML and only hydrates explicitly interactive islands."
+        },
+        {
+          "id": "astro-2",
+          "question": "Why use a client directive?",
+          "options": [
+            "To opt an interactive component into hydration",
+            "To add a database",
+            "To create a CSS variable",
+            "To change the file extension"
+          ],
+          "answerIndex": 0,
+          "explanation": "Client directives tell Astro when an interactive island should load and hydrate."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Island",
+          "back": "An independently interactive component inside mostly static HTML."
+        },
+        {
+          "front": "Hydration directive",
+          "back": "An Astro instruction that controls when a client component becomes interactive."
+        },
+        {
+          "front": "Server island",
+          "back": "A dynamic server-rendered region that can load independently from the surrounding page."
+        }
+      ],
+      "exercise": "Build a content page with one interactive island and a view transition between two routes.",
+      "resources": []
+    }
+  ]
+}

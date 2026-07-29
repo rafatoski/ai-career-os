@@ -1,0 +1,9 @@
+{
+  "slug": "programming-fundamentals",
+  "order": 0,
+  "alwaysAvailable": false,
+  "title": "Programming Fundamentals",
+  "description": "Core concepts for reasoning about programs and solving problems.",
+  "thumbnail": "",
+  "lessons": []
+}

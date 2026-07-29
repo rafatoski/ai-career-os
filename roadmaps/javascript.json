@@ -1,0 +1,9 @@
+{
+  "slug": "javascript",
+  "order": 1,
+  "alwaysAvailable": false,
+  "title": "JavaScript",
+  "description": "The language of the web, from syntax to asynchronous code.",
+  "thumbnail": "",
+  "lessons": []
+}

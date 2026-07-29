@@ -1,0 +1,106 @@
+{
+  "slug": "typescript",
+  "order": 2,
+  "alwaysAvailable": false,
+  "title": "TypeScript",
+  "description": "Use TypeScript to make React applications safer and easier to maintain.",
+  "thumbnail": "https://i.ytimg.com/vi/m66k4U4_LPg/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "typescript-for-react",
+      "title": "TypeScript for React from zero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=m66k4U4_LPg",
+      "duration": 9095,
+      "description": "Learn the TypeScript concepts you need to type components, props, state and events in React.",
+      "notes": "# TypeScript for React\n\nFocus on the boundary between data and UI. Types should describe the values a component accepts and the events it emits.\n\n## Key ideas\n\n- Prefer precise object types for component props.\n- Let TypeScript infer local values when the intent is obvious.\n- Type browser and React events at the boundary.\n- Use unions to represent a small set of valid states.\n\n## Before moving on\n\nExplain in your own words why a union is safer than a free-form string for a component status.",
+      "quiz": [
+        {
+          "id": "ts-react-1",
+          "question": "What is the main purpose of a props type?",
+          "options": [
+            "Describe the values a component accepts",
+            "Make the component render faster",
+            "Replace component tests",
+            "Generate CSS classes"
+          ],
+          "answerIndex": 0,
+          "explanation": "A props type defines the public data contract of a component."
+        },
+        {
+          "id": "ts-react-2",
+          "question": "Which type best represents a status with exactly three valid values?",
+          "options": [
+            "string",
+            "any",
+            "\"idle\" | \"loading\" | \"success\"",
+            "object"
+          ],
+          "answerIndex": 2,
+          "explanation": "A string literal union prevents unsupported status values."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Type inference",
+          "back": "TypeScript derives a value's type from its initial value or surrounding context."
+        },
+        {
+          "front": "Union type",
+          "back": "A type that permits one value from a defined set of alternatives."
+        },
+        {
+          "front": "Component props",
+          "back": "The typed input contract exposed by a React component."
+        }
+      ],
+      "exercise": "Create a typed ProfileCard component with name, role and a status union. Add a typed click handler.",
+      "resources": []
+    },
+    {
+      "id": "typescript-generics",
+      "title": "TypeScript generics without the intimidation",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dLPgQRbVquo",
+      "duration": 1099,
+      "description": "Understand generics as a way to preserve relationships between input and output types.",
+      "notes": "# Generics\n\nA generic is a placeholder for a type that will be known when a function, type or component is used.\n\n## Key ideas\n\n- Use a generic when two or more types must stay related.\n- Give type parameters clear names when a single letter would hide intent.\n- Add constraints only when the implementation needs a specific capability.\n- Do not introduce a generic when a concrete type is enough.\n\n## Before moving on\n\nDescribe what type information would be lost if an identity function returned `unknown` instead of its generic input type.",
+      "quiz": [
+        {
+          "id": "ts-generics-1",
+          "question": "When is a generic most useful?",
+          "options": [
+            "When input and output types need to remain related",
+            "Whenever a function has no arguments",
+            "Only when working with classes",
+            "To disable type checking"
+          ],
+          "answerIndex": 0,
+          "explanation": "Generics preserve type relationships while allowing reusable code."
+        },
+        {
+          "id": "ts-generics-2",
+          "question": "What does a generic constraint do?",
+          "options": [
+            "Removes the type parameter",
+            "Limits the capabilities a type argument must have",
+            "Converts every value to a string",
+            "Makes the type optional"
+          ],
+          "answerIndex": 1,
+          "explanation": "A constraint describes the minimum shape or capability required by an implementation."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Generic type parameter",
+          "back": "A placeholder that captures a type supplied or inferred at the point of use."
+        },
+        {
+          "front": "Generic constraint",
+          "back": "A rule that limits which types can be used while preserving their specific identity."
+        }
+      ],
+      "exercise": "Write a firstItem<T> function and a reusable ApiResponse<T> type. Verify that both preserve the concrete type.",
+      "resources": []
+    }
+  ]
+}

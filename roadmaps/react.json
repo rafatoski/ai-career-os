@@ -1,0 +1,116 @@
+{
+  "slug": "react",
+  "order": 3,
+  "alwaysAvailable": false,
+  "title": "React",
+  "description": "Build component-driven interfaces with clear state and predictable data flow.",
+  "thumbnail": "https://i.ytimg.com/vi/7iobxzd_2wY/maxresdefault.jpg",
+  "lessons": [
+    {
+      "id": "react-from-zero",
+      "title": "React from zero",
+      "youtubeUrl": "https://www.youtube.com/watch?v=7iobxzd_2wY",
+      "duration": 8663,
+      "description": "Learn the mental model behind components, JSX, props, state and effects.",
+      "notes": "# React foundations\n\nReact lets you describe an interface as a tree of components. The UI is a result of the current props and state.\n\n## Key ideas\n\n- Components should have a clear responsibility.\n- Props flow down; events communicate intent upward.\n- State stores information that changes what is rendered.\n- Effects synchronize React with systems outside React.\n\n## Before moving on\n\nIdentify one value in your exercise that belongs in state and one value that can be derived during render.",
+      "quiz": [
+        {
+          "id": "react-zero-1",
+          "question": "What should React state represent?",
+          "options": [
+            "Every variable in a component",
+            "Information that changes the rendered result",
+            "Only data from an API",
+            "CSS class names"
+          ],
+          "answerIndex": 1,
+          "explanation": "State is for changing information that affects the UI; derived values usually do not need separate state."
+        },
+        {
+          "id": "react-zero-2",
+          "question": "What is an effect primarily for?",
+          "options": [
+            "Formatting JSX",
+            "Replacing event handlers",
+            "Synchronizing with an external system",
+            "Declaring component props"
+          ],
+          "answerIndex": 2,
+          "explanation": "Effects synchronize with things such as network connections, browser APIs or third-party widgets."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "Props",
+          "back": "Read-only inputs passed from a parent to a component."
+        },
+        {
+          "front": "State",
+          "back": "Component memory that triggers a render when it changes."
+        },
+        {
+          "front": "Effect",
+          "back": "A synchronization step between React and an external system."
+        }
+      ],
+      "exercise": "Build a small searchable list using components, props, state and a derived filtered result.",
+      "resources": []
+    },
+    {
+      "id": "react-applications",
+      "title": "Build complete React applications",
+      "youtubeUrl": "https://www.youtube.com/watch?v=yIr_1CasXkM",
+      "duration": 9125,
+      "description": "Put React fundamentals together in a complete application and practice organizing real features.",
+      "notes": "# Building React applications\n\nAs an application grows, organize code around user-facing features and keep data flow visible.\n\n## Key ideas\n\n- Keep state close to the components that need it.\n- Extract a component when it creates a useful boundary, not only to shorten a file.\n- Model loading, empty, error and success states explicitly.\n- Build the smallest complete flow before adding polish.\n\n## Before moving on\n\nSketch the component tree and state ownership for the Todo project before writing code.",
+      "quiz": [
+        {
+          "id": "react-app-1",
+          "question": "Where should state usually live?",
+          "options": [
+            "In a global store by default",
+            "As close as practical to the components that use it",
+            "In every child component",
+            "Outside React"
+          ],
+          "answerIndex": 1,
+          "explanation": "Keeping state close reduces hidden dependencies and makes data flow easier to understand."
+        },
+        {
+          "id": "react-app-2",
+          "question": "What is the best first milestone for a new feature?",
+          "options": [
+            "A complete vertical user flow",
+            "A perfect design system",
+            "Every possible edge case",
+            "A global state architecture"
+          ],
+          "answerIndex": 0,
+          "explanation": "A small vertical slice validates the full interaction before additional complexity."
+        }
+      ],
+      "flashcards": [
+        {
+          "front": "State ownership",
+          "back": "The component responsible for storing and updating a piece of state."
+        },
+        {
+          "front": "Vertical slice",
+          "back": "The smallest complete user flow spanning UI, behavior and persistence."
+        }
+      ],
+      "exercise": "Plan the Todo App as a component tree, then implement add, toggle, filter and delete flows.",
+      "project": {
+        "title": "Build a Todo App",
+        "description": "Create a focused React application that demonstrates typed components, state ownership and persistence.",
+        "requirements": [
+          "Add, complete and delete todos",
+          "Filter by active and completed",
+          "Persist todos locally",
+          "Publish the source in a GitHub repository"
+        ]
+      },
+      "resources": []
+    }
+  ]
+}

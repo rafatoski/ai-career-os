@@ -1,0 +1,9 @@
+{
+  "slug": "nodejs",
+  "order": 6,
+  "alwaysAvailable": false,
+  "title": "Node.js",
+  "description": "Server-side JavaScript and reliable backend fundamentals.",
+  "thumbnail": "",
+  "lessons": []
+}

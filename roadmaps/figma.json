@@ -1,0 +1,9 @@
+{
+  "slug": "figma",
+  "order": 10,
+  "alwaysAvailable": false,
+  "title": "Figma",
+  "description": "Design, prototype and communicate interface decisions.",
+  "thumbnail": "",
+  "lessons": []
+}

@@ -1,0 +1,9 @@
+{
+  "slug": "tailwind",
+  "order": 7,
+  "alwaysAvailable": false,
+  "title": "TailwindCSS",
+  "description": "Compose maintainable interfaces with utility-first CSS.",
+  "thumbnail": "",
+  "lessons": []
+}

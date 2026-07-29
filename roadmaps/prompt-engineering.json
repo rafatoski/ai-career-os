@@ -1,0 +1,9 @@
+{
+  "slug": "prompt-engineering",
+  "order": 12,
+  "alwaysAvailable": false,
+  "title": "Prompt Engineering",
+  "description": "Design clear instructions and reliable evaluation loops.",
+  "thumbnail": "",
+  "lessons": []
+}
