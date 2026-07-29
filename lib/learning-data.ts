@@ -308,6 +308,21 @@ export async function getLessonPageData(
   };
 }
 
+export async function getModuleResumeHref(moduleSlug: string) {
+  const learningState = await getLearningState();
+  const moduleState = learningState.modules.find(
+    (module) => module.slug === moduleSlug,
+  );
+  const lesson = moduleState?.lessons.find(
+    (candidate) =>
+      candidate.id === moduleState.currentLessonId && candidate.unlocked,
+  );
+
+  return moduleState && lesson
+    ? `/learn/${moduleState.slug}/${lesson.id}`
+    : null;
+}
+
 export function getLessonById(roadmap: Roadmap, lessonId: string) {
   return roadmap.lessons.find((lesson) => lesson.id === lessonId) ?? null;
 }

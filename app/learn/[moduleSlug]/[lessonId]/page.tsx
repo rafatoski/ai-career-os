@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { AssistantPanel } from "@/components/assistant-panel";
 import { LearningShell } from "@/components/learning-shell";
 import { LessonWorkspace } from "@/components/lesson-workspace";
-import { getLessonPageData } from "@/lib/learning-data";
+import {
+  getLessonPageData,
+  getModuleResumeHref,
+} from "@/lib/learning-data";
 
 export const dynamic = "force-dynamic";
 
@@ -30,7 +33,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const { moduleSlug, lessonId } = await params;
   const data = await getLessonPageData(moduleSlug, lessonId);
 
-  if (!data) notFound();
+  if (!data) {
+    const resumeHref = await getModuleResumeHref(moduleSlug);
+    if (resumeHref) redirect(resumeHref);
+    notFound();
+  }
 
   return (
     <LearningShell

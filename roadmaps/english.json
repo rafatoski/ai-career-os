@@ -6,138 +6,224 @@
     "order": 7
   },
   "alwaysAvailable": true,
-  "title": "English",
-  "description": "Práctica diaria de listening, speaking, vocabulario técnico e entrevistas.",
-  "thumbnail": "https://i.ytimg.com/vi/s2EYIDY8wSM/maxresdefault.jpg",
+  "title": "English · B2",
+  "description": "Práctica B2–C1 de comprensión, conversación profesional, reuniones e entrevistas.",
+  "thumbnail": "https://i.ytimg.com/vi/Y681hXWwhQY/maxresdefault.jpg",
   "lessons": [
     {
       "id": "english-introduction",
       "type": "reading",
-      "title": "Cómo practicar inglés cada día",
-      "duration": 480,
-      "description": "Prepara una rutina breve para escuchar, hablar, leer y escribir sin traducir todo.",
-      "notes": "# Una práctica pequeña y diaria\n\nEl objetivo es comunicar, no esperar a hablar sin errores. Practica expresiones completas y reutilízalas en situaciones reales.\n\n## Rutina de 20 minutos\n\n1. **Listening:** escucha una vez para entender la idea general.\n2. **Vocabulary:** guarda tres expresiones completas.\n3. **Speaking:** repítelas imitando ritmo y entonación.\n4. **Writing:** escribe tres frases relacionadas con tu trabajo.\n\nNo traduzcas cada palabra. Usa el contexto, comprueba solo aquello que bloquea la comprensión y registra una breve nota sobre lo aprendido.",
-      "quiz": [
-        {"id": "english-intro-1", "question": "What should you identify during the first listen?", "options": ["The main idea", "Every unknown word", "A perfect translation", "All grammar rules"], "answerIndex": 0, "explanation": "Listening for the main idea builds comprehension before focusing on details."}
-      ],
-      "flashcards": [
-        {"front": "Could you repeat that, please?", "back": "¿Podrías repetir eso, por favor?"},
-        {"front": "What I mean is...", "back": "Lo que quiero decir es..."}
-      ]
-    },
-    {
-      "id": "english-listening-a1",
-      "title": "Daily English: listening para principiantes",
-      "youtubeUrl": "https://www.youtube.com/watch?v=s2EYIDY8wSM",
-      "duration": 534,
-      "description": "Entrena comprensión auditiva con una historia corta y vocabulario cotidiano.",
-      "notes": "# Rutina de listening\n\nNo intentes traducir cada palabra. Busca primero la idea general y después los detalles.\n\n## Tres pasadas\n\n1. Escucha sin subtítulos y escribe el tema en una frase.\n2. Escucha con subtítulos y anota cinco expresiones completas.\n3. Escucha otra vez y repite en voz alta imitando ritmo y entonación.\n\nUna expresión completa como `I usually start by...` es más útil que memorizar palabras aisladas.",
+      "title": "Tu rutina de inglés B2",
+      "duration": 600,
+      "description": "Define una práctica para pasar de comprender inglés a argumentar y trabajar con precisión.",
+      "notes": "# From B2 to confident professional English\n\nAt B2 level, you can understand the main ideas of complex texts, interact with reasonable fluency and explain a viewpoint. Your next goal is not to study basic phrases: it is to communicate with greater **precision, range and spontaneity**.\n\n## A deliberate 30-minute routine\n\n1. **Listen for structure:** identify the claim, supporting ideas and speaker attitude.\n2. **Collect language in context:** save collocations, discourse markers and complete sentence patterns.\n3. **Produce an answer:** summarise, challenge or extend the idea without reading a script.\n4. **Review for precision:** replace vague words, repair grammar and improve pronunciation.\n\n## Your B2 standard\n\nDo not stop after understanding the video. You should be able to explain its argument, express your own position and respond to a follow-up question.",
       "quiz": [
         {
-          "id": "english-listening-1",
-          "question": "What should you identify during the first listen?",
-          "options": ["The main idea", "Every spelling rule", "A full translation", "Only unknown words"],
+          "id": "english-intro-b2-1",
+          "question": "Which task best represents B2-level practice?",
+          "options": [
+            "Summarising an argument and defending your own position",
+            "Memorising isolated beginner greetings",
+            "Translating every word before listening",
+            "Repeating sentences without understanding them"
+          ],
           "answerIndex": 0,
-          "explanation": "Listening for gist builds comprehension before focusing on details."
+          "explanation": "B2 practice requires understanding complex ideas and producing connected, justified responses."
+        },
+        {
+          "id": "english-intro-b2-2",
+          "question": "Why should you collect collocations instead of isolated words?",
+          "options": [
+            "They help you produce more natural and accurate combinations",
+            "They remove the need to practise speaking",
+            "They make context unnecessary",
+            "They guarantee a native accent"
+          ],
+          "answerIndex": 0,
+          "explanation": "Collocations show how words naturally combine in real communication."
         }
       ],
       "flashcards": [
-        {"front": "I usually start by...", "back": "Normalmente comienzo por..."},
-        {"front": "After that...", "back": "Después de eso..."},
-        {"front": "Listening for gist", "back": "Escuchar para comprender la idea general."}
+        {"front": "From my perspective...", "back": "Introduces a considered personal viewpoint."},
+        {"front": "That being said...", "back": "Signals a contrast or qualification to the previous point."},
+        {"front": "The key takeaway is...", "back": "Introduces the most important conclusion."}
       ],
-      "exercise": "Escribe un resumen de cinco frases en inglés y graba un audio de un minuto describiendo tu rutina con tres expresiones del video.",
+      "exercise": "Graba una presentación de dos minutos sobre tu objetivo como AI Product Engineer. Incluye una postura, dos razones y una conclusión."
+    },
+    {
+      "id": "english-listening-b2",
+      "title": "B2 listening: understanding an argument",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Y681hXWwhQY",
+      "duration": 379,
+      "description": "Practica comprensión de ideas, matices y vocabulario con BBC Learning English.",
+      "notes": "# Listening beyond individual words\n\nB2 listening requires you to follow how ideas relate to each other. Listen for the speaker's main claim, evidence, examples and attitude.\n\n## Three-pass method\n\n1. **First pass — gist:** write the central question and the speakers' overall position.\n2. **Second pass — structure:** note contrast markers, causes, consequences and examples.\n3. **Third pass — language:** collect five collocations and infer meaning before checking a dictionary.\n\nUseful signals include `however`, `whereas`, `as a result`, `to some extent` and `the evidence suggests`.",
+      "quiz": [
+        {
+          "id": "english-listening-b2-1",
+          "question": "What should you focus on during the second listening?",
+          "options": [
+            "How the speaker connects and supports ideas",
+            "Writing a word-for-word translation",
+            "Only the speaker's accent",
+            "Memorising every sentence"
+          ],
+          "answerIndex": 0,
+          "explanation": "Recognising structure helps you follow complex spoken arguments."
+        },
+        {
+          "id": "english-listening-b2-2",
+          "question": "What does `to some extent` usually communicate?",
+          "options": [
+            "Partial agreement or a limited degree",
+            "Complete certainty",
+            "A chronological sequence",
+            "A direct quotation"
+          ],
+          "answerIndex": 0,
+          "explanation": "The phrase qualifies a claim instead of presenting it as absolute."
+        }
+      ],
+      "flashcards": [
+        {"front": "To some extent", "back": "Partly, but not completely."},
+        {"front": "The evidence suggests...", "back": "Introduces a conclusion supported by available information."},
+        {"front": "A common misconception is...", "back": "Introduces an idea that many people believe incorrectly."}
+      ],
+      "exercise": "Write a 120-word summary of the discussion, then record a two-minute response agreeing or disagreeing with its main idea.",
       "resources": [
-        {"title": "British Council: A1 Listening", "url": "https://learnenglish.britishcouncil.org/skills/listening/a1-listening"},
+        {"title": "British Council: B2 Listening", "url": "https://learnenglish.britishcouncil.org/skills/listening/b2-listening"},
         {"title": "Cambridge Dictionary", "url": "https://dictionary.cambridge.org/"}
       ]
     },
     {
-      "id": "english-speaking-practice",
-      "title": "Daily English: conversación guiada",
-      "youtubeUrl": "https://www.youtube.com/watch?v=CimU7TQDLJg",
-      "duration": 1466,
-      "description": "Practica respuestas completas y mejora fluidez mediante repetición y shadowing.",
-      "notes": "# Hablar para comunicar\n\nLa fluidez crece cuando recuperas estructuras completas con frecuencia. Responde primero de forma simple y luego añade razón y ejemplo.\n\n## Fórmula práctica\n\n- Answer: responde directamente.\n- Reason: explica por qué.\n- Example: añade una situación concreta.\n\nUsa shadowing: escucha una oración breve, pausa y repítela intentando conservar ritmo, enlaces y entonación.",
+      "id": "english-speaking-b2",
+      "title": "B2 speaking: Cambridge discussion practice",
+      "youtubeUrl": "https://www.youtube.com/watch?v=EdeZp0n0JHw",
+      "duration": 863,
+      "description": "Analiza una prueba oficial B2 y practica respuestas desarrolladas, comparación y negociación.",
+      "notes": "# Developing and negotiating ideas\n\nAt B2, a short answer is rarely enough. Extend your response with a reason, an example and a consequence. In collaborative tasks, respond to the other person instead of delivering an isolated monologue.\n\n## Interaction tools\n\n- Invite: `What do you think about...?`\n- Build: `That's a good point. I'd also add that...`\n- Qualify: `I agree up to a point, although...`\n- Clarify: `What I mean is...`\n- Reach a decision: `Shall we agree that ... is the strongest option?`\n\nNotice how successful speakers keep the conversation moving even when they need time to formulate an idea.",
       "quiz": [
         {
-          "id": "english-speaking-1",
-          "question": "What is shadowing?",
-          "options": ["Repeating speech while imitating rhythm and pronunciation", "Translating every word", "Reading silently", "Memorizing grammar tables only"],
+          "id": "english-speaking-b2-1",
+          "question": "Which response demonstrates collaborative B2 speaking?",
+          "options": [
+            "That's a valid point. How would that affect the other option?",
+            "Yes.",
+            "I will ignore your point and repeat mine.",
+            "I don't know any words."
+          ],
           "answerIndex": 0,
-          "explanation": "Shadowing trains pronunciation, connected speech and automatic recall."
-        }
-      ],
-      "flashcards": [
-        {"front": "In my experience...", "back": "En mi experiencia..."},
-        {"front": "The main reason is...", "back": "La razón principal es..."},
-        {"front": "For example...", "back": "Por ejemplo..."}
-      ],
-      "exercise": "Responde cinco preguntas del video con la fórmula Answer–Reason–Example y graba dos minutos sin leer.",
-      "resources": [
-        {"title": "British Council: A1 Speaking", "url": "https://learnenglish.britishcouncil.org/skills/speaking/a1-speaking"},
-        {"title": "YouGlish: pronunciación en contexto", "url": "https://youglish.com/"}
-      ]
-    },
-    {
-      "id": "english-developer-standup",
-      "title": "English for developers: daily stand-up",
-      "youtubeUrl": "https://www.youtube.com/watch?v=MsxcpZr1LpM",
-      "duration": 449,
-      "description": "Aprende a explicar avances, plan del día y bloqueos en una reunión técnica.",
-      "notes": "# Tu actualización diaria\n\nUna buena actualización es breve, concreta y orientada al equipo.\n\n## Estructura\n\n- Yesterday: `Yesterday I finished...`\n- Today: `Today I'm going to...`\n- Blockers: `I'm currently blocked by...`\n\nUsa verbos de trabajo precisos: implement, debug, review, deploy, reproduce, investigate y verify. Si no hay bloqueo, di `I don't have any blockers right now`.",
-      "quiz": [
-        {
-          "id": "english-standup-1",
-          "question": "Which update is the most useful?",
-          "options": ["Yesterday I fixed the form validation; today I'll add tests; no blockers.", "I did some things.", "Everything is fine.", "I worked a lot."],
-          "answerIndex": 0,
-          "explanation": "A useful stand-up names completed work, the next action and blockers."
-        }
-      ],
-      "flashcards": [
-        {"front": "I finished implementing...", "back": "Terminé de implementar..."},
-        {"front": "I'm going to investigate...", "back": "Voy a investigar..."},
-        {"front": "I'm blocked by...", "back": "Estoy bloqueado por..."}
-      ],
-      "exercise": "Graba tu stand-up de hoy en 45 segundos. Incluye una tarea terminada, una siguiente acción y el estado de tus bloqueos.",
-      "resources": [
-        {"title": "20 English Words Every Software Developer Should Know", "url": "https://www.youtube.com/watch?v=fooBj0nkdak"},
-        {"title": "British Council: Business English", "url": "https://learnenglish.britishcouncil.org/business-english"}
-      ]
-    },
-    {
-      "id": "english-interview",
-      "title": "English interview: preguntas frecuentes",
-      "youtubeUrl": "https://www.youtube.com/watch?v=-AOQl94ZYn8",
-      "duration": 777,
-      "description": "Prepara respuestas claras para preguntas comunes de una entrevista laboral en inglés.",
-      "notes": "# Respuestas con evidencia\n\nUna respuesta sólida conecta tu experiencia con el puesto y evita generalidades.\n\n## Para preguntas de experiencia\n\nUsa STAR:\n\n- Situation: contexto breve.\n- Task: responsabilidad u objetivo.\n- Action: acciones que tú realizaste.\n- Result: resultado medible y aprendizaje.\n\nPara `Tell me about yourself`, resume presente, experiencia relevante y por qué este siguiente paso tiene sentido.",
-      "quiz": [
-        {
-          "id": "english-interview-1",
-          "question": "What does the A in STAR mean?",
-          "options": ["Action", "Audience", "Agreement", "Application"],
-          "answerIndex": 0,
-          "explanation": "Action describes the specific steps you personally took."
+          "explanation": "B2 interaction involves developing ideas and responding directly to a partner."
         },
         {
-          "id": "english-interview-2",
-          "question": "What should a strong interview answer include?",
-          "options": ["Specific evidence from a relevant example", "Only adjectives", "A memorized ten-minute speech", "Unrelated personal details"],
+          "id": "english-speaking-b2-2",
+          "question": "What does `I agree up to a point` signal?",
+          "options": [
+            "Partial agreement followed by a qualification",
+            "Complete rejection",
+            "A request to end the conversation",
+            "Certainty without evidence"
+          ],
           "answerIndex": 0,
-          "explanation": "Concrete evidence makes your skills credible and memorable."
+          "explanation": "The expression allows you to acknowledge an idea while introducing a limitation."
         }
       ],
       "flashcards": [
-        {"front": "I was responsible for...", "back": "Yo era responsable de..."},
-        {"front": "The result was...", "back": "El resultado fue..."},
-        {"front": "What I learned was...", "back": "Lo que aprendí fue..."}
+        {"front": "I'd also add that...", "back": "Builds on another speaker's contribution."},
+        {"front": "I agree up to a point, although...", "back": "Expresses qualified agreement."},
+        {"front": "Shall we agree that...?", "back": "Moves a collaborative discussion towards a decision."}
       ],
-      "exercise": "Escribe y graba respuestas de 60–90 segundos para `Tell me about yourself` y una historia STAR sobre un problema técnico.",
+      "exercise": "Choose two technologies and compare them for a real product. Speak for three minutes, then answer two imagined objections without using a script.",
+      "resources": [
+        {"title": "British Council: B2 Speaking", "url": "https://learnenglish.britishcouncil.org/skills/speaking/b2-speaking"},
+        {"title": "Cambridge English: B2 First preparation", "url": "https://www.cambridgeenglish.org/exams-and-tests/first/preparation/"}
+      ]
+    },
+    {
+      "id": "english-workplace-b2",
+      "title": "B2 workplace English: making suggestions",
+      "youtubeUrl": "https://www.youtube.com/watch?v=lfEBjdzp4jw",
+      "duration": 648,
+      "description": "Practica propuestas, desacuerdos diplomáticos y decisiones en reuniones profesionales.",
+      "notes": "# Clear and diplomatic workplace English\n\nProfessional communication needs both clarity and tact. Strong B2 speakers can make a proposal, explain its trade-offs and disagree without making the conversation defensive.\n\n## Useful patterns\n\n- Proposal: `One option would be to...`\n- Rationale: `The main advantage is that...`\n- Concern: `My main concern would be...`\n- Alternative: `Could we consider ... instead?`\n- Alignment: `If I understand correctly, we've agreed to...`\n\nIn technical meetings, separate facts, assumptions and recommendations. This makes your contribution easier to evaluate.",
+      "quiz": [
+        {
+          "id": "english-workplace-b2-1",
+          "question": "Which phrase introduces a diplomatic alternative?",
+          "options": [
+            "Could we consider a smaller release instead?",
+            "Your idea is wrong.",
+            "Do exactly what I said.",
+            "There is no other option."
+          ],
+          "answerIndex": 0,
+          "explanation": "The modal question presents an alternative clearly without sounding confrontational."
+        },
+        {
+          "id": "english-workplace-b2-2",
+          "question": "Why should a technical recommendation mention trade-offs?",
+          "options": [
+            "It helps the team evaluate the decision realistically",
+            "It makes the recommendation impossible to understand",
+            "It removes the need for evidence",
+            "It guarantees unanimous agreement"
+          ],
+          "answerIndex": 0,
+          "explanation": "Trade-offs show the benefits, costs and limitations of a proposed option."
+        }
+      ],
+      "flashcards": [
+        {"front": "One option would be to...", "back": "Introduces a proposal without presenting it as the only answer."},
+        {"front": "My main concern would be...", "back": "Raises a risk diplomatically."},
+        {"front": "If I understand correctly...", "back": "Checks shared understanding before moving forward."}
+      ],
+      "exercise": "Record a three-minute product meeting update: propose a feature, explain one benefit and one risk, respond to an objection and confirm the next action.",
+      "resources": [
+        {"title": "British Council: Business English", "url": "https://learnenglish.britishcouncil.org/business-english"},
+        {"title": "English for Developers: Real Daily Stand-up", "url": "https://www.youtube.com/watch?v=MsxcpZr1LpM"}
+      ]
+    },
+    {
+      "id": "english-interview-b2",
+      "title": "B2–C1 interview English: precise, natural answers",
+      "youtubeUrl": "https://www.youtube.com/watch?v=-JNjsOX0N0c",
+      "duration": 2113,
+      "description": "Mejora el contenido, claridad y naturalidad de tus respuestas para entrevistas profesionales.",
+      "notes": "# Evidence, reflection and relevance\n\nA B2–C1 interview answer should be easy to follow and specific enough to be credible. Avoid memorised paragraphs that do not respond to the exact question.\n\n## Structure with flexibility\n\nUse STAR for experience questions, but connect each section naturally:\n\n- **Situation:** only the context needed to understand the challenge.\n- **Task:** your responsibility and the constraint.\n- **Action:** the decisions and steps you personally took.\n- **Result:** measurable impact, reflection and what you would improve.\n\nUse signposting such as `The main challenge was...`, `What I decided to do was...` and `The outcome was...`. Finish by linking the example to the role.",
+      "quiz": [
+        {
+          "id": "english-interview-b2-1",
+          "question": "What makes a STAR answer convincing?",
+          "options": [
+            "Specific actions, evidence and a relevant result",
+            "A long memorised introduction",
+            "Using complex words without context",
+            "Avoiding your personal contribution"
+          ],
+          "answerIndex": 0,
+          "explanation": "Specific evidence demonstrates how you think and what impact your work produced."
+        },
+        {
+          "id": "english-interview-b2-2",
+          "question": "Which phrase clearly introduces reflection?",
+          "options": [
+            "Looking back, I would improve...",
+            "The meeting started at nine.",
+            "I have no weaknesses.",
+            "This is completely unrelated."
+          ],
+          "answerIndex": 0,
+          "explanation": "Reflection shows self-awareness and the ability to learn from experience."
+        }
+      ],
+      "flashcards": [
+        {"front": "The main challenge was...", "back": "Introduces the central difficulty clearly."},
+        {"front": "What I decided to do was...", "back": "Highlights your personal decision and action."},
+        {"front": "Looking back, I would...", "back": "Introduces thoughtful reflection and improvement."}
+      ],
+      "exercise": "Record `Tell me about yourself` and two STAR answers about product engineering. Keep each answer under two minutes and revise vague language after listening back.",
       "resources": [
         {"title": "British Council: You're Hired", "url": "https://learnenglish.britishcouncil.org/business-english/youre-hired"},
-        {"title": "British Council: B1 Writing", "url": "https://learnenglish.britishcouncil.org/skills/writing/b1-writing"}
+        {"title": "British Council: B2 Writing", "url": "https://learnenglish.britishcouncil.org/skills/writing/b2-writing"}
       ]
     }
   ]
