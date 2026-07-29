@@ -9,6 +9,7 @@ import {
   BookOpen,
   BrainCircuit,
   Check,
+  ChevronDown,
   Clock3,
   ExternalLink,
   Flame,
@@ -91,6 +92,9 @@ const availableTimeOptions = [60, 90, 120, 180] as const;
 
 export function TodaysMission({ mission }: { mission: TodayMissionView }) {
   const [showAddTask, setShowAddTask] = useState(false);
+  const [expandedResourceTaskId, setExpandedResourceTaskId] = useState<
+    number | null
+  >(null);
   const [availableMinutes, setAvailableMinutes] = useState(
     mission.availableMinutes,
   );
@@ -329,7 +333,17 @@ export function TodaysMission({ mission }: { mission: TodayMissionView }) {
         <div className="divide-y divide-white/[0.055]">
           {mission.tasks.map((task, index) => {
             const presentation = taskPresentation[task.category];
-            const Icon = presentation.icon;
+            const isVideo = task.resource?.type === "YOUTUBE";
+            const TaskIcon = task.resource
+              ? isVideo
+                ? Video
+                : BookOpen
+              : presentation.icon;
+            const taskLabel = task.resource
+              ? isVideo
+                ? "Watch"
+                : "Read"
+              : presentation.label;
 
             return (
               <div
@@ -376,8 +390,8 @@ export function TodaysMission({ mission }: { mission: TodayMissionView }) {
                         presentation.color,
                       )}
                     >
-                      <Icon className="size-3" aria-hidden="true" />
-                      {presentation.label}
+                      <TaskIcon className="size-3" aria-hidden="true" />
+                      Step {index + 1} · {taskLabel}
                     </span>
                     {task.isPersonal ? (
                       <Badge variant="secondary">Personal</Badge>
@@ -399,17 +413,15 @@ export function TodaysMission({ mission }: { mission: TodayMissionView }) {
                     {task.description}
                   </p>
                   {task.resource ? (
-                    <a
-                      href={task.resource.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-[#9ee6ca] outline-none transition-colors hover:text-[#c9f8e6] focus-visible:rounded focus-visible:ring-2 focus-visible:ring-[#9cf0d0]/50"
-                    >
-                      {task.resource.type === "YOUTUBE"
-                        ? "Watch video"
-                        : "Open resource"}
-                      <ExternalLink className="size-3" aria-hidden="true" />
-                    </a>
+                    <MissionResource
+                      resource={task.resource}
+                      expanded={expandedResourceTaskId === task.id}
+                      onToggle={() =>
+                        setExpandedResourceTaskId((current) =>
+                          current === task.id ? null : task.id,
+                        )
+                      }
+                    />
                   ) : null}
                 </div>
 
@@ -525,6 +537,101 @@ export function TodaysMission({ mission }: { mission: TodayMissionView }) {
         </p>
       ) : null}
     </Card>
+  );
+}
+
+type MissionResourceData = NonNullable<
+  TodayMissionView["tasks"][number]["resource"]
+>;
+
+function MissionResource({
+  resource,
+  expanded,
+  onToggle,
+}: {
+  resource: MissionResourceData;
+  expanded: boolean;
+  onToggle: () => void;
+}) {
+  const isVideo = resource.type === "YOUTUBE";
+
+  return (
+    <div className="mt-3 max-w-2xl">
+      <div className="flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-expanded={expanded}
+          className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-[#9cf0d0]/12 bg-[#9cf0d0]/[0.06] px-2.5 text-[11px] font-medium text-[#aceed5] outline-none transition-colors hover:bg-[#9cf0d0]/10 focus-visible:ring-2 focus-visible:ring-[#9cf0d0]/50"
+        >
+          {isVideo ? "Watch here" : "View reading brief"}
+          <ChevronDown
+            className={cn(
+              "size-3.5 transition-transform",
+              expanded && "rotate-180",
+            )}
+            aria-hidden="true"
+          />
+        </button>
+        <a
+          href={resource.url}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-8 items-center gap-1.5 rounded-lg px-2.5 text-[11px] font-medium text-[#7f8793] outline-none transition-colors hover:bg-white/[0.04] hover:text-[#d4d7db] focus-visible:ring-2 focus-visible:ring-[#9cf0d0]/50"
+        >
+          {isVideo ? "YouTube" : "Original source"}
+          <ExternalLink className="size-3" aria-hidden="true" />
+        </a>
+        {resource.notebookUrl ? (
+          <a
+            href={resource.notebookUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-8 items-center gap-1.5 rounded-lg px-2.5 text-[11px] font-medium text-[#aeb8f6] outline-none transition-colors hover:bg-[#a8b6ff]/[0.06] hover:text-[#d2d8ff] focus-visible:ring-2 focus-visible:ring-[#a8b6ff]/50"
+          >
+            NotebookLM
+            <NotebookText className="size-3" aria-hidden="true" />
+          </a>
+        ) : null}
+      </div>
+
+      {expanded ? (
+        <div className="mt-3 overflow-hidden rounded-xl border border-white/[0.07] bg-[#080a0e]">
+          {isVideo && resource.youtubeVideoId ? (
+            <div className="aspect-video bg-black">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${resource.youtubeVideoId}`}
+                title={resource.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="size-full border-0"
+              />
+            </div>
+          ) : (
+            <div className="p-4">
+              <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#7c85ba]">
+                <BookOpen className="size-3.5" aria-hidden="true" />
+                Reading brief
+              </div>
+              <p className="mt-2 text-xs leading-5 text-[#9097a3]">
+                {resource.summary ||
+                  "Open the original source, then return here to complete the task and save your progress."}
+              </p>
+              <a
+                href={resource.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-[#b9f4dc] outline-none hover:text-[#d3faeb] focus-visible:rounded focus-visible:ring-2 focus-visible:ring-[#9cf0d0]/50"
+              >
+                Start reading
+                <ExternalLink className="size-3" aria-hidden="true" />
+              </a>
+            </div>
+          )}
+        </div>
+      ) : null}
+    </div>
   );
 }
 

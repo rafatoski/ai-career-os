@@ -49,6 +49,10 @@ export async function createResourceAction(input: unknown) {
       url: parsed.data.url,
       type: parsed.data.type,
       topicId,
+      estimatedMinutes: parsed.data.estimatedMinutes,
+      summary: parsed.data.summary,
+      notebookUrl: parsed.data.notebookUrl,
+      sourceProvider: parsed.data.notebookUrl ? "NOTEBOOKLM" : "MANUAL",
     },
   });
 

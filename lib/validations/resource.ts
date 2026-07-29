@@ -19,6 +19,33 @@ export const resourceFormSchema = z.object({
     ),
   type: z.enum(resourceTypes),
   topicId: z.string().regex(/^\d+$/, "Choose a topic."),
+  estimatedMinutes: z
+    .number()
+    .int()
+    .min(5, "Use at least 5 minutes.")
+    .max(180, "Keep a resource under 3 hours."),
+  summary: z
+    .string()
+    .trim()
+    .max(1200, "Keep the study summary under 1,200 characters."),
+  notebookUrl: z
+    .string()
+    .trim()
+    .max(500)
+    .refine((value) => {
+      if (!value) return true;
+
+      try {
+        const url = new URL(value);
+        return (
+          (url.protocol === "https:" || url.protocol === "http:") &&
+          (url.hostname === "notebooklm.google.com" ||
+            url.hostname.endsWith(".notebooklm.google.com"))
+        );
+      } catch {
+        return false;
+      }
+    }, "Enter a valid NotebookLM URL or leave it empty."),
 });
 
 export const resourceCompletionSchema = z.object({

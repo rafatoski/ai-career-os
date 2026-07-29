@@ -6,10 +6,12 @@ import {
   BookOpen,
   Check,
   CheckCircle2,
+  Clock3,
   ExternalLink,
   FileText,
   GraduationCap,
   Library,
+  NotebookText,
   Plus,
   Video,
   X,
@@ -368,20 +370,48 @@ function ResourceDetails({
         {resource.topic ? (
           <Badge variant="secondary">{resource.topic.title}</Badge>
         ) : null}
+        <Badge variant="secondary">
+          <Clock3 className="mr-1 size-3" aria-hidden="true" />
+          {resource.estimatedMinutes} min
+        </Badge>
+        {resource.sourceProvider === "NOTEBOOKLM" ? (
+          <Badge variant="secondary">
+            <NotebookText className="mr-1 size-3" aria-hidden="true" />
+            NotebookLM
+          </Badge>
+        ) : null}
       </div>
       <h2 className="mt-3 text-[15px] font-semibold leading-6 tracking-[-0.02em] text-[#eceef0]">
         {resource.title}
       </h2>
+      {resource.summary ? (
+        <p className="mt-2 text-xs leading-5 text-[#747b87]">
+          {resource.summary}
+        </p>
+      ) : null}
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-        <a
-          href={resource.url}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex h-9 items-center gap-2 rounded-lg border border-white/[0.09] bg-white/[0.035] px-3 text-xs font-medium text-[#dfe1e5] outline-none transition-colors hover:border-white/[0.16] hover:bg-white/[0.06] focus-visible:ring-2 focus-visible:ring-[#9cf0d0]/50"
-        >
-          {actionLabel}
-          <ExternalLink className="size-3.5" aria-hidden="true" />
-        </a>
+        <div className="flex flex-wrap gap-2">
+          <a
+            href={resource.url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-9 items-center gap-2 rounded-lg border border-white/[0.09] bg-white/[0.035] px-3 text-xs font-medium text-[#dfe1e5] outline-none transition-colors hover:border-white/[0.16] hover:bg-white/[0.06] focus-visible:ring-2 focus-visible:ring-[#9cf0d0]/50"
+          >
+            {actionLabel}
+            <ExternalLink className="size-3.5" aria-hidden="true" />
+          </a>
+          {resource.notebookUrl ? (
+            <a
+              href={resource.notebookUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#a8b6ff]/15 bg-[#a8b6ff]/[0.06] px-3 text-xs font-medium text-[#bec7ff] outline-none transition-colors hover:bg-[#a8b6ff]/10 focus-visible:ring-2 focus-visible:ring-[#a8b6ff]/50"
+            >
+              Open notebook
+              <NotebookText className="size-3.5" aria-hidden="true" />
+            </a>
+          ) : null}
+        </div>
         <button
           type="button"
           disabled={pending}
@@ -427,6 +457,9 @@ function AddResourceForm({
       url: "",
       type: "YOUTUBE",
       topicId: topics[0] ? String(topics[0].id) : "",
+      estimatedMinutes: 15,
+      summary: "",
+      notebookUrl: "",
     },
   });
 
@@ -452,8 +485,8 @@ function AddResourceForm({
       <div className="mb-4">
         <p className="text-sm font-medium text-[#e6e8ea]">Add a resource</p>
         <p className="mt-1 text-xs text-[#686f7b]">
-          YouTube links are embedded automatically. Articles and courses open
-          in a new tab.
+          Save the original source URL. YouTube plays here; a NotebookLM link
+          keeps its transcript, summary, and study guide one click away.
         </p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -490,6 +523,42 @@ function AddResourceForm({
             ))}
           </select>
         </ResourceField>
+        <ResourceField
+          label="Estimated minutes"
+          error={errors.estimatedMinutes?.message}
+        >
+          <input
+            {...register("estimatedMinutes", { valueAsNumber: true })}
+            type="number"
+            min={5}
+            max={180}
+            step={5}
+            className="mission-input"
+          />
+        </ResourceField>
+        <ResourceField
+          label="NotebookLM URL (optional)"
+          error={errors.notebookUrl?.message}
+        >
+          <input
+            {...register("notebookUrl")}
+            type="url"
+            className="mission-input"
+            placeholder="https://notebooklm.google.com/notebook/..."
+          />
+        </ResourceField>
+        <ResourceField
+          label="Study summary (optional)"
+          error={errors.summary?.message}
+          className="sm:col-span-2"
+        >
+          <textarea
+            {...register("summary")}
+            rows={3}
+            className="mission-input h-auto resize-y py-2.5"
+            placeholder="Paste the key takeaway or study guide you created in NotebookLM."
+          />
+        </ResourceField>
       </div>
       <div className="mt-4 flex justify-end">
         <Button type="submit" size="sm" disabled={pending || !topics.length}>
@@ -504,14 +573,16 @@ function AddResourceForm({
 function ResourceField({
   label,
   error,
+  className,
   children,
 }: {
   label: string;
   error?: string;
+  className?: string;
   children: React.ReactNode;
 }) {
   return (
-    <label className="block">
+    <label className={cn("block", className)}>
       <span className="mb-1.5 block text-[11px] font-medium text-[#8c929d]">
         {label}
       </span>

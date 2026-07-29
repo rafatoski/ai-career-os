@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { BookOpen, CheckCircle2, GraduationCap, Video } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  GraduationCap,
+  NotebookText,
+  Video,
+} from "lucide-react";
 
 import { ResourceLibrary } from "@/components/resource-library";
 import { Card } from "@/components/ui/card";
@@ -82,6 +89,41 @@ export default async function ResourcesPage() {
           />
         </Card>
       </section>
+
+      <Card className="mb-4 overflow-hidden border-[#a8b6ff]/10 bg-[radial-gradient(circle_at_8%_0%,rgba(168,182,255,0.1),transparent_36%),#101319] p-5 sm:p-6">
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex max-w-2xl items-start gap-3">
+            <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-[#a8b6ff]/15 bg-[#a8b6ff]/10 text-[#bec7ff]">
+              <NotebookText className="size-[17px]" aria-hidden="true" />
+            </span>
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-sm font-semibold text-[#eceef0]">
+                  NotebookLM bridge
+                </p>
+                <span className="rounded-full border border-white/[0.07] bg-white/[0.035] px-2 py-0.5 text-[10px] font-medium text-[#858c98]">
+                  Personal notebooks
+                </span>
+              </div>
+              <p className="mt-2 text-xs leading-5 text-[#747b87]">
+                Research and summarize in NotebookLM. Save the original video
+                or reading URL here, add the notebook link and key takeaway,
+                and Today&apos;s Mission will place it in your watch → read →
+                practice route.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://notebooklm.google.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-lg border border-[#a8b6ff]/15 bg-[#a8b6ff]/[0.07] px-3 text-xs font-medium text-[#c7ceff] outline-none transition-colors hover:bg-[#a8b6ff]/10 focus-visible:ring-2 focus-visible:ring-[#a8b6ff]/50"
+          >
+            Open NotebookLM
+            <ArrowRight className="size-3.5" aria-hidden="true" />
+          </a>
+        </div>
+      </Card>
 
       <ResourceLibrary data={data} />
     </div>

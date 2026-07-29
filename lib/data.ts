@@ -254,6 +254,10 @@ export async function getResourceLibraryData() {
       title: resource.title,
       url: resource.url,
       type: resource.type,
+      summary: resource.summary,
+      estimatedMinutes: resource.estimatedMinutes,
+      sourceProvider: resource.sourceProvider,
+      notebookUrl: resource.notebookUrl,
       completed: resource.completed,
       topic: resource.topic,
       youtubeVideoId:

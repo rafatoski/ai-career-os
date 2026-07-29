@@ -14,6 +14,11 @@ enum ResourceType {
   COURSE
 }
 
+enum ResourceSource {
+  MANUAL
+  NOTEBOOKLM
+}
+
 enum ProjectStatus {
   PLANNED
   IN_PROGRESS
@@ -69,19 +74,24 @@ model Lesson {
 }
 
 model Resource {
-  id           Int           @id @default(autoincrement())
-  topicId      Int?
-  title        String
-  url          String
-  type         ResourceType
-  completed    Boolean       @default(false)
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  topic        Topic?        @relation(fields: [topicId], references: [id], onDelete: SetNull)
-  missionTasks MissionTask[]
+  id               Int            @id @default(autoincrement())
+  topicId          Int?
+  title            String
+  url              String
+  type             ResourceType
+  summary          String         @default("")
+  estimatedMinutes Int            @default(15)
+  sourceProvider   ResourceSource @default(MANUAL)
+  notebookUrl      String         @default("")
+  completed        Boolean        @default(false)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  topic            Topic?         @relation(fields: [topicId], references: [id], onDelete: SetNull)
+  missionTasks     MissionTask[]
 
   @@index([topicId])
   @@index([completed])
+  @@index([sourceProvider])
 }
 
 model StudySession {

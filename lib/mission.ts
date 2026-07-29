@@ -4,6 +4,7 @@ import { MissionTaskType } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import { clampPercentage } from "@/lib/utils";
 import type { PersonalTaskInput } from "@/lib/validations/mission";
+import { getYouTubeVideoId } from "@/lib/youtube";
 
 const DEFAULT_AVAILABLE_MINUTES = 90;
 const DAILY_MISSION_BONUS_XP = 100;
@@ -77,17 +78,12 @@ function calculateStreak(sessionDates: Date[]) {
   return streak;
 }
 
-function lessonBlockDuration(availableMinutes: number, lessonCount: number) {
-  const reservedMinutes = 40;
-  const lessonBudget = Math.max(20, availableMinutes - reservedMinutes);
-  return Math.max(
-    20,
-    Math.min(30, Math.floor(lessonBudget / lessonCount / 5) * 5),
-  );
+function resourceDuration(minutes: number) {
+  return Math.max(10, Math.min(25, minutes));
 }
 
 async function buildGeneratedTasks(availableMinutes: number) {
-  const [topics, practicedEnglishToday] = await Promise.all([
+  const [topics, practicedEnglishToday, studySessions] = await Promise.all([
     prisma.topic.findMany({
       include: {
         lessons: { orderBy: { sortOrder: "asc" } },
@@ -109,6 +105,10 @@ async function buildGeneratedTasks(availableMinutes: number) {
           lt: endOfToday(),
         },
       },
+    }),
+    prisma.studySession.findMany({
+      select: { date: true },
+      orderBy: { date: "desc" },
     }),
   ]);
 
@@ -132,20 +132,24 @@ async function buildGeneratedTasks(availableMinutes: number) {
       topic.slug !== "english" &&
       topic.lessons.some((lesson) => !lesson.completed),
   );
-  const lessonCount = availableMinutes >= 75 ? 2 : 1;
-  const lessonMinutes = lessonBlockDuration(availableMinutes, lessonCount);
-  const generated: GeneratedTask[] = [];
+  const focusTopic = learningTopics[0];
+  const focusLesson = focusTopic?.lessons.find((lesson) => !lesson.completed);
+  const currentStreak = calculateStreak(
+    studySessions.map((session) => session.date),
+  );
+  const lessonMinutes = currentStreak === 0 ? 20 : 25;
+  const priorityCandidates: GeneratedTask[] = [];
 
-  for (const topic of learningTopics.slice(0, lessonCount)) {
-    const lesson = topic.lessons.find((item) => !item.completed);
-    if (!lesson) continue;
-
-    generated.push({
-      title: `${topic.progress > 0 ? "Continue" : "Start"} ${topic.title} — ${lesson.title}`,
-      description: lesson.description,
+  if (focusTopic && focusLesson) {
+    priorityCandidates.push({
+      title: `${focusTopic.progress > 0 ? "Continue" : "Start"} ${focusTopic.title} — ${focusLesson.title}`,
+      description: lessonDescription(
+        focusLesson.description,
+        currentStreak,
+      ),
       estimatedMinutes: lessonMinutes,
       category: MissionTaskType.LESSON,
-      lessonId: lesson.id,
+      lessonId: focusLesson.id,
     });
   }
 
@@ -156,7 +160,7 @@ async function buildGeneratedTasks(availableMinutes: number) {
 
   if (englishTopic && englishLesson) {
     const isInterview = englishLesson.title.toLowerCase().includes("interview");
-    generated.push({
+    priorityCandidates.push({
       title: `English — ${englishLesson.title}`,
       description: englishLesson.description,
       estimatedMinutes: 15,
@@ -172,14 +176,58 @@ async function buildGeneratedTasks(availableMinutes: number) {
   const project = projectTopic?.projects[0];
 
   if (project && projectTopic) {
-    generated.push({
+    priorityCandidates.push({
       title: `Build today’s slice of ${project.title}`,
       description: `${project.description} Keep the scope to one visible, testable improvement.`,
       estimatedMinutes: 20,
       category: MissionTaskType.MINI_PROJECT,
       projectId: project.id,
     });
-    generated.push({
+  } else if (focusTopic && focusLesson) {
+    priorityCandidates.push({
+      title: `Practice — apply ${focusLesson.title}`,
+      description: `Create one small, visible example that applies today’s ${focusTopic.title} lesson. Keep the result easy to review.`,
+      estimatedMinutes: 20,
+      category: MissionTaskType.MINI_PROJECT,
+    });
+  }
+
+  const rankedResources = rankedTopics.flatMap((topic) =>
+    topic.resources.map((resource) => ({ resource, topic })),
+  );
+  const video = rankedResources.find(
+    ({ resource }) => resource.type === "YOUTUBE",
+  );
+  const reading = rankedResources.find(
+    ({ resource }) => resource.type !== "YOUTUBE",
+  );
+
+  if (video) {
+    priorityCandidates.push({
+      title: `Watch — ${video.resource.title}`,
+      description:
+        video.resource.summary ||
+        `Watch this resource to reinforce ${video.topic.title}, then capture one useful takeaway.`,
+      estimatedMinutes: resourceDuration(video.resource.estimatedMinutes),
+      category: MissionTaskType.WATCH_RESOURCE,
+      resourceId: video.resource.id,
+    });
+  }
+
+  if (reading) {
+    priorityCandidates.push({
+      title: `Read — ${reading.resource.title}`,
+      description:
+        reading.resource.summary ||
+        `Read this source to reinforce ${reading.topic.title}, then capture one useful takeaway.`,
+      estimatedMinutes: resourceDuration(reading.resource.estimatedMinutes),
+      category: MissionTaskType.WATCH_RESOURCE,
+      resourceId: reading.resource.id,
+    });
+  }
+
+  if (project && projectTopic) {
+    priorityCandidates.push({
       title: `Push one focused commit for ${project.title}`,
       description:
         "Capture today’s progress in a small commit with a clear message.",
@@ -189,34 +237,58 @@ async function buildGeneratedTasks(availableMinutes: number) {
     });
   }
 
-  const resourceTopic = rankedTopics.find((topic) => topic.resources.length > 0);
-  const resource = resourceTopic?.resources[0];
-
-  if (resource && resourceTopic) {
-    generated.push({
-      title: `Study ${resource.title}`,
-      description: `Use this ${resource.type.toLowerCase()} to reinforce ${resourceTopic.title}. Capture one useful note.`,
-      estimatedMinutes: 15,
-      category: MissionTaskType.WATCH_RESOURCE,
-      resourceId: resource.id,
+  const secondTopic = learningTopics[1];
+  const secondLesson = secondTopic?.lessons.find(
+    (lesson) => !lesson.completed,
+  );
+  if (secondTopic && secondLesson) {
+    priorityCandidates.push({
+      title: `Continue ${secondTopic.title} — ${secondLesson.title}`,
+      description: secondLesson.description,
+      estimatedMinutes: 25,
+      category: MissionTaskType.LESSON,
+      lessonId: secondLesson.id,
     });
   }
 
   const selected: GeneratedTask[] = [];
   let usedMinutes = 0;
 
-  for (const task of generated) {
+  for (const task of priorityCandidates) {
     if (usedMinutes + task.estimatedMinutes > availableMinutes) continue;
     selected.push(task);
     usedMinutes += task.estimatedMinutes;
   }
 
-  return selected.map((task, index) => ({
+  const routeOrder: Record<MissionTaskType, number> = {
+    LESSON: 0,
+    WATCH_RESOURCE: 1,
+    QUIZ: 2,
+    MINI_PROJECT: 3,
+    REVIEW_NOTES: 4,
+    GITHUB_COMMIT: 5,
+    ENGLISH_PRACTICE: 6,
+    INTERVIEW_PRACTICE: 6,
+  };
+
+  return selected
+    .sort(
+      (left, right) => routeOrder[left.category] - routeOrder[right.category],
+    )
+    .map((task, index) => ({
     ...task,
     order: index,
     xp: xpForDuration(task.estimatedMinutes),
     completed: task.completed ?? false,
-  }));
+    }));
+}
+
+function lessonDescription(description: string, streak: number) {
+  if (streak === 0) {
+    return `${description} Today’s block is intentionally short so restarting feels easy.`;
+  }
+
+  return `${description} This keeps your ${streak}-day study streak moving.`;
 }
 
 async function ensureTodayMission() {
@@ -273,8 +345,14 @@ export async function getTodayMission() {
             },
             resource: {
               select: {
+                id: true,
+                title: true,
                 url: true,
                 type: true,
+                summary: true,
+                estimatedMinutes: true,
+                sourceProvider: true,
+                notebookUrl: true,
               },
             },
           },
@@ -330,7 +408,15 @@ export async function getTodayMission() {
       order: task.order,
       xp: task.xp,
       isPersonal: task.isPersonal,
-      resource: task.resource,
+      resource: task.resource
+        ? {
+            ...task.resource,
+            youtubeVideoId:
+              task.resource.type === "YOUTUBE"
+                ? getYouTubeVideoId(task.resource.url)
+                : null,
+          }
+        : null,
     })),
     summary: {
       estimatedMinutes: actionableTasks.reduce(

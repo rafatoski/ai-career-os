@@ -85,6 +85,40 @@ privacy-enhanced player. Articles, documentation, and courses open at their
 original source. Resource completion is stored in Prisma and also updates
 mission planning.
 
+## Daily learning route
+
+Today's Mission builds an ordered route from real database records:
+
+1. the next unfinished lesson in the strongest priority/weak-topic signal;
+2. one unfinished YouTube resource;
+3. one unfinished reading or course;
+4. one practical exercise or active project slice;
+5. daily English practice.
+
+The planner reserves lesson, practice, and English time first, then fills the
+remaining budget with resources and additional work. At the default 90-minute
+budget, a typical route contains watch, read, and practice steps. YouTube
+resources use the privacy-enhanced embedded player directly in the Dashboard.
+
+## NotebookLM bridge
+
+NotebookLM personal notebooks do not expose a supported API for third-party
+sync. AI Career OS therefore stores the durable, useful parts of the workflow:
+
+- the original video, article, documentation, or course URL;
+- an optional NotebookLM notebook URL;
+- an optional study summary or key takeaway;
+- estimated study time and completion state.
+
+Use NotebookLM to question sources and create grounded study material. Use AI
+Career OS to schedule, open, and complete those sources. A YouTube URL plays
+inside AI Career OS while NotebookLM uses its transcript for research.
+
+The official programmatic API is currently available only for licensed Gemini
+Notebook Enterprise projects and is still in preview. If the app later moves to
+that product, the existing resource fields form a clean boundary for an
+automatic importer without changing the daily planning model.
+
 The seed is intentionally progress-free: it creates the roadmap and curated
 resources, but it does not invent study sessions, projects, English practice,
 or completion history.
@@ -94,6 +128,10 @@ or completion history.
 The app currently remains fully usable with local SQLite. Moving the source of
 truth to Supabase requires the project's Postgres connection string and a
 decision about any tables already present in that project.
+
+The repository includes `.mcp.json` scoped to Supabase project
+`sjkkddvehouraluwhkdb`. Complete the MCP OAuth flow and reload the coding
+session before applying or inspecting remote schema changes.
 
 Save the connection string locally—not in chat or source control—as
 `SUPABASE_DATABASE_URL` in `.env.local`. Before migration, confirm whether the
